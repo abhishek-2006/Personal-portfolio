@@ -93,7 +93,7 @@ export default function ProjectsPage() {
                   </div>
                 )}
 
-                {/* --- Link Section (NEW ROW LAYOUT) --- */}
+                {/* Link Section */}
                 <div className="flex flex-col space-y-2 pt-2 border-t border-gray-800/50">
                     
                     {/* 1. Live Link (If available) */}
@@ -101,7 +101,7 @@ export default function ProjectsPage() {
                       <Link
                         href={project.liveUrl}
                         target="_blank"
-                        className="text-cyan-400 font-medium hover:text-cyan-300 transition w-full text-left"
+                        className="text-green-400 font-medium hover:text-green-300 transition w-full text-left"
                       >
                         Live Demo →
                       </Link>
