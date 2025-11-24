@@ -12,7 +12,7 @@ const projects = [
     title: "Hotel Management System",
     desc: "A fully functional booking and management system with PHP and MySQL.",
     tech: ["PHP", "MySQL", "HTML/CSS"],
-    githubUrl: "https://github.com/abhishek-2006/",
+    githubUrl: "https://github.com/abhishek-2006/Hotel-Management-System.git",
     liveUrl: null,
   },
   {
