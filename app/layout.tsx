@@ -29,7 +29,7 @@ export default function RootLayout({
     <html lang="en" className="dark">
       <body className="bg-[#1a1a1a] text-white">
         <Navbar/>
-        <div className="pt-[90px]">{children}</div>
+        <div className="pt-[0px]">{children}</div>
         <Analytics/>
       </body>
     </html>
