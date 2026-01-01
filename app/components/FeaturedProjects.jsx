@@ -34,7 +34,7 @@ const projects = [
     desc: "The very site you are viewing. A high-performance showcase utilizing modern architectural patterns, smooth framer-motion interactions, and optimized delivery.",
     tech: ["Next.js", "React", "Framer Motion"],
     githubUrl: "https://github.com/abhishek-2006/my-portfolio.git",
-    liveUrl: "https://my-portfolio-jade-seven-42.vercel.app/",
+    liveUrl: "https://abhishekshah-portfolio.vercel.app/",
     category: "Frontend"
   },
 ];
@@ -136,7 +136,7 @@ export default function FeaturedProjects() {
           </motion.div>
           
           <h2 className="text-5xl md:text-7xl font-black bg-gradient-to-r from-white via-slate-200 to-slate-500 bg-clip-text text-transparent leading-none mb-6">
-            Featured Code
+            Featured Projects
           </h2>
           <p className="text-slate-400 text-lg max-w-2xl font-medium">
             A selection of projects where <span className="text-white">logic meets design</span>. From complex backend systems to high-performance frontend interfaces.
