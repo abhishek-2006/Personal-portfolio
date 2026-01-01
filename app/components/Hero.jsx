@@ -12,6 +12,7 @@ import {
   Smartphone,
 } from "lucide-react";
 
+import Image from "next/image";
 import { FaXTwitter as Twitter } from "react-icons/fa6";
 import Snowfall from "react-snowfall";
 
@@ -91,7 +92,7 @@ export default function App() {
 
             <div className="relative z-10 p-1.5 md:p-2 rounded-[2.5rem] bg-white/5 border border-white/10 backdrop-blur-sm">
               <div className="relative rounded-[2.3rem] overflow-hidden border-2 md:border-4 border-slate-900 bg-slate-800 w-56 h-56 sm:w-64 sm:h-64 md:w-80 md:h-80">
-                <img
+                <Image
                   src="/profile.jpg"
                   alt="Abhishek Shah"
                   className="w-full h-full object-cover"
