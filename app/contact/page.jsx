@@ -14,10 +14,6 @@ import {
   AlertCircle
 } from "lucide-react";
 
-/**
- * Premium Contact Page
- * Integrated with Nodemailer API and enhanced feedback UI.
- */
 export default function App() {
   const [formState, setFormState] = useState("idle"); // idle | sending | success | error
 
