@@ -2,6 +2,7 @@
 
 import { useState, useEffect } from "react";
 import { motion } from "framer-motion";
+import Image from "next/image";
 import { Zap, Clock, GraduationCap, School, BookOpen, Award, ChevronRight } from 'lucide-react';
 
 const COLORS = {
@@ -147,9 +148,11 @@ export default function App() {
           >
             <div className="w-40 h-40 md:w-52 md:h-52 rounded-full p-[4px] bg-gradient-to-r from-cyan-400 to-blue-500 shadow-2xl shadow-cyan-500/20">
               <div className="w-full h-full rounded-full overflow-hidden bg-slate-800 border-4 border-slate-900">
-                <img
+                <Image
                   src="/profile.jpg"
                   alt="Profile"
+                  width={208}
+                  height={208}
                   className="w-full h-full object-cover grayscale hover:grayscale-0 transition-all duration-700"
                 />
               </div>
