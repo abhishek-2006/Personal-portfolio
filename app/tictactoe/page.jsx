@@ -3,7 +3,6 @@
 import { useEffect, useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import Image from 'next/image';
-
 import { 
   Download, 
   ChevronLeft, 
@@ -17,7 +16,7 @@ import {
   Activity,
   Cpu,
   Layers,
-  Settings
+  Settings,
 } from 'lucide-react';
 
 export default function TicTacToePage() {
@@ -26,7 +25,7 @@ export default function TicTacToePage() {
   // --- CONFIGURATION ---
   const game = {
     title: "TicTacToe",
-    version: "v1.2.5-stable",
+    version: "v1.3.0-stable",
     size: "45 MB",
     logo: "/tictactoe-logo.png",
     apkPath: "/downloads/tictactoe.apk",
@@ -60,7 +59,7 @@ export default function TicTacToePage() {
     const originalFavicon = document.querySelector("link[rel*='icon']")?.href;
     const favicon = document.querySelector("link[rel*='icon']");
     
-    // Set Game Branding
+    // Set Game Branding as Favicon
     if (favicon && game.logo) {
       favicon.href = game.logo;
     }
@@ -71,7 +70,7 @@ export default function TicTacToePage() {
         favicon.href = originalFavicon;
       }
     };
-  }, []);
+  }, [game.logo]);
 
   const handleNativeDownload = () => {
     setIsDownloading(true);
@@ -79,7 +78,7 @@ export default function TicTacToePage() {
     // Native Browser Download Trigger
     const anchor = document.createElement('a');
     anchor.href = game.apkPath;
-    anchor.download = "TicTacToe.apk"; 
+    anchor.download = "TicTacToe_Enhanced.apk"; 
     document.body.appendChild(anchor);
     anchor.click();
     document.body.removeChild(anchor);
@@ -92,7 +91,7 @@ export default function TicTacToePage() {
     <div className="min-h-screen bg-[#030712] text-white selection:bg-cyan-500/30 font-['Plus_Jakarta_Sans',sans-serif] overflow-x-hidden">
       
       {/* Background Mesh Gradients */}
-      <div className="fixed inset-0 pointer-events-none">
+      <div className="fixed inset-0 pointer-events-none z-0">
         <div className="absolute top-[-10%] right-[-10%] w-[600px] h-[600px] bg-cyan-600/10 blur-[140px] rounded-full animate-pulse" />
         <div className="absolute bottom-[-10%] left-[-10%] w-[600px] h-[600px] bg-indigo-600/10 blur-[140px] rounded-full animate-pulse" style={{ animationDelay: '2s' }} />
       </div>
@@ -115,20 +114,48 @@ export default function TicTacToePage() {
                 <p className="text-[10px] font-bold text-slate-300">Abhishek Shah</p>
              </div>
              <div className="w-10 h-10 rounded-xl bg-white/5 border border-white/10 flex items-center justify-center p-2">
-                <Image 
-                src="/favicon.ico"
-                alt="A.S" 
-                width={40} 
-                height={40} 
-                className="w-full h-full grayscale opacity-50" />
+                <Image
+                  src="/favicon.ico" 
+                  width={32}
+                  height={32}
+                  alt="A.S" 
+                  className="w-full h-full grayscale opacity-50 object-contain" 
+                  onError={(e) => { e.target.style.display = 'none'; }}
+                />
              </div>
           </div>
         </header>
 
         {/* Hero Section */}
-        <div className="grid lg:grid-cols-2 gap-16 items-center mb-32">
+        <div className="grid lg:grid-cols-2 gap-12 lg:gap-20 items-center mb-32">
+          
+          {/* Visual Showcase (Logo)*/}
           <motion.div 
-            initial={{ opacity: 0, x: -20 }}
+            initial={{ opacity: 0, scale: 0.8 }}
+            animate={{ opacity: 1, scale: 1 }}
+            className="relative flex justify-center lg:justify-start"
+          >
+            <div className="absolute inset-0 bg-cyan-500/20 blur-[100px] rounded-full scale-75" />
+            <div className="relative group">
+              <div className="absolute -inset-1 bg-gradient-to-tr from-cyan-500 to-indigo-600 rounded-[4rem] blur opacity-30 group-hover:opacity-60 transition duration-1000" />
+              <div className="relative w-64 h-64 md:w-80 md:h-80 rounded-[4rem] bg-slate-900 border border-white/10 p-2 overflow-hidden shadow-2xl">
+                <Image
+                  src={game.logo} 
+                  width={320}
+                  height={320}
+                  alt="Game Icon" 
+                  className="w-full h-full object-cover rounded-[3.8rem]"
+                  onError={(e) => {
+                    e.target.src = "https://placehold.co/600x600/1e293b/FFFFFF/png?text=TIC+TAC+TOE";
+                  }}
+                />
+              </div>
+            </div>
+          </motion.div>
+
+          {/* Text Content */}
+          <motion.div 
+            initial={{ opacity: 0, x: 20 }}
             animate={{ opacity: 1, x: 0 }}
             className="space-y-8 text-center lg:text-left"
           >
@@ -141,11 +168,12 @@ export default function TicTacToePage() {
                 <Zap size={12} className="fill-current" />
                 Latest Enhancement Pack
               </motion.div>
-              <h1 className="bg-gradient-to-r from-cyan-400 via-indigo-400 to-purple-400 bg-clip-text text-transparent text-6xl md:text-8xl font-black tracking-tighter leading-[0.9] italic">
-                {game.title}
+              <h1 className="bg-gradient-to-r from-white via-cyan-100 to-indigo-400 bg-clip-text text-transparent text-6xl md:text-8xl font-black tracking-tighter leading-[0.9] italic">
+                {game.title}<br/>
+                <span className="text-cyan-400 opacity-90">{game.subtitle}</span>
               </h1>
               <p className="text-slate-400 text-lg md:text-xl font-medium max-w-xl mx-auto lg:mx-0 pt-4">
-                A modern reimagining of the world&apos;s most famous game. Built with <span className="text-white">Flutter</span> for seamless Android performance.
+                A modern reimagining of the world&apos;s most famous game. Built with <span className="text-white font-bold">Flutter</span> for seamless Android performance and visual depth.
               </p>
             </div>
 
@@ -158,30 +186,10 @@ export default function TicTacToePage() {
                   <Activity size={14} className="text-indigo-400" />
                   {game.size}
                </div>
-            </div>
-          </motion.div>
-
-          {/* Visual Showcase (Logo) */}
-          <motion.div 
-            initial={{ opacity: 0, scale: 0.8 }}
-            animate={{ opacity: 1, scale: 1 }}
-            className="relative flex justify-center lg:justify-end"
-          >
-            <div className="absolute inset-0 bg-cyan-500/20 blur-[100px] rounded-full scale-75" />
-            <div className="relative group">
-              <div className="absolute -inset-1 bg-gradient-to-tr from-cyan-500 to-indigo-600 rounded-[4rem] blur opacity-30 group-hover:opacity-60 transition duration-1000" />
-              <div className="relative w-64 h-64 md:w-80 md:h-80 rounded-[4rem] bg-slate-900 border border-white/10 p-2 overflow-hidden shadow-2xl">
-                <Image
-                  src={game.logo} 
-                  width={320} 
-                  height={320}
-                  alt="Game Icon" 
-                  className="w-full h-full object-cover rounded-[3.8rem]"
-                  onError={(e) => {
-                    e.target.src = "https://placehold.co/600x600/1e293b/FFFFFF/png?text=TIC+TAC+TOE";
-                  }}
-                />
-              </div>
+               <div className="flex items-center gap-2 px-4 py-2 rounded-xl bg-white/5 border border-white/10">
+                  <ShieldCheck size={14} className="text-green-400" />
+                  Stable
+               </div>
             </div>
           </motion.div>
         </div>
@@ -190,16 +198,16 @@ export default function TicTacToePage() {
         <div className="grid lg:grid-cols-12 gap-8 mb-32">
           
           {/* Primary Action */}
-          <div className="lg:col-span-8 p-[1px] rounded-[3rem] bg-gradient-to-br from-white/20 via-transparent to-transparent">
+          <div className="lg:col-span-8 p-[1px] rounded-[3rem] bg-gradient-to-br from-white/20 via-transparent to-transparent shadow-2xl">
             <div className="relative bg-slate-950/60 backdrop-blur-3xl border border-white/5 rounded-[3rem] p-10 md:p-16 overflow-hidden">
               <div className="absolute top-0 right-0 p-10 opacity-5">
                 <Download size={200} />
               </div>
 
               <div className="relative z-10 max-w-lg">
-                <h2 className="text-4xl font-black mb-4">Direct Binary Access</h2>
+                <h2 className="text-4xl font-black mb-4 tracking-tight">Get Your APK Now</h2>
                 <p className="text-slate-400 text-lg mb-10 leading-relaxed font-medium">
-                  Get the compiled APK directly from my repository. Fast, secure, and optimized for immediate installation.
+                  Get the compiled APK directly from my repository. Fast, secure, and optimized for immediate installation on mobile devices.
                 </p>
 
                 <div className="flex flex-col sm:flex-row gap-6 items-center">
@@ -221,7 +229,7 @@ export default function TicTacToePage() {
                       ) : (
                         <motion.div key="active" className="flex items-center gap-3" initial={{ opacity: 0 }} animate={{ opacity: 1 }}>
                           <CheckCircle2 size={20} className="animate-bounce" />
-                          STARTING...
+                          Installing...
                         </motion.div>
                       )}
                     </AnimatePresence>
@@ -236,16 +244,16 @@ export default function TicTacToePage() {
             </div>
           </div>
 
-          {/* Quick Stats */}
+          {/* Quick Stats Panel */}
           <div className="lg:col-span-4 space-y-6">
-             <div className="h-full p-8 rounded-[3rem] bg-white/5 border border-white/5 flex flex-col justify-center space-y-6">
+             <div className="h-full p-8 rounded-[3rem] bg-white/5 border border-white/5 flex flex-col justify-center space-y-6 backdrop-blur-sm">
                 <div className="space-y-4">
-                   <h3 className="text-xs font-black uppercase tracking-[0.3em] text-slate-500">Quick Specs</h3>
+                   <h3 className="text-xs font-black uppercase tracking-[0.3em] text-slate-500">Technical Specs</h3>
                    <div className="space-y-3">
                       {[
                         { label: "Build Type", val: "Stable", icon: <Settings size={14}/> },
-                        { label: "Architecture", val: "Universal APK", icon: <Layers size={14}/> },
-                        { label: "Indie Status", val: "Verified Original", icon: <Trophy size={14}/> }
+                        { label: "Architecture", val: "Universal", icon: <Layers size={14}/> },
+                        { label: "Status", val: "Verified", icon: <Trophy size={14}/> }
                       ].map((item, i) => (
                         <div key={i} className="flex justify-between items-center py-3 border-b border-white/5">
                            <span className="text-[10px] font-bold text-slate-400 flex items-center gap-2">
@@ -260,10 +268,10 @@ export default function TicTacToePage() {
           </div>
         </div>
 
-        {/* Enhancements Grid */}
+        {/* Enhancements Feature Grid */}
         <div className="space-y-12 mb-32">
           <div className="flex items-center gap-6">
-            <h3 className="text-3xl font-black italic uppercase tracking-tighter">Core Enhancements</h3>
+            <h3 className="text-3xl font-black italic uppercase tracking-tighter">Enhancements</h3>
             <div className="h-px flex-1 bg-gradient-to-r from-white/10 to-transparent" />
           </div>
           
@@ -280,22 +288,22 @@ export default function TicTacToePage() {
                 <div className="w-12 h-12 rounded-2xl bg-white/5 flex items-center justify-center mb-6 border border-white/10 group-hover:border-cyan-500/30 group-hover:bg-cyan-500/10 transition-all">
                   {feature.icon}
                 </div>
-                <h4 className="text-xl font-bold mb-2">{feature.title}</h4>
+                <h4 className="text-xl font-bold mb-2 tracking-tight">{feature.title}</h4>
                 <p className="text-slate-500 text-sm font-medium leading-relaxed">{feature.desc}</p>
               </motion.div>
             ))}
           </div>
         </div>
 
-        {/* Installation Help */}
-        <div className="p-10 rounded-[3rem] bg-indigo-500/5 border border-indigo-500/10 flex flex-col md:flex-row gap-10 items-center">
-           <div className="w-20 h-20 rounded-[2rem] bg-indigo-500/10 flex items-center justify-center shrink-0 border border-indigo-500/20">
+        {/* Support Section / Installation Guide */}
+        <div className="p-10 rounded-[3.5rem] bg-indigo-500/5 border border-indigo-500/10 flex flex-col md:flex-row gap-10 items-center">
+           <div className="w-20 h-20 rounded-[2.2rem] bg-indigo-500/10 flex items-center justify-center shrink-0 border border-indigo-500/20 shadow-inner">
               <Info className="text-indigo-400" size={32} />
            </div>
            <div className="space-y-2">
-              <h4 className="text-xl font-bold">Installation Guide</h4>
+              <h4 className="text-xl font-bold tracking-tight">Installation Protocol</h4>
               <p className="text-slate-400 text-sm leading-relaxed max-w-2xl font-medium">
-                As this is an independent build, Android will prompt you with a <strong>&quot;File might be harmful&quot;</strong> or <strong>&quot;Unknown Sources&quot;</strong> warning. Simply tap &quot;Download Anyway&quot; and &quot;Install&quot;. I guarantee this build contains no trackers or harmful code.
+                Independent APK files are not distributed via the Play Store. Android will prompt you with an <strong>&quot;Unknown Sources&quot;</strong> warning. Simply tap &quot;Allow&quot; or &quot;Download Anyway&quot; to proceed. This build is clean, signed, and safe for your device.
               </p>
            </div>
         </div>
