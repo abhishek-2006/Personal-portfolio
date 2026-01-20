@@ -7,7 +7,9 @@ import {
   Github, 
   ExternalLink, 
   Layers, 
-  Code 
+  Code,
+  Gamepad2,
+  Download
 } from "lucide-react";
 
 export default function App() {
@@ -16,24 +18,62 @@ export default function App() {
 
   useEffect(() => {
     async function load() {
-      // Simulation of API call or real fetch
       try {
         const res = await fetch("/api/projects");
-        if (!res.ok) throw new Error("API not available");
-        const data = await res.json();
-        setProjects(data);
+        let githubData = [];
+        
+        if (res.ok) {
+          githubData = await res.json();
+        }
+
+        const processedProjects = githubData.map(repo => {
+          if (repo.name.toLowerCase().includes("Tictactoe")) {
+            return {
+              ...repo,
+              name: "TicTacToe",
+              description: "A premium Android edition of the classic game. Built with Flutter, featuring adaptive AI levels and smooth 60FPS animations.",
+              tech: ["Flutter", "Dart", "Android"],
+              liveUrl: "/tictactoe",
+              isGame: true,
+              logo: "/tictactoe-logo.png"
+            };
+          }
+          return {
+            ...repo,
+            tech: repo.tech || ["Web"],
+            isGame: false
+          };
+        });
+
+        const hasGame = processedProjects.some(p => p.isGame);
+        let finalProjects = processedProjects;
+
+        if (!hasGame) {
+          const manualGame = { 
+            name: "TicTacToe", 
+            description: "A premium Android edition of the classic game. Built with Flutter, featuring adaptive AI levels and smooth 60FPS animations.", 
+            tech: ["Flutter", "Dart", "Android"], 
+            url: "https://github.com/abhishek-2006/Tictactoe", 
+            liveUrl: "/tictactoe",
+            isGame: true,
+            logo: "/tictactoe-logo.png"
+          };
+          finalProjects = [manualGame, ...processedProjects];
+        } else {
+          // Sort to keep the game at the top
+          finalProjects.sort((a, b) => (a.isGame === b.isGame) ? 0 : a.isGame ? -1 : 1);
+        }
+
+        setProjects(finalProjects);
+
       } catch (err) {
-        console.error(err);
-        // Fallback mock data for preview purposes
-        setTimeout(() => {
-          setProjects([
-            { name: "Neural Network Visualizer", description: "A high-performance Python application for visualizing deep learning layers.", tech: ["Python", "C++", "React"], url: "#", liveUrl: "#" },
-            { name: "E-Commerce Dashboard", description: "Modern administrative portal built with Bootstrap and Next.js.", tech: ["Bootstrap", "Next.js", "Firebase"], url: "#", liveUrl: "#" },
-            { name: "Java Inventory System", description: "Robust backend system for real-time inventory tracking.", tech: ["Java", "SQL", "Spring Boot"], url: "#" },
-            { name: "Portfolio Site", description: "Personal showcase with smooth animations and dark theme.", tech: ["React", "Tailwind CSS", "Framer Motion"], url: "#", liveUrl: "#" },
-            { name: "Weather Mobile App", description: "Cross-platform mobile app for real-time weather analytics.", tech: ["Flutter", "Dart", "Node.js"], url: "#" }
-          ]);
-        }, 800);
+        console.error("Fetch error:", err);
+        // Fallback mock data if GitHub API fails
+        setProjects([
+          { name: "TicTacToe", description: "Premium Android edition with adaptive AI.", tech: ["Flutter", "Dart", "Android"], url: "#", liveUrl: "/tictactoe", isGame: true, logo: "/tictactoe-logo.png" },
+          { name: "Hotel Management System", description: "Professional-grade administrative portal.", tech: ["PHP", "MySQL", "Bootstrap"], url: "#", liveUrl: "#" },
+          { name: "Currency Converter", description: "Real-time exchange rates via API.", tech: ["JavaScript", "REST API", "Tailwind"], url: "#", liveUrl: "#" }
+        ]);
       }
     }
     load();
@@ -55,7 +95,8 @@ export default function App() {
 
   return (
     <div className="min-h-screen w-full bg-[#030712] text-white pt-24 pb-20 px-6 relative overflow-hidden selection:bg-cyan-500/30">
-      {/* Background Aesthetic Elements */}
+      
+      {/* Background Aesthetic Glows */}
       <div className="absolute top-0 left-0 w-full h-full pointer-events-none">
         <div className="absolute top-[-10%] right-[-10%] w-[50%] h-[50%] bg-blue-600/10 blur-[120px] rounded-full animate-pulse" />
         <div className="absolute bottom-[-10%] left-[-10%] w-[50%] h-[50%] bg-purple-600/10 blur-[120px] rounded-full animate-pulse" />
@@ -75,28 +116,28 @@ export default function App() {
           <motion.div
             initial={{ opacity: 0, scale: 0.8 }}
             animate={{ opacity: 1, scale: 1 }}
-            className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-white/5 border border-white/10 text-xs font-bold tracking-[0.2em] uppercase text-purple-400 mb-6"
+            className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-white/5 border border-white/10 text-xs font-bold tracking-[0.2em] uppercase text-cyan-400 mb-6"
           >
-            <Zap size={14} className="fill-purple-400" />
-            Showcase
+            <Zap size={14} className="fill-cyan-400/20" />
+            Project Hub
           </motion.div>
           
           <motion.h1
             initial={{ opacity: 0, y: -20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6 }}
-            className="text-6xl md:text-8xl font-black py-4 text-center bg-gradient-to-r from-white via-cyan-200 to-blue-400 bg-clip-text text-transparent leading-none"
+            className="text-6xl md:text-8xl font-black py-4 text-center bg-gradient-to-r from-white via-cyan-100 to-blue-400 bg-clip-text text-transparent leading-none"
           >
-            All Projects
+            My Projects
           </motion.h1>
           
           <motion.p 
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{ delay: 0.3 }}
-            className="text-slate-400 text-lg md:text-xl max-w-2xl mt-6 font-medium"
+            className="text-slate-400 text-lg md:text-xl max-w-2xl mt-6 font-medium leading-relaxed"
           >
-            A curated gallery of my work, ranging from <span className="text-white">low-level C++</span> modules to <span className="text-white">dynamic web architectures</span>.
+            Exploring the intersection of <span className="text-white">Full-Stack engineering</span> and <span className="text-cyan-400 font-bold">mobile game design</span> through the GitHub API.
           </motion.p>
         </header>
 
@@ -122,13 +163,11 @@ export default function App() {
           layout
           className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8"
         >
-          {/* Skeleton Loading */}
           {!projects &&
             [...Array(6)].map((_, i) => (
               <div key={i} className="h-[380px] bg-white/5 rounded-[2rem] border border-white/10 animate-pulse" />
             ))}
 
-          {/* Actual Projects */}
           <AnimatePresence mode="popLayout">
             {filteredProjects.map((project, i) => (
               <motion.div
@@ -139,14 +178,22 @@ export default function App() {
                 exit={{ opacity: 0, scale: 0.9 }}
                 transition={{ duration: 0.4, delay: i * 0.05 }}
                 whileHover={{ y: -10 }}
-                className="group relative p-[1px] rounded-[2rem] bg-gradient-to-br from-white/20 via-transparent to-transparent transition-all shadow-2xl overflow-hidden"
+                className={`group relative p-[1px] rounded-[2rem] transition-all shadow-2xl overflow-hidden ${
+                  project.isGame 
+                  ? 'bg-gradient-to-br from-cyan-500/40 via-transparent to-transparent border-cyan-500/30' 
+                  : 'bg-gradient-to-br from-white/20 via-transparent to-transparent border-white/5'
+                }`}
               >
-                <div className="h-full rounded-[2rem] bg-slate-950/80 backdrop-blur-xl p-8 flex flex-col border border-white/5 min-h-[380px]">
+                <div className={`h-full rounded-[2rem] backdrop-blur-xl p-8 flex flex-col border border-white/5 min-h-[420px] ${
+                  project.isGame ? 'bg-cyan-950/20' : 'bg-slate-950/80'
+                }`}>
                   
                   {/* Category Indicator */}
                   <div className="flex justify-between items-start mb-6">
-                    <div className="p-3 rounded-2xl bg-white/5 border border-white/10 text-cyan-400 shadow-inner">
-                      <Code size={20} />
+                    <div className={`p-3 rounded-2xl border shadow-inner ${
+                      project.isGame ? 'bg-cyan-500/10 border-cyan-500/20 text-cyan-400' : 'bg-white/5 border-white/10 text-cyan-400'
+                    }`}>
+                      {project.isGame ? <Gamepad2 size={20} /> : <Code size={20} />}
                     </div>
                     <Layers className="text-white/5 w-12 h-12 -mr-4 -mt-4 group-hover:text-white/10 transition-colors duration-500" />
                   </div>
@@ -155,7 +202,7 @@ export default function App() {
                     {project.name}
                   </h2>
 
-                  <p className="text-slate-400 text-sm leading-relaxed mb-6 line-clamp-3 font-medium">
+                  <p className="text-slate-400 text-sm leading-relaxed mb-6 line-clamp-4 font-medium">
                     {project.description || "No description provided."}
                   </p>
 
@@ -171,21 +218,19 @@ export default function App() {
                     ))}
                   </div>
 
-                  {/* Links using standard anchor tags */}
+                  {/* Links */}
                   <div className="flex items-center gap-6 pt-6 border-t border-white/5">
                     {project.liveUrl && (
                       <a
                         href={project.liveUrl}
-                        target="_blank"
-                        rel="noopener noreferrer"
                         className="flex items-center gap-2 text-sm font-bold text-white hover:text-cyan-400 transition-colors"
                       >
-                        <ExternalLink size={16} />
-                        Live Demo
+                        {project.isGame ? <Download size={16} /> : <ExternalLink size={16} />}
+                        {project.isGame ? "Download APK" : "Live Demo"}
                       </a>
                     )}
                     <a
-                      href={project.url ?? "#"}
+                      href={project.url ?? project.html_url ?? "#"}
                       target="_blank"
                       rel="noopener noreferrer"
                       className="flex items-center gap-2 text-sm font-bold text-slate-400 hover:text-white transition-colors"
@@ -197,7 +242,9 @@ export default function App() {
                 </div>
                 
                 {/* Interactive Hover Glow */}
-                <div className="absolute inset-0 pointer-events-none bg-gradient-to-tr from-cyan-500/10 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+                <div className={`absolute inset-0 pointer-events-none opacity-0 group-hover:opacity-100 transition-opacity duration-500 bg-gradient-to-tr ${
+                  project.isGame ? 'from-cyan-500/20 to-transparent' : 'from-cyan-500/10 to-transparent'
+                }`} />
               </motion.div>
             ))}
           </AnimatePresence>
@@ -206,15 +253,9 @@ export default function App() {
         {/* Empty State */}
         {projects && filteredProjects.length === 0 && (
           <div className="text-center py-24">
-            <div className="inline-block p-4 rounded-full bg-white/5 mb-4">
-              <Code className="text-slate-600 w-8 h-8" />
-            </div>
-            <p className="text-slate-500 text-xl italic font-medium">No projects found for &quot;{selectedTag}&quot; yet.</p>
-            <button 
-              onClick={() => setSelectedTag("All")}
-              className="mt-4 text-cyan-400 font-bold hover:underline"
-            >
-              Clear all filters
+            <p className="text-slate-500 text-xl italic font-medium">No projects found for &quot;{selectedTag}&quot;.</p>
+            <button onClick={() => setSelectedTag("All")} className="mt-4 text-cyan-400 font-bold hover:underline">
+              Reset Filters
             </button>
           </div>
         )}

@@ -5,6 +5,7 @@ import { motion } from "framer-motion";
 import { 
   Github, 
   Linkedin, 
+  Gamepad2,
   ArrowRight, 
   Sparkles, 
   Database,
@@ -164,10 +165,17 @@ export default function App() {
 
             <div className="flex flex-col sm:flex-row gap-5 justify-center lg:justify-start items-center">
               <a 
+                href="/tictactoe"
+                className="group w-full sm:w-auto px-8 py-3.5 bg-gradient-to-r from-cyan-500 to-blue-600 rounded-xl font-bold text-[#030712] flex items-center justify-center gap-2 shadow-xl transition-all active:scale-95"
+              >
+                Play My New Game
+                <Gamepad2 size={18} />
+              </a>
+              <a 
                 href="/projects"
                 className="group w-full sm:w-auto px-8 py-3.5 bg-gradient-to-r from-cyan-500 to-blue-600 rounded-xl font-bold text-[#030712] flex items-center justify-center gap-2 shadow-lg transition-all active:scale-95"
               >
-                Explore My Work
+                See My Projects
                 <ArrowRight size={18} className="group-hover:translate-x-1 transition-transform" />
               </a>
 
