@@ -21,35 +21,22 @@ export async function GET() {
 
         const languages = langRes.ok ? await langRes.json() : {};
         const langs = Object.keys(languages);
-
-        // --- ENHANCEMENT LOGIC: Intercept TicTacToe specifically ---
-        const isTicTacToe = repo.name.toLowerCase().includes("Tictactoe");
-
-        if (isTicTacToe) {
-          return {
-            name: "TicTacToe",
-            description: "A premium Android edition of the classic game. Built with Flutter, featuring adaptive AI levels, neo-dark aesthetic, and smooth 60FPS animations.",
-            url: repo.html_url,
-            liveUrl: "/tictactoe",
-            tech: ["Flutter", "Dart", "Android"],
-            isGame: true,
-            logo: "/tictactoe-logo.png",
-            category: "Mobile"
-          };
-        }
-
+        const isTicTacToe = repo.name.toLowerCase().includes("tictactoe");
         let category = "Web";
         if (langs.includes("Dart") || langs.includes("Kotlin")) category = "Mobile";
         else if (langs.includes("PHP") || langs.includes("Java")) category = "Full Stack";
 
         return {
           name: repo.name.replace(/-/g, " "),
-          description: repo.description || "Experimental project focusing on modern architecture.",
+           description: isTicTacToe
+            ? "A premium Android edition of the classic game. Built with Flutter, featuring adaptive AI levels and neo-dark aesthetic."
+            : repo.description || "Experimental project focusing on modern architecture.",
           url: repo.html_url,
-          liveUrl: repo.homepage || null,
+          liveUrl: isTicTacToe ? "/tictactoe" : repo.homepage || null,
           tech: langs.length ? langs : ["General"],
-          isGame: false,
-          logo: "/favicon.ico",
+          isGame: isTicTacToe,
+          icon: isTicTacToe ? "game" : null,
+          logo: isTicTacToe ? "/tictactoe-logo.png" : "/favicon.ico",
           category: category
         };
       })

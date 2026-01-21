@@ -27,12 +27,10 @@ export default function App() {
         }
 
         const processedProjects = githubData.map(repo => {
-          if (repo.name.toLowerCase().includes("Tictactoe")) {
+          if (repo.name.toLowerCase().includes("tictactoe")) {
             return {
               ...repo,
               name: "TicTacToe",
-              description: "A premium Android edition of the classic game. Built with Flutter, featuring adaptive AI levels and smooth 60FPS animations.",
-              tech: ["Flutter", "Dart", "Android"],
               liveUrl: "/tictactoe",
               isGame: true,
               logo: "/tictactoe-logo.png"
@@ -44,27 +42,12 @@ export default function App() {
             isGame: false
           };
         });
+        
+        processedProjects.sort((a, b) =>
+          a.isGame === b.isGame ? 0 : a.isGame ? -1 : 1
+        );
 
-        const hasGame = processedProjects.some(p => p.isGame);
-        let finalProjects = processedProjects;
-
-        if (!hasGame) {
-          const manualGame = { 
-            name: "TicTacToe", 
-            description: "A premium Android edition of the classic game. Built with Flutter, featuring adaptive AI levels and smooth 60FPS animations.", 
-            tech: ["Flutter", "Dart", "Android"], 
-            url: "https://github.com/abhishek-2006/Tictactoe", 
-            liveUrl: "/tictactoe",
-            isGame: true,
-            logo: "/tictactoe-logo.png"
-          };
-          finalProjects = [manualGame, ...processedProjects];
-        } else {
-          // Sort to keep the game at the top
-          finalProjects.sort((a, b) => (a.isGame === b.isGame) ? 0 : a.isGame ? -1 : 1);
-        }
-
-        setProjects(finalProjects);
+        setProjects(processedProjects);
 
       } catch (err) {
         console.error("Fetch error:", err);

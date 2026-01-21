@@ -229,7 +229,7 @@ export default function TicTacToePage() {
                       ) : (
                         <motion.div key="active" className="flex items-center gap-3" initial={{ opacity: 0 }} animate={{ opacity: 1 }}>
                           <CheckCircle2 size={20} className="animate-bounce" />
-                          Installing...
+                          DOWNLOADING...
                         </motion.div>
                       )}
                     </AnimatePresence>
