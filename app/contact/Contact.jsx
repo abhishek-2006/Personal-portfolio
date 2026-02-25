@@ -1,6 +1,7 @@
 "use client";
-import React, { useState } from "react";
+import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
+import { FaXTwitter as Twitter } from "react-icons/fa6";
 import { 
   Mail, 
   Phone, 
@@ -13,6 +14,7 @@ import {
   Sparkles,
   AlertCircle
 } from "lucide-react";
+import SignatureBar from "../components/SignatureBar";
 
 export default function ContactPage() {
   const [formState, setFormState] = useState("idle"); 
@@ -157,7 +159,9 @@ export default function ContactPage() {
                   {[
                     { icon: <Github size={18} />, label: "GitHub", url: "https://github.com/abhishek-2006" },
                     { icon: <Instagram size={18} />, label: "Instagram", url: "https://instagram.com/abhishekshah_112" },
-                    { icon: <Linkedin size={18} />, label: "LinkedIn", url: "https://linkedin.com/in/abhishek-shah-aa1346326/" }
+                    { icon: <Linkedin size={18} />, label: "LinkedIn", url: "https://linkedin.com/in/abhishekshah-dev/" },
+                    { icon: <Twitter size={18} />, label: "Twitter", url: "https://twitter.com/AbhishekShah2006" }
+                    
                   ].map((social, idx) => (
                     <motion.a
                       key={idx}
@@ -304,6 +308,7 @@ export default function ContactPage() {
           Built with precision
         </motion.div>
       </div>
+      <SignatureBar />
     </div>
   );
 }

@@ -1,6 +1,7 @@
 "use client"
 
 import { useEffect, useState, useMemo } from "react";
+import SignatureBar from "../components/SignatureBar";
 import { motion, AnimatePresence } from "framer-motion";
 import { 
   Zap, 
@@ -243,6 +244,7 @@ export default function ProjectsPage() {
           </div>
         )}
       </div>
+      <SignatureBar />
     </div>
   );
 }

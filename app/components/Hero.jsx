@@ -49,7 +49,6 @@ const Typewriter = ({ strings, typeSpeed = 50, backSpeed = 30, delayBetween = 20
 
 export default function App() {
   const roles = useMemo(() => [
-    "Next.js Development",
     "Flutter Development",
     "Android App Development",
     "Full-Stack Development",
@@ -117,7 +116,7 @@ export default function App() {
               </div>
             </div>
 
-            {/* --- SIMPLIFIED FLOATING NODES --- */}
+            {/* --- FLOATING NODES --- */}
             <div className="absolute -right-10 top-6 p-3 md:p-4 rounded-xl bg-slate-900/50 border border-white/10 shadow-xl animate-bounce [animation-duration:4s] gpu-accelerate">
               <Smartphone className="text-cyan-400 w-5 h-5 md:w-6 md:h-6" />
             </div>
@@ -182,7 +181,7 @@ export default function App() {
               <div className="flex gap-6 items-center px-4 py-2">
                 {[
                   { icon: <Github size={22} />, url: "https://github.com/abhishek-2006" },
-                  { icon: <Linkedin size={22} />, url: "https://www.linkedin.com/in/abhishek-shah-aa1346326/" },
+                  { icon: <Linkedin size={22} />, url: "https://www.linkedin.com/in/abhishekshah-dev/" },
                   { icon: <Twitter size={20} />, url: "https://x.com/shahabhishek409" }
                 ].map((social, idx) => (
                   <a

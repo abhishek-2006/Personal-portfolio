@@ -3,6 +3,7 @@
 import { useState, useEffect } from "react";
 import { motion } from "framer-motion";
 import Image from "next/image";
+import SignatureBar from "../components/SignatureBar";
 import { Zap, Clock, GraduationCap, School, BookOpen, Award, ChevronRight } from 'lucide-react';
 
 const COLORS = {
@@ -258,6 +259,7 @@ export default function AboutPage() {
           </a>
         </div>
       </div>
+      <SignatureBar />
     </div>
   );
 }
