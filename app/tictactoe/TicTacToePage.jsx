@@ -27,6 +27,7 @@ export default function App() {
   const [version, setVersion] = useState("v1.3.0");
   const [size, setSize] = useState("4.2 MB");
   const [isMounted, setIsMounted] = useState(false);
+  const [downloads, setDownloads] = useState(0);
 
   const game = {
     title: "TicTacToe",
@@ -81,6 +82,7 @@ export default function App() {
           if (apkAsset) {
             setApkUrl(apkAsset.browser_download_url);
             setSize((apkAsset.size / (1024 * 1024)).toFixed(1) + " MB");
+            setDownloads(apkAsset.download_count || 0);
           }
         }
       } catch (err) {
@@ -118,7 +120,7 @@ export default function App() {
 
   return (
     <div className="min-h-screen bg-[#030712] text-white overflow-x-hidden selection:bg-cyan-500/30 font-sans">
-      {/* Scrollbar Removal Styles */}
+      {/* Scrollbar Removal Styles   */}
       <style>{`
         .no-scrollbar::-webkit-scrollbar { display: none; }
         .no-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
@@ -184,7 +186,8 @@ export default function App() {
               {[
                 { icon: <Smartphone size={14} />, label: "Device", value: "Android 11+" },
                 { icon: <Activity size={14} />, label: "Size", value: size },
-                { icon: <ShieldCheck size={14} />, label: "Version", value: version }
+                { icon: <ShieldCheck size={14} />, label: "Version", value: version },
+                { icon: <Download size={14} />, label: "Downloads", value: downloads },
               ].map((stat, i) => (
                 <div key={i} className="flex items-center gap-3 bg-white/5 border border-white/10 px-5 py-3.5 rounded-2xl shadow-xl backdrop-blur-md">
                   <div className="text-cyan-400">{stat.icon}</div>
