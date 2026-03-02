@@ -214,8 +214,8 @@ export default function App() {
           
           <div className="relative z-10 flex flex-col md:flex-row items-center justify-between gap-12">
             <div className="space-y-6">
-              <h2 className="text-4xl md:text-6xl font-black tracking-tight uppercase italic leading-none">Get the Package</h2>
-              <p className="text-slate-400 text-lg font-medium max-w-md">Retrieve the latest compiled binary directly from the official source.</p>
+              <h2 className="text-4xl md:text-6xl font-black tracking-tight uppercase italic leading-none">Download the APK</h2>
+              <p className="text-slate-400 text-lg font-medium max-w-md">Retrieve the latest compiled apk directly from the official source.</p>
               <div className="flex items-center justify-center md:justify-start gap-5 text-[9px] font-bold uppercase tracking-[0.3em] text-slate-500">
                 <span className="flex items-center gap-1.5"><ShieldCheck size={14} className="text-green-500"/> Secure</span>
                 <span className="flex items-center gap-1.5"><Zap size={14} className="text-amber-500"/> Ads Free</span>
@@ -314,7 +314,7 @@ export default function App() {
           <div className="space-y-1">
             <p className="text-[10px] font-black uppercase tracking-[0.3em] text-cyan-400">Security Note</p>
             <p className="text-slate-400 text-sm font-medium leading-relaxed">
-              Standard Android security may flag independent binaries. This build is clean and verified by the developer. Tap <span className="text-white font-bold">&quot;Install Anyway&quot;</span> to begin playing.
+              Standard Android security may flag independent apk. This build is clean and verified by the developer. Tap <span className="text-white font-bold">&quot;Install Anyway&quot;</span> to begin playing.
             </p>
           </div>
         </motion.div>
