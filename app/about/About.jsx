@@ -8,11 +8,8 @@ import { Zap, Clock, GraduationCap, School, BookOpen, Award, ChevronRight } from
 
 const COLORS = {
   cyan400: "#22d3ee",
-  blue600: "#2563eb",
   indigo500: "#6366f1",
   slate400: "#94a3b8",
-  slate900: "#0f172a",
-  white: "#ffffff"
 };
 
 const Typewriter = ({ strings, typeSpeed = 50, backSpeed = 30 }) => {
