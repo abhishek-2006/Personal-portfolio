@@ -9,7 +9,7 @@ export const metadata = {
         "Abhishek Shah biography",
         "Abhishek Shah background",
         "Abhishek Shah journey",
-        "Abhishek Shah skills",
+        "Abhishek Shah skills", 
         "Abhishek Shah experience",
         "Abhishek Shah education",
         "Abhishek Shah software developer",

@@ -55,8 +55,26 @@ export default function App() {
     "Web Development",
   ], []);
 
+  const imageSchema = {
+    "@context": "https://schema.org",
+    "@type": "ImageObject",
+    "contentUrl": "https://abhishekshah-portfolio.vercel.app/profile.jpg",
+    "license": "https://abhishekshah-portfolio.vercel.app/",
+    "acquireLicensePage": "https://abhishekshah-portfolio.vercel.app/contact",
+    "creditText": "Abhishek Shah",
+    "creator": {
+      "@type": "Person",
+      "name": "Abhishek Shah"
+    },
+    "caption": "Abhishek Shah - Software Engineer and Full-Stack Developer",
+    "description": "Professional profile photograph of Abhishek Shah for his digital portfolio."
+  };
+
   return (
     <section className="relative min-h-[90vh] flex items-center overflow-hidden py-12 md:py-20 px-6 bg-[#030712] selection:bg-cyan-500/30">
+
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(imageSchema) }} />
+
       <Snowfall 
         snowflakeCount={100} 
         style={{ position: 'absolute', width: '100%', height: '100%', zIndex: 0, pointerEvents: 'none' }} 
@@ -77,7 +95,7 @@ export default function App() {
         .gpu-accelerate { transform: translateZ(0); backface-visibility: hidden; will-change: transform; }
       `}</style>
 
-      <div className="max-w-7xl mx-auto grid lg:grid-cols-12 gap-10 lg:gap-16 items-center relative z-10">
+      <div className="max-w-7xl mx-auto grid lg:grid-cols-12 gap-10 lg:gap-16 items-center relative z-10 w-full">
         
         {/* --- LEFT: PROFILE (VISUAL) --- */}
         <div className="lg:col-span-5 flex justify-center lg:justify-start relative">
