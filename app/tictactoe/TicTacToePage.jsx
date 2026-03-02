@@ -266,9 +266,9 @@ export default function App() {
               <motion.div 
                 key={img.id}
                 whileHover={{ y: -10 }}
-                className="snap-center shrink-0 w-[260px] md:w-[320px] aspect-[9/16] relative group rounded-[2.5rem] overflow-hidden border border-white/10 shadow-2xl"
+                className="snap-center shrink-0 w-[260px] md:w-[320px] aspect-9/16 relative group rounded-[2.5rem] overflow-hidden border border-white/10 shadow-2xl"
               >
-                <img src={img.url} alt={img.title} className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" />
+                <Image src={img.url} alt={img.title} height={480} width={260} className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" />
                 <div className="absolute inset-0 bg-linear-to-t from-black via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 flex flex-col justify-end p-8">
                    <div className="flex justify-between items-center">
                       <span className="text-white text-sm font-black tracking-widest uppercase italic">{img.title}</span>
@@ -304,7 +304,7 @@ export default function App() {
         <motion.div 
           initial={{ opacity: 0 }}
           whileInView={{ opacity: 1 }}
-          className="p-10 rounded-[3rem] bg-white/[0.02] border border-white/5 flex flex-col md:flex-row gap-8 items-center text-center md:text-left backdrop-blur-2xl"
+          className="p-10 rounded-[3rem] bg-white/2 border border-white/5 flex flex-col md:flex-row gap-8 items-center text-center md:text-left backdrop-blur-2xl"
         >
           <div className="w-16 h-16 rounded-full bg-cyan-500/10 flex items-center justify-center shrink-0">
             <div className="p-3 bg-cyan-400/10 rounded-full">
@@ -326,7 +326,7 @@ export default function App() {
                 <div className="absolute inset-0 bg-cyan-500/20 blur-md rounded-full opacity-0 group-hover:opacity-100 transition-opacity"></div>
                 <Image src="/favicon.ico" alt="Logo" width={32} height={32} className="w-8 h-8 relative z-10 opacity-80 hover:opacity-100 transition-opacity" />
              </div>
-             <div className="w-[1px] h-6 bg-slate-800"></div>
+             <div className="w-px h-6 bg-slate-800"></div>
              <a href="https://github.com/abhishek-2006" target="_blank" rel="noopener noreferrer" className="opacity-60 hover:opacity-100 transition-opacity">
                 <Github size={24} className="text-white" />
              </a>
