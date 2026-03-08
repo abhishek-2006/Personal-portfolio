@@ -62,6 +62,7 @@ export default function App() {
     "license": "https://abhishekshah-portfolio.vercel.app/",
     "acquireLicensePage": "https://abhishekshah-portfolio.vercel.app/contact",
     "creditText": "Abhishek Shah",
+    "name": "Abhishek Shah Profile Photo",
     "creator": {
       "@type": "Person",
       "name": "Abhishek Shah"

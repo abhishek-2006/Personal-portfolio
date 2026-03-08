@@ -25,6 +25,10 @@ const TECH_STACK = [
   { name: "Node.js", icon: "logos:nodejs-icon", color: "#339933" },
   { name: "Tailwind", icon: "logos:tailwindcss-icon", color: "#06B6D4" },
   { name: "GitHub", icon: "mdi:github", color: "#ffffff" },
+  { name: "Git", icon: "logos:git-icon", color: "#F05032" },
+  { name: "VS Code", icon: "logos:visual-studio-code", color: "#007ACC" },
+  { name: "Express.js", icon: "simple-icons:express", color: "#000000" },
+  { name: "MongoDB", icon: "logos:mongodb-icon", color: "#47A248" },
 ];
 
 const skills = [
