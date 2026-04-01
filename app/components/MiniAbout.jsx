@@ -48,8 +48,8 @@ export default function MiniAbout() {
     },
     {
       icon: <Layout className="w-5 h-5 text-cyan-400" />,
-      title: "UI/UX",
-      desc: "Delightful user journeys."
+      title: "Friendly UX",
+      desc: "Intuitive and enjoyable user experiences."
     },
     {
       icon: <Terminal className="w-5 h-5 text-purple-400" />,

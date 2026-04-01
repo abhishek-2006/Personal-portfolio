@@ -110,7 +110,7 @@ function JsonLd() {
       "@context": "https://schema.org",
       "@type": "Person",
       "name": "Abhishek Shah",
-      "jobTitle": "Full-Stack Developer",
+      "jobTitle": "Professional Full-Stack Developer & Software Engineer",
       "url": "https://abhishekshah-portfolio.vercel.app",
       "image": "https://abhishekshah-portfolio.vercel.app/profile.jpg",
       "sameAs": [
