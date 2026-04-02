@@ -173,7 +173,7 @@ export default function App() {
                 <Star size={12} className="fill-current" /> High Fidelity
               </div>
               <h1 className="text-6xl md:text-8xl font-black tracking-tighter leading-none italic uppercase text-white">
-                {game.title}
+                TicTacToe
                 <span className="block text-3xl md:text-5xl not-italic font-medium text-slate-500 mt-2">{game.tagline}</span>
               </h1>
             </div>
