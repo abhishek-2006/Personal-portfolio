@@ -131,7 +131,7 @@ export default function ProjectsPage() {
             <button
               key={tag}
               onClick={() => setSelectedTag(tag)}
-              className={`px-5 py-2 rounded-full text-sm font-bold transition-all border ${
+              className={`px-5 py-2 rounded-full cursor-pointer text-sm font-bold transition-all border ${
                 selectedTag === tag 
                 ? 'bg-white text-black border-white shadow-lg shadow-white/10' 
                 : 'bg-white/5 text-slate-400 border-white/10 hover:border-white/30 hover:text-white'
