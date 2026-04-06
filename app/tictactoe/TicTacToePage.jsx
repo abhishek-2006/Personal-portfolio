@@ -227,7 +227,7 @@ export default function App() {
               disabled={!apkUrl}
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
-              className={`relative px-14 py-8 rounded-[2rem] font-black text-xs tracking-[0.3em] flex items-center gap-4 transition-all shadow-[0_20px_50px_rgba(0,0,0,0.3)] ${
+              className={`relative px-14 py-8 rounded-[2rem] font-black text-xs tracking-[0.2em] cursor-pointer flex items-center gap-4 transition-all shadow-[0_20px_50px_rgba(0,0,0,0.3)] ${
                 isDownloading
                   ? "bg-green-600 text-white"
                   : "bg-white text-black hover:bg-cyan-400 transition-colors"
