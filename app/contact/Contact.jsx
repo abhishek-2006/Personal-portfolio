@@ -237,7 +237,7 @@ export default function ContactPage() {
                     backgroundColor: formState === "success" ? colors.green500 : formState === "error" ? colors.red500 : colors.blue600,
                   }}
                   whileTap={{ scale: 0.98 }}
-                  className="w-full py-4 md:py-5 rounded-xl md:rounded-2xl font-bold text-base md:text-lg flex items-center justify-center gap-2 md:gap-3 transition-shadow shadow-xl relative overflow-hidden text-white"
+                  className="w-full py-4 md:py-5 rounded-xl md:rounded-2xl cursor-pointer font-bold text-base md:text-lg flex items-center justify-center gap-2 md:gap-3 transition-shadow shadow-xl relative overflow-hidden text-white"
                 >
                   <AnimatePresence mode="wait">
                     {formState === "idle" && (
