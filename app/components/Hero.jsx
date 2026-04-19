@@ -16,7 +16,6 @@ import {
 import Image from "next/image";
 import { FaXTwitter as Twitter } from "react-icons/fa6";
 
-
 const Typewriter = ({ strings, typeSpeed = 50, backSpeed = 30, delayBetween = 2000 }) => {
   const [index, setIndex] = useState(0);
   const [subIndex, setSubIndex] = useState(0);
@@ -52,7 +51,7 @@ export default function App() {
     "Flutter Development",
     "Android App Development",
     "Full-Stack Development",
-    "Web Development",
+    "Web Development"
   ], []);
 
   const imageSchema = {

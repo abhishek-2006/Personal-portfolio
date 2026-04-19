@@ -4,6 +4,7 @@ import { useState, useEffect } from "react";
 import { motion } from "framer-motion";
 import Image from "next/image";
 import SignatureBar from "../components/SignatureBar";
+import AboutThreeScene from "../components/AboutThreeScene";
 import { Zap, Clock, GraduationCap, School, BookOpen, Award, ChevronRight } from 'lucide-react';
 
 const COLORS = {
@@ -110,7 +111,8 @@ export default function AboutPage() {
   ];
 
   return (
-    <div className="min-h-screen w-full overflow-hidden text-gray-100 pt-10 pb-20 sm:px-6 bg-slate-950 font-sans selection:bg-cyan-500/30 transition-colors duration-500">
+    <div className="relative min-h-screen w-full overflow-hidden text-gray-100 pt-10 pb-20 sm:px-6 font-sans selection:bg-cyan-500/30 transition-colors duration-500">
+      <AboutThreeScene />
       <style>{`
         @import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap');
         body { font-family: 'Plus Jakarta Sans', sans-serif; overflow-x: hidden; }
@@ -151,6 +153,8 @@ export default function AboutPage() {
                   alt="Profile"
                   width={208}
                   height={208}
+                  priority
+                  loading="eager"
                   className="w-full h-full object-cover transition-all duration-700"
                 />
               </div>
@@ -185,11 +189,7 @@ export default function AboutPage() {
           <div className="h-[2px] flex-1 min-w-[60px] bg-linear-to-l from-transparent via-indigo-500/40 to-indigo-500/80"></div>
         </div>
 
-        {/* Background Aesthetic Elements */}
-        <div className="absolute inset-0 pointer-events-none">
-          <div className="absolute top-[-10%] left-[-10%] w-[50%] h-[50%] bg-blue-600/5 blur-[120px] rounded-full animate-pulse" />
-          <div className="absolute bottom-[-10%] right-[-10%] w-[50%] h-[50%] bg-purple-600/5 blur-[120px] rounded-full animate-pulse" />
-        </div>
+
 
         {/* EDUCATION TITLE */}
         <motion.h2
