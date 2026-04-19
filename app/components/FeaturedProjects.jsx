@@ -153,13 +153,7 @@ const ProjectCard = ({ project, i }) => {
 
 export default function FeaturedProjects() {
   return (
-    <section className="relative w-full py-24 px-6 overflow-hidden bg-[#030712] transition-colors duration-500 selection:bg-cyan-500/30">
-      
-      {/* Background Decor: Atmosphere */}
-      <div className="absolute inset-0 pointer-events-none">
-        <div className="absolute top-[-10%] right-[-10%] w-[50%] h-[50%] bg-cyan-600/10 blur-[120px] rounded-full animate-pulse" />
-        <div className="absolute bottom-[-10%] left-[-10%] w-[50%] h-[50%] bg-indigo-600/10 blur-[120px] rounded-full animate-pulse" style={{ animationDelay: '2s' }} />
-      </div>
+    <section className="relative w-full py-24 px-6 overflow-hidden transition-colors duration-500 selection:bg-cyan-500/30">
 
       <div className="max-w-7xl mx-auto relative z-10">
         <header className="flex flex-col items-center text-center mb-20">

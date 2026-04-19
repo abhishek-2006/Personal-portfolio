@@ -1,16 +1,20 @@
 import Hero from "@/app/components/Hero";
 import FeaturedProjects from "@/app/components/FeaturedProjects";
 import MiniAbout from "@/app/components/MiniAbout";
+import ThreeBackground from "@/app/components/ThreeBackground";
 
 export default function Home() {
   return (
     <main className="relative flex min-h-screen flex-col overflow-hidden">
+      <ThreeBackground />
       {/* H1 for Search Engine indexing */}
       <h1 className="sr-only">Abhishek Shah | Professional Full-Stack Developer and Software Engineer</h1>
       
-      <Hero />
-      <MiniAbout />
-      <FeaturedProjects /> 
+      <div className="relative z-10 w-full">
+        <Hero />
+        <MiniAbout />
+        <FeaturedProjects /> 
+      </div>
 
       {/* Hidden section for SEO purposes */}
       <section className="sr-only">

@@ -59,15 +59,9 @@ export default function MiniAbout() {
   ];
 
   return (
-    <section className="relative w-full py-24 px-6 overflow-hidden bg-[#030712] flex flex-col items-center selection:bg-cyan-500/30">
+    <section className="relative w-full py-24 px-6 overflow-hidden flex flex-col items-center selection:bg-cyan-500/30">
       
-      {/* Background Glows */}
-      <div className="absolute inset-0 pointer-events-none">
-        <div 
-          className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[120%] h-[120%] opacity-20 blur-[120px] rounded-full"
-          style={{ background: "radial-gradient(circle, rgba(79, 70, 229, 0.15) 0%, transparent 70%)" }}
-        />
-      </div>
+
 
       <style>{`
         @import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap');
@@ -118,8 +112,8 @@ export default function MiniAbout() {
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.4 + (index * 0.1) }}
               viewport={{ once: true }}
-              whileHover={{ y: -5, backgroundColor: "rgba(255, 255, 255, 0.05)" }}
-              className="p-6 rounded-2xl bg-white/5 border border-white/5 transition-all text-left group"
+              whileHover={{ y: -5 }}
+              className="p-6 rounded-2xl bg-white/5 hover:bg-white/10 border border-white/5 transition-all text-left group"
             >
               <div className="mb-4 p-3 rounded-xl bg-slate-900 w-fit border border-white/5 group-hover:border-cyan-500/30 transition-colors">
                 {pillar.icon}

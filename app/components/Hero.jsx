@@ -15,7 +15,7 @@ import {
 
 import Image from "next/image";
 import { FaXTwitter as Twitter } from "react-icons/fa6";
-import Snowfall from "react-snowfall";
+
 
 const Typewriter = ({ strings, typeSpeed = 50, backSpeed = 30, delayBetween = 2000 }) => {
   const [index, setIndex] = useState(0);
@@ -72,23 +72,9 @@ export default function App() {
   };
 
   return (
-    <section className="relative min-h-[90vh] flex items-center overflow-hidden py-12 md:py-20 px-6 bg-[#030712] selection:bg-cyan-500/30">
+    <section className="relative min-h-[90vh] flex items-center overflow-hidden py-12 md:py-20 px-6 selection:bg-cyan-500/30">
 
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(imageSchema) }} />
-
-      <Snowfall 
-        snowflakeCount={100} 
-        style={{ position: 'absolute', width: '100%', height: '100%', zIndex: 0, pointerEvents: 'none' }} 
-        speed={[0.5, 1.5]} 
-        wind={[-0.5, 0.5]} 
-      />
-      
-      {/* --- OPTIMIZED BACKGROUND --- */}
-      <div className="absolute inset-0 pointer-events-none overflow-hidden">
-        <div className="absolute -top-[10%] -right-[10%] w-[70%] h-[60%] bg-cyan-500/10 blur-[60px] md:blur-[80px] rounded-full animate-pulse will-change-transform" />
-        <div className="absolute -bottom-[10%] -left-[10%] w-[70%] h-[60%] bg-indigo-600/10 blur-[60px] md:blur-[80px] rounded-full animate-pulse will-change-transform" style={{ animationDelay: '2s' }} />
-        <div className="absolute inset-0 bg-[url('/carbon-fibre.png')] opacity-[0.02]" />
-      </div>
 
       <style>{`
         @import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap');
