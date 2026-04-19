@@ -36,7 +36,25 @@ export const metadata = {
         "Contact Abhishek Shah for web development",
         "Contact Abhishek Shah for software development",
         "Contact Abhishek Shah for mobile app development",
-    ]
+    ],
+    twitter: {
+        card: "summary_large_image",
+        title: "Contact | Abhishek Shah",
+        description: "Get in touch with Abhishek Shah for projects or collaborations.",
+        images: ["/profile.jpg"],
+    },
+    robots: {
+        index: true,
+        follow: true,
+        googleBot: {
+            index: true,
+            follow: true,
+            "max-video-preview": -1,
+            "max-image-preview": "large",
+            "max-snippet": -1,
+        },
+    },
+    authors: [{ name: "Abhishek Shah", url: "https://abhishekshah-portfolio.vercel.app" }],
 };
 
 function ContactJsonLd() {
@@ -53,6 +71,13 @@ function ContactJsonLd() {
         "jobTitle": "Full-Stack Developer",
         "email": "shahabhishek051@gmail.com",
         "telephone": "+91 78610 53202",
+        "url": "https://abhishekshah-portfolio.vercel.app",
+        "sameAs": [
+          "https://github.com/abhishek-2006",
+          "https://linkedin.com/in/abhishekshah-dev/",
+          "https://twitter.com/AbhishekShah2006",
+          "https://instagram.com/abhishekshah_112"
+        ],
         "address": {
           "@type": "PostalAddress",
           "addressLocality": "Bardoli",
