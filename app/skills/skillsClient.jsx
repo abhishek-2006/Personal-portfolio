@@ -1,7 +1,7 @@
 "use client"
 
 import React from "react";
-import { motion } from "framer-motion";
+import { motion, AnimatePresence, useMotionValue, useSpring, useTransform, useMotionTemplate } from "framer-motion";
 import { 
   Code2, 
   Smartphone, 
@@ -13,6 +13,7 @@ import {
   ChevronRight
 } from "lucide-react";
 import { Icon } from "@iconify/react";
+import SkillsThreeScene from "../components/SkillsThreeScene";
 
 const TECH_STACK = [
   { name: "Next.js", icon: "logos:nextjs-icon", color: "#ffffff" },
@@ -82,13 +83,13 @@ const skills = [
     visible: { opacity: 1, y: 0 },
   };
 
-const HaloItem = ({ skill, index, total, isMobile }) => {
+const HaloItem = ({ skill, index, total, isMobile, setHoveredSkill }) => {
   const angle = (index / total) * (2 * Math.PI);
   const radius = isMobile ? 40 : (skill.size === 'lg' ? 38 : skill.size === 'md' ? 30 : 22);
   
   return (
     <motion.div
-      initial={{ opacity: 0, scale: 0 }}
+      initial={{ opacity: 0, scale: 0, left: "50%", top: "50%" }}
       whileInView={{ 
         opacity: 1, 
         scale: 1,
@@ -99,7 +100,12 @@ const HaloItem = ({ skill, index, total, isMobile }) => {
       viewport={{ once: true }}
       className="absolute -translate-x-1/2 -translate-y-1/2 group z-20"
     >
-      <div className={`
+      <motion.div 
+        animate={{ rotate: -360 }}
+        transition={{ repeat: Infinity, duration: 75, ease: "linear" }}
+        onMouseEnter={() => setHoveredSkill(skill)}
+        onMouseLeave={() => setHoveredSkill(null)}
+        className={`
         relative flex items-center justify-center rounded-2xl bg-slate-900/80 border border-white/10 backdrop-blur-xl transition-all duration-300 group-hover:scale-110 group-hover:border-white/20
         ${skill.size === 'lg' ? 'p-6 md:p-8 shadow-2xl' : skill.size === 'md' ? 'p-5 md:p-6 shadow-xl' : 'p-2 md:p-3 shadow-lg'}
       `}>
@@ -124,6 +130,103 @@ const HaloItem = ({ skill, index, total, isMobile }) => {
         <div className="absolute -bottom-8 left-1/2 -translate-x-1/2 px-2 py-0.5 rounded bg-slate-800 border border-white/10 text-[8px] md:text-[10px] font-black text-cyan-400 opacity-0 group-hover:opacity-100 transition-opacity whitespace-nowrap pointer-events-none uppercase tracking-widest z-50">
           {skill.name}
         </div>
+      </motion.div>
+    </motion.div>
+  );
+};
+
+
+const TiltCard = ({ category, index, cardVariants }) => {
+  const x = useMotionValue(0);
+  const y = useMotionValue(0);
+  const mouseX = useMotionValue(-1000);
+  const mouseY = useMotionValue(-1000);
+
+  const mouseXSpring = useSpring(x);
+  const mouseYSpring = useSpring(y);
+
+  const rotateX = useTransform(mouseYSpring, [-0.5, 0.5], ["10deg", "-10deg"]);
+  const rotateY = useTransform(mouseXSpring, [-0.5, 0.5], ["-10deg", "10deg"]);
+
+  const handleMouseMove = (e) => {
+    const rect = e.currentTarget.getBoundingClientRect();
+    const width = rect.width;
+    const height = rect.height;
+    const mx = e.clientX - rect.left;
+    const my = e.clientY - rect.top;
+    
+    x.set(mx / width - 0.5);
+    y.set(my / height - 0.5);
+    mouseX.set(mx);
+    mouseY.set(my);
+  };
+
+  const handleMouseLeave = () => {
+    x.set(0);
+    y.set(0);
+    mouseX.set(-1000);
+    mouseY.set(-1000);
+  };
+
+  const background = useMotionTemplate`radial-gradient(300px circle at ${mouseX}px ${mouseY}px, rgba(255,255,255,0.15), transparent 80%)`;
+
+  return (
+    <motion.div
+      variants={cardVariants}
+      style={{
+        rotateX,
+        rotateY,
+        transformStyle: "preserve-3d",
+      }}
+      onMouseMove={handleMouseMove}
+      onMouseLeave={handleMouseLeave}
+      className={`group relative p-[1px] rounded-[2rem] bg-linear-to-b from-white/20 via-transparent to-transparent transition-all duration-500 shadow-2xl ${category.glow}`}
+    >
+      <motion.div 
+        className="absolute inset-0 z-0 rounded-[2rem] pointer-events-none"
+        style={{ background }}
+      />
+      <div 
+        style={{ transform: "translateZ(30px)", transformStyle: "preserve-3d" }}
+        className="h-full rounded-[2rem] bg-slate-950/90 backdrop-blur-3xl p-7 flex flex-col border border-white/5 relative z-10"
+      >
+        {/* Visual Flair Background Icon */}
+        <div 
+          style={{ transform: "translateZ(-20px)" }}
+          className="absolute -right-4 -top-4 text-white/5 scale-[2.5] group-hover:text-white/10 transition-all duration-700 -rotate-12 group-hover:rotate-0"
+        >
+          {category.icon}
+        </div>
+
+        <div 
+          style={{ transform: "translateZ(40px)" }}
+          className="flex items-center gap-4 mb-8 relative z-10"
+        >
+          <div className={`p-3 rounded-2xl bg-linear-to-br ${category.color} shadow-lg ring-1 ring-white/20`}>
+            {React.cloneElement(category.icon, { className: "w-6 h-6 text-white" })}
+          </div>
+          <h2 className={`text-2xl font-bold bg-linear-to-r ${category.color} text-transparent bg-clip-text`}>
+            {category.title}
+          </h2>
+        </div>
+
+        {/* Chips Container */}
+        <div 
+          style={{ transform: "translateZ(20px)" }}
+          className="flex flex-wrap gap-2.5 mt-auto relative z-10"
+        >
+          {category.items.map((skill, idx) => (
+            <motion.span
+              key={idx}
+              initial={{ backgroundColor: "rgba(255, 255, 255, 0.05)", y: 0 }}
+              whileHover={{ scale: 1.05, backgroundColor: "rgba(255, 255, 255, 0.12)", y: -2 }}
+              className="px-4 py-2 rounded-xl text-slate-300 text-sm font-semibold border border-white/5 backdrop-blur-md transition-all cursor-default flex items-center gap-2 group/chip"
+            >
+              <div className={`w-1.5 h-1.5 rounded-full bg-linear-to-r ${category.color} shadow-[0_0_8px_rgba(255,255,255,0.2)] group-hover/chip:scale-125 transition-transform`} />
+              {skill}
+            </motion.span>
+          ))}
+        </div>
       </div>
     </motion.div>
   );
@@ -131,19 +234,51 @@ const HaloItem = ({ skill, index, total, isMobile }) => {
 
 export default function SkillsClient() {
   const [isMobile, setIsMobile] = React.useState(false);
+  const [hoveredSkill, setHoveredSkill] = React.useState(null);
+
+  const mouseX = useMotionValue(0);
+  const mouseY = useMotionValue(0);
+
+  const springConfig = { damping: 25, stiffness: 100 };
+  const smoothMouseX = useSpring(mouseX, springConfig);
+  const smoothMouseY = useSpring(mouseY, springConfig);
+
+  const wheelRotateX = useTransform(smoothMouseY, [-0.5, 0.5], ["15deg", "-15deg"]);
+  const wheelRotateY = useTransform(smoothMouseX, [-0.5, 0.5], ["-15deg", "15deg"]);
 
   React.useEffect(() => {
     const checkRes = () => setIsMobile(window.innerWidth < 768);
     checkRes();
     window.addEventListener('resize', checkRes);
-    return () => window.removeEventListener('resize', checkRes);
-  }, []);
+
+    const handleGlobalMouseMove = (e) => {
+      if (window.innerWidth < 768) return;
+      const xPct = e.clientX / window.innerWidth - 0.5;
+      const yPct = e.clientY / window.innerHeight - 0.5;
+      mouseX.set(xPct);
+      mouseY.set(yPct);
+    };
+    window.addEventListener('mousemove', handleGlobalMouseMove);
+
+    return () => {
+      window.removeEventListener('resize', checkRes);
+      window.removeEventListener('mousemove', handleGlobalMouseMove);
+    };
+  }, [mouseX, mouseY]);
 
   return (
     
-    <div className="min-h-screen w-full bg-[#030712] text-white pt-16 pb-20 px-6 relative overflow-hidden selection:bg-purple-500/30">
+    <div className="min-h-screen w-full text-white pt-16 pb-20 px-6 relative overflow-hidden selection:bg-purple-500/30">
+      {/* Base Background Color */}
+      <div className="absolute inset-0 bg-[#030712] z-0" />
+      
+      {/* 3D Scene Layer */}
+      <div className="absolute inset-0 z-10 pointer-events-none">
+        <SkillsThreeScene />
+      </div>
+
       {/* Dynamic Background Glows */}
-      <div className="absolute top-0 left-0 w-full h-full pointer-events-none">
+      <div className="absolute top-0 left-0 w-full h-full pointer-events-none z-10">
         <div className="absolute top-[-5%] left-[-5%] w-[35%] h-[35%] bg-cyan-500/10 blur-[100px] rounded-full animate-pulse" />
         <div className="absolute bottom-[-5%] right-[-5%] w-[35%] h-[35%] bg-purple-500/10 blur-[100px] rounded-full animate-pulse" />
       </div>
@@ -153,7 +288,7 @@ export default function SkillsClient() {
         body { font-family: 'Plus Jakarta Sans', sans-serif; overflow-x: hidden; }
       `}</style>
 
-      <div className="max-w-7xl mx-auto relative z-10">
+      <div className="max-w-7xl mx-auto relative z-20">
         {/* Header Section */}
         <motion.div
           initial={{ opacity: 0, y: -20 }}
@@ -187,42 +322,7 @@ export default function SkillsClient() {
           className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-6"
         >
           {skills.map((category, index) => (
-            <motion.div
-              key={index}
-              variants={cardVariants}
-              whileHover={{ y: -8 }}
-              className={`group relative p-[1px] rounded-[2rem] bg-linear-to-b from-white/20 via-transparent to-transparent transition-all duration-500 shadow-2xl ${category.glow}`}
-            >
-              <div className="h-full rounded-[2rem] bg-slate-950/90 backdrop-blur-3xl p-7 flex flex-col border border-white/5 overflow-hidden">
-                {/* Visual Flair Background Icon */}
-                <div className="absolute -right-4 -top-4 text-white/5 scale-[2.5] group-hover:text-white/10 transition-all duration-700 -rotate-12 group-hover:rotate-0">
-                  {category.icon}
-                </div>
-
-                <div className="flex items-center gap-4 mb-8 relative z-10">
-                  <div className={`p-3 rounded-2xl bg-linear-to-br ${category.color} shadow-lg ring-1 ring-white/20`}>
-                    {React.cloneElement(category.icon, { className: "w-6 h-6 text-white" })}
-                  </div>
-                  <h2 className={`text-2xl font-bold bg-linear-to-r ${category.color} text-transparent bg-clip-text`}>
-                    {category.title}
-                  </h2>
-                </div>
-
-                {/* Chips Container */}
-                <div className="flex flex-wrap gap-2.5 mt-auto relative z-10">
-                  {category.items.map((skill, idx) => (
-                    <motion.span
-                      key={idx}
-                      whileHover={{ scale: 1.05, backgroundColor: "rgba(255,255,255,0.12)" }}
-                      className="px-4 py-2 rounded-xl bg-white/5 text-slate-300 text-sm font-semibold border border-white/5 backdrop-blur-md transition-all cursor-default flex items-center gap-2 group/chip"
-                    >
-                      <div className={`w-1.5 h-1.5 rounded-full bg-linear-to-r ${category.color} shadow-[0_0_8px_rgba(255,255,255,0.2)] group-hover/chip:scale-125 transition-transform`} />
-                      {skill}
-                    </motion.span>
-                  ))}
-                </div>
-              </div>
-            </motion.div>
+            <TiltCard key={index} category={category} index={index} cardVariants={cardVariants} />
           ))}
 
           {/* Closing/Evolution Card */}
@@ -242,21 +342,59 @@ export default function SkillsClient() {
           </motion.div>
         </motion.div>
 
-        <div className="flex flex-col items-center mt-12 md:mt-6 lg:mt-0 mb-2 lg:mb-0">
+        <div className="flex flex-col items-center mt-12 md:mt-6 lg:mt-0 mb-2 lg:mb-0 w-full max-w-[800px] mx-auto" style={{ perspective: 1200 }}>
           {/* The Halo Container */}
-          <div className="relative w-full max-w-[800px] aspect-square flex items-center justify-center">
+          <motion.div 
+            style={{ 
+              rotateX: isMobile ? 0 : wheelRotateX,
+              rotateY: isMobile ? 0 : wheelRotateY,
+              transformStyle: "preserve-3d" 
+            }}
+            className="relative w-full aspect-square flex items-center justify-center"
+          >
             {/* Dynamic background rings */}
             <div className="absolute inset-[25%] rounded-full border border-white/3 animate-[spin_60s_linear_infinite]" />
             <div className="absolute inset-[50%] rounded-full border border-white/5 animate-[spin_40s_linear_infinite_reverse]" />
             
             {/* Center Brand / Signature */}
             <motion.div 
-              animate={{ scale: [0.95, 1.05, 0.95], opacity: [0.5, 1, 0.5] }}
-              transition={{ duration: 4, repeat: Infinity }}
-              className="relative z-10 w-24 h-24 md:w-32 md:h-32 rounded-full bg-slate-950 border border-white/10 flex items-center justify-center backdrop-blur-2xl shadow-[0_0_50px_rgba(255,255,255,0.05)]"
+              animate={hoveredSkill ? { scale: 1.05, opacity: 1 } : { scale: [0.95, 1.05, 0.95], opacity: [0.5, 1, 0.5] }}
+              transition={hoveredSkill ? { duration: 0.2 } : { duration: 4, repeat: Infinity }}
+              className="relative z-10 w-24 h-24 md:w-32 md:h-32 rounded-full bg-slate-950 border border-white/10 flex items-center justify-center backdrop-blur-2xl shadow-[0_0_50px_rgba(255,255,255,0.05)] overflow-hidden"
             >
-              <p className="text-center text-sm md:text-base font-bold text-white tracking-widest uppercase px-4">Skills</p>
-              <div className="absolute inset-0 rounded-full border-t border-cyan-500/30 animate-spin" />
+              <AnimatePresence>
+                {hoveredSkill ? (
+                  <motion.div 
+                    key={hoveredSkill.name}
+                    initial={{ opacity: 0, scale: 0.8 }}
+                    animate={{ opacity: 1, scale: 1 }}
+                    exit={{ opacity: 0, scale: 0.8 }}
+                    transition={{ duration: 0.15 }}
+                    className="absolute inset-0 flex flex-col items-center justify-center bg-slate-950 z-20"
+                  >
+                    <Icon 
+                      icon={hoveredSkill.icon} 
+                      className="w-8 h-8 md:w-10 md:h-10 mb-1" 
+                      style={{ color: hoveredSkill.name === "GitHub" ? hoveredSkill.color : undefined }}
+                    />
+                    <p className="text-center text-[10px] md:text-xs font-bold text-white tracking-widest uppercase px-1 leading-tight">{hoveredSkill.name}</p>
+                  </motion.div>
+                ) : (
+                  <motion.div 
+                    key="default"
+                    initial={{ opacity: 0, scale: 0.8 }}
+                    animate={{ opacity: 1, scale: 1 }}
+                    exit={{ opacity: 0, scale: 0.8 }}
+                    transition={{ duration: 0.15 }}
+                    className="absolute inset-0 flex items-center justify-center z-10"
+                  >
+                    <p className="text-center text-sm md:text-base font-bold text-white tracking-widest uppercase px-4">
+                      Skills
+                    </p>
+                  </motion.div>
+                )}
+              </AnimatePresence>
+              <div className="absolute inset-0 rounded-full border-t border-cyan-500/30 animate-spin pointer-events-none z-30" />
             </motion.div>
 
             <motion.div
@@ -265,10 +403,10 @@ export default function SkillsClient() {
               transition={{ repeat: Infinity, duration: 75, ease: "linear" }}
             >
               {TECH_STACK.map((skill, idx) => (
-                <HaloItem key={skill.name} skill={skill} index={idx} total={TECH_STACK.length} isMobile={isMobile} />
+                <HaloItem key={skill.name} skill={skill} index={idx} total={TECH_STACK.length} isMobile={isMobile} setHoveredSkill={setHoveredSkill} />
               ))}
             </motion.div>
-          </div>
+          </motion.div>
         </div>
 
         {/* Footer Link */}
