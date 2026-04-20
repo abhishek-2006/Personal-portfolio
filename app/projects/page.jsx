@@ -1,6 +1,6 @@
 export const metadata = {
-    title: 'Projects | Abhishek Shah',
-    description: "Abhishek Shah’s portfolio projects featuring full-stack apps, modern web solutions, and real-world development work.",
+    title: 'Projects & Portfolio | Abhishek Shah',
+    description: "Explore Abhishek Shah’s portfolio of real-world projects, featuring full-stack applications, modern web solutions, mobile apps, and scalable systems.",
     alternates: {
       canonical: "https://abhishekshah-portfolio.vercel.app/projects",
     },
@@ -23,17 +23,86 @@ export const metadata = {
         "Modern web projects",
         "Abhishek Shah development work",
         "Abhishek Shah project showcase",
+        "Frontend projects",
+        "Backend projects"
     ],
     openGraph: {
-        title: 'Projects | Abhishek Shah',
-        description: "Abhishek Shah’s portfolio projects featuring full-stack apps, modern web solutions, and real-world development work.",
+        title: 'Projects & Portfolio | Abhishek Shah',
+        description: "Explore Abhishek Shah’s portfolio of real-world projects, featuring full-stack applications, modern web solutions, mobile apps, and scalable systems.",
         url: "https://abhishekshah-portfolio.vercel.app/projects",
         siteName: "Abhishek Shah Portfolio",
+        images: [{ url: "/profile.jpg", width: 1200, height: 630, alt: "Abhishek Shah Projects Portfolio" }],
+        type: "website",
     },
+    twitter: {
+      card: "summary_large_image",
+      title: "Projects & Portfolio | Abhishek Shah",
+      description: "Explore Abhishek Shah’s portfolio of real-world projects, featuring full-stack applications, modern web solutions, mobile apps, and scalable systems.",
+      images: ["/profile.jpg"],
+    },
+    robots: {
+      index: true,
+      follow: true,
+      googleBot: {
+        index: true,
+        follow: true,
+        "max-video-preview": -1,
+        "max-image-preview": "large",
+        "max-snippet": -1,
+      },
+    },
+    authors: [{ name: "Abhishek Shah", url: "https://abhishekshah-portfolio.vercel.app" }],
 };
+
+function ProjectsJsonLd() {
+  const jsonLd = [
+    {
+      "@context": "https://schema.org",
+      "@type": "CollectionPage",
+      "name": "Projects & Portfolio | Abhishek Shah",
+      "description": "A collection of software development projects by Abhishek Shah.",
+      "url": "https://abhishekshah-portfolio.vercel.app/projects",
+      "author": {
+        "@type": "Person",
+        "name": "Abhishek Shah",
+        "url": "https://abhishekshah-portfolio.vercel.app"
+      }
+    },
+    {
+      "@context": "https://schema.org",
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "Home",
+          "item": "https://abhishekshah-portfolio.vercel.app"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "Projects",
+          "item": "https://abhishekshah-portfolio.vercel.app/projects"
+        }
+      ]
+    }
+  ];
+
+  return (
+    <script
+      type="application/ld+json"
+      dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+    />
+  );
+}
 
 import ProjectsPage from "./ProjectsPage";
 
 export default function page() {
-    return <ProjectsPage />;
+    return (
+      <>
+        <ProjectsJsonLd />
+        <ProjectsPage />
+      </>
+    );
 }
