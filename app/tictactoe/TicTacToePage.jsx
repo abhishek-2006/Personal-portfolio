@@ -69,8 +69,15 @@ export default function App() {
   const [winData, setWinData] = useState({ url: "", size: "Unknown", downloads: 0 });
   const [version, setVersion] = useState("v1.3.0");
   const [isMounted, setIsMounted] = useState(false);
-  const [os, setOs] = useState("android");
   const [previewImage, setPreviewImage] = useState(null);
+
+  let os = "android";
+  if (typeof window !== "undefined") {
+    const ua = window.navigator.userAgent.toLowerCase();
+    if (ua.includes("windows")) os = "windows";
+    else if (ua.includes("android")) os = "android";
+    else os = "other";
+  }
 
   const game = {
     title: "TicTacToe",
@@ -113,11 +120,6 @@ export default function App() {
   useEffect(() => {
     const mountTimer = setTimeout(() => setIsMounted(true), 0);
 
-    const ua = navigator.userAgent.toLowerCase();
-    if (ua.includes("windows")) setOs("windows");
-    else if (ua.includes("android")) setOs("android");
-    else setOs("other");
-
     const fetchRelease = async () => {
       try {
         const res = await fetch(
@@ -146,7 +148,7 @@ export default function App() {
           } else {
             setWinData({
               url: data.html_url,
-              size: "N/A",
+              size: (winAsset.size / (1024 * 1024)).toFixed(1) + " MB",
               downloads: 0
             });
           }
