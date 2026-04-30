@@ -92,7 +92,7 @@ export default function App() {
             className="relative gpu-accelerate"
           >
             {/* Glow beneath profile */}
-            <div className="absolute inset-0 bg-cyan-500/15 blur-2xl rounded-full animate-pulse" />
+            <div className="absolute inset-0 rounded-full animate-pulse bg-[radial-gradient(circle,rgba(6,182,212,0.15)_0%,transparent_70%)]" />
 
             <div className="relative z-10 p-1.5 md:p-2 rounded-[2.5rem] bg-white/5 border border-white/10 backdrop-blur-sm">
               <div className="relative rounded-[2.3rem] overflow-hidden border-2 md:border-4 border-slate-900 bg-slate-800 w-56 h-56 sm:w-64 sm:h-64 md:w-80 md:h-80">

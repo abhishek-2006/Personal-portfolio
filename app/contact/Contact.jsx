@@ -2,14 +2,14 @@
 import { useState } from "react";
 import { motion, AnimatePresence, useMotionValue, useSpring, useTransform } from "framer-motion";
 import { FaXTwitter as Twitter } from "react-icons/fa6";
-import { 
-  Mail, 
-  Phone, 
-  MapPin, 
-  Send, 
-  Github, 
-  Instagram, 
-  Linkedin, 
+import {
+  Mail,
+  Phone,
+  MapPin,
+  Send,
+  Github,
+  Instagram,
+  Linkedin,
   CheckCircle2,
   Sparkles,
   AlertCircle
@@ -63,7 +63,7 @@ const TiltWrapper = ({ children, isClickable = false, className = "", depth = 20
 };
 
 export default function ContactPage() {
-  const [formState, setFormState] = useState("idle"); 
+  const [formState, setFormState] = useState("idle");
 
   const colors = {
     blue400: "#60a5fa",
@@ -133,9 +133,9 @@ export default function ContactPage() {
       `}</style>
 
       <div className="max-w-6xl mx-auto relative z-10" style={{ perspective: 1200 }}>
-        
+
         {/* Header Section */}
-        <motion.div 
+        <motion.div
           initial={{ opacity: 0, y: -20 }}
           animate={{ opacity: 1, y: 0 }}
           className="text-center max-w-2xl mx-auto mb-12 md:mb-20"
@@ -149,26 +149,26 @@ export default function ContactPage() {
               Get in Touch
             </h1>
             <p className="text-base md:text-xl text-slate-300 leading-relaxed font-medium px-4 drop-shadow-lg">
-              Have a project idea or just want to discuss the future of tech? 
+              Have a project idea or just want to discuss the future of tech?
               <span className="text-white"> My inbox is always open.</span>
             </p>
           </TiltWrapper>
         </motion.div>
 
-        <motion.div 
+        <motion.div
           variants={containerVariants}
           initial="hidden"
           animate="visible"
           className="grid grid-cols-1 lg:grid-cols-2 gap-6 md:gap-12"
           style={{ transformStyle: "preserve-3d" }}
         >
-          
+
           {/* LEFT: Info Card Side */}
           <motion.div variants={itemVariants} style={{ transformStyle: "preserve-3d" }}>
             <TiltWrapper className="h-full" depth={20}>
               <div className="h-full p-6 md:p-10 rounded-4xl md:rounded-[2.5rem] bg-black/40 backdrop-blur-xl border border-white/10 shadow-[0_0_40px_rgba(37,99,235,0.15)] relative overflow-hidden group">
                 <div className="absolute -right-10 -top-10 w-32 h-32 md:w-40 md:h-40 bg-blue-500/10 rounded-full blur-3xl group-hover:bg-blue-500/20 transition-colors duration-700" />
-                
+
                 <h2 className="text-2xl md:text-3xl font-bold mb-8 md:mb-10 flex items-center gap-3 drop-shadow-md">
                   Contact Info
                   <div className="h-px flex-1 bg-linear-to-r from-white/20 to-transparent" />
@@ -206,7 +206,7 @@ export default function ContactPage() {
                       { icon: <Instagram size={18} />, label: "Instagram", url: "https://instagram.com/abhishekshah_112" },
                       { icon: <Linkedin size={18} />, label: "LinkedIn", url: "https://linkedin.com/in/abhishekshah-dev/" },
                       { icon: <Twitter size={18} />, label: "Twitter", url: "https://twitter.com/shahabhishek409" }
-                      
+
                     ].map((social, idx) => (
                       <TiltWrapper key={idx} isClickable={true} depth={20}>
                         <a
@@ -229,13 +229,13 @@ export default function ContactPage() {
           {/* RIGHT: Form Card Side */}
           <motion.div variants={itemVariants} style={{ transformStyle: "preserve-3d" }}>
             <TiltWrapper className="h-full" depth={20}>
-              <form 
+              <form
                 onSubmit={handleSubmit}
                 className="h-full p-6 md:p-10 rounded-4xl md:rounded-[2.5rem] bg-black/40 backdrop-blur-xl border border-white/10 shadow-[0_0_40px_rgba(37,99,235,0.15)] relative"
                 style={{ transformStyle: "preserve-3d" }}
               >
                 <h2 className="cursor-pointer text-2xl md:text-3xl font-bold mb-6 md:mb-8 drop-shadow-md">Send a Message</h2>
-                
+
                 <div className="space-y-4 md:space-y-6" style={{ perspective: 800 }}>
                   <TiltWrapper isClickable={true} depth={10}>
                     <input
@@ -282,7 +282,7 @@ export default function ContactPage() {
                       disabled={formState !== "idle"}
                       type="submit"
                       initial={false}
-                      animate={{ 
+                      animate={{
                         backgroundColor: formState === "success" ? colors.green500 : formState === "error" ? colors.red500 : colors.blue600,
                       }}
                       className="cursor-pointer w-full py-4 md:py-5 rounded-xl md:rounded-2xl font-bold text-base md:text-lg flex items-center justify-center gap-2 md:gap-3 transition-shadow shadow-[0_0_20px_rgba(37,99,235,0.4)] hover:shadow-[0_0_30px_rgba(37,99,235,0.6)] relative overflow-hidden text-white"
@@ -317,7 +317,7 @@ export default function ContactPage() {
                 {/* Status Message Display */}
                 <AnimatePresence>
                   {formState === "success" && (
-                    <motion.div 
+                    <motion.div
                       initial={{ opacity: 0, y: 10 }}
                       animate={{ opacity: 1, y: 0 }}
                       exit={{ opacity: 0, y: -10 }}
@@ -328,7 +328,7 @@ export default function ContactPage() {
                     </motion.div>
                   )}
                   {formState === "error" && (
-                    <motion.div 
+                    <motion.div
                       initial={{ opacity: 0, y: 10 }}
                       animate={{ opacity: 1, y: 0 }}
                       exit={{ opacity: 0, y: -10 }}
@@ -350,7 +350,7 @@ export default function ContactPage() {
         </motion.div>
 
         {/* Closing Footnote */}
-        <motion.div 
+        <motion.div
           initial={{ opacity: 0 }}
           whileInView={{ opacity: 1 }}
           className="mt-16 md:mt-24 text-center text-slate-500 font-bold tracking-[0.3em] uppercase text-[8px] md:text-[10px]"

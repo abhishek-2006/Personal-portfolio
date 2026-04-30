@@ -80,10 +80,10 @@ export default function ProjectsPage() {
   return (
     <div className="min-h-screen w-full bg-[#030712] text-white pt-24 pb-20 px-6 relative overflow-hidden selection:bg-cyan-500/30">
       
-      {/* Background Aesthetic Glows */}
+      {/* Background Aesthetic Glows (Optimized) */}
       <div className="absolute top-0 left-0 w-full h-full pointer-events-none">
-        <div className="absolute top-[-10%] right-[-10%] w-[50%] h-[50%] bg-blue-600/10 blur-[120px] rounded-full animate-pulse" />
-        <div className="absolute bottom-[-10%] left-[-10%] w-[50%] h-[50%] bg-purple-600/10 blur-[120px] rounded-full animate-pulse" />
+        <div className="absolute top-[-10%] right-[-10%] w-[50%] h-[50%] rounded-full animate-pulse bg-[radial-gradient(circle,rgba(37,99,235,0.15)_0%,transparent_60%)]" />
+        <div className="absolute bottom-[-10%] left-[-10%] w-[50%] h-[50%] rounded-full animate-pulse bg-[radial-gradient(circle,rgba(147,51,234,0.15)_0%,transparent_60%)]" style={{ animationDelay: '2s' }} />
       </div>
 
       <style>{`

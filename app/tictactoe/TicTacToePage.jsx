@@ -54,7 +54,7 @@ function TiltCard({ children, className, tiltStrength = 15 }) {
       <motion.div
         onMouseMove={handleMouseMove}
         onMouseLeave={handleMouseLeave}
-        style={{ rotateX, rotateY, transformStyle: "preserve-3d" }}
+        style={{ rotateX, rotateY, transformStyle: "preserve-3d", willChange: "transform" }}
         className="w-full h-full"
       >
         {children}
@@ -193,45 +193,68 @@ export default function App() {
 
   return (
     <div className="min-h-screen bg-[#030712] text-white overflow-x-hidden selection:bg-cyan-500/30 font-sans">
-      {/* Scrollbar Removal Styles   */}
+      {/* Styles & Performance Keyframes */}
       <style>{`
         .no-scrollbar::-webkit-scrollbar { display: none; }
         .no-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
+        
+        @keyframes float1 {
+          0% { transform: rotateX(0deg) rotateY(0deg) translateY(0px); }
+          50% { transform: rotateX(180deg) rotateY(180deg) translateY(-50px); }
+          100% { transform: rotateX(360deg) rotateY(360deg) translateY(0px); }
+        }
+        @keyframes float2 {
+          0% { transform: rotateX(0deg) rotateY(0deg) translateY(0px); }
+          50% { transform: rotateX(-180deg) rotateY(180deg) translateY(50px); }
+          100% { transform: rotateX(-360deg) rotateY(360deg) translateY(0px); }
+        }
+        @keyframes float3 {
+          0% { transform: rotateX(0deg) rotateZ(0deg) translateX(0px); }
+          50% { transform: rotateX(180deg) rotateZ(180deg) translateX(50px); }
+          100% { transform: rotateX(360deg) rotateZ(360deg) translateX(0px); }
+        }
+        @keyframes float4 {
+          0% { transform: rotateX(0deg) rotateY(0deg) scale(1); }
+          50% { transform: rotateX(180deg) rotateY(180deg) scale(1.2); }
+          100% { transform: rotateX(360deg) rotateY(360deg) scale(1); }
+        }
+        @keyframes heroGlow {
+          0%, 100% { transform: scale(1) translateZ(-30px); opacity: 0.4; }
+          50% { transform: scale(1.05) translateZ(-30px); opacity: 0.6; }
+        }
+
+        .anim-float1 { animation: float1 20s linear infinite; }
+        .anim-float2 { animation: float2 25s linear infinite; }
+        .anim-float3 { animation: float3 15s linear infinite; }
+        .anim-float4 { animation: float4 30s linear infinite; }
+        .anim-hero-glow { animation: heroGlow 3s ease-in-out infinite; }
       `}</style>
 
-      {/* Background Ambience */}
+      {/* Background Ambience (Optimized for Mobile GPU) */}
       <div className="fixed inset-0 pointer-events-none z-0 overflow-hidden" style={{ perspective: 1000 }}>
-        <div className="absolute top-[-10%] right-[-10%] w-[600px] h-[600px] bg-cyan-600/10 blur-[140px] rounded-full animate-pulse" />
-        <div className="absolute bottom-[-10%] left-[-10%] w-[600px] h-[600px] bg-indigo-600/10 blur-[140px] rounded-full animate-pulse" style={{ animationDelay: '2s' }} />
+        <div className="absolute top-[-10%] right-[-10%] w-[600px] h-[600px] rounded-full animate-pulse bg-[radial-gradient(circle,rgba(8,145,178,0.15)_0%,transparent_60%)]" />
+        <div className="absolute bottom-[-10%] left-[-10%] w-[600px] h-[600px] rounded-full animate-pulse bg-[radial-gradient(circle,rgba(79,70,229,0.15)_0%,transparent_60%)]" style={{ animationDelay: '2s' }} />
 
-        {/* Floating 3D Shapes */}
-        <motion.div
-          animate={{ rotateX: [0, 360], rotateY: [0, 360], y: [0, -50, 0] }}
-          transition={{ duration: 20, repeat: Infinity, ease: "linear" }}
-          className="absolute top-[20%] left-[10%] w-32 h-32 bg-linear-to-tr from-cyan-500/20 to-transparent border border-cyan-500/20 rounded-3xl backdrop-blur-sm"
-          style={{ transformStyle: "preserve-3d" }}
+        {/* Floating 3D Shapes (Offloaded to CSS Animations) */}
+        <div
+          className="absolute top-[20%] left-[10%] w-32 h-32 bg-linear-to-tr from-cyan-500/20 to-transparent border border-cyan-500/20 rounded-3xl backdrop-blur-sm anim-float1"
+          style={{ transformStyle: "preserve-3d", willChange: "transform" }}
         />
-        <motion.div
-          animate={{ rotateX: [0, -360], rotateY: [0, 360], y: [0, 50, 0] }}
-          transition={{ duration: 25, repeat: Infinity, ease: "linear" }}
-          className="absolute top-[60%] right-[10%] w-48 h-48 bg-linear-to-br from-indigo-500/10 to-transparent border border-indigo-500/10 rounded-full backdrop-blur-sm"
-          style={{ transformStyle: "preserve-3d" }}
+        <div
+          className="absolute top-[60%] right-[10%] w-48 h-48 bg-linear-to-br from-indigo-500/10 to-transparent border border-indigo-500/10 rounded-full backdrop-blur-sm anim-float2"
+          style={{ transformStyle: "preserve-3d", willChange: "transform" }}
         />
-        <motion.div
-          animate={{ rotateX: [0, 360], rotateZ: [0, 360], x: [0, 50, 0] }}
-          transition={{ duration: 15, repeat: Infinity, ease: "linear" }}
-          className="absolute top-[80%] left-[30%] w-24 h-24 bg-linear-to-bl from-rose-500/10 to-transparent border border-rose-500/10 rounded-xl backdrop-blur-sm"
-          style={{ transformStyle: "preserve-3d" }}
+        <div
+          className="absolute top-[80%] left-[30%] w-24 h-24 bg-linear-to-bl from-rose-500/10 to-transparent border border-rose-500/10 rounded-xl backdrop-blur-sm anim-float3"
+          style={{ transformStyle: "preserve-3d", willChange: "transform" }}
         />
-        <motion.div
-          animate={{ rotateX: [0, 360], rotateY: [0, 360], scale: [1, 1.2, 1] }}
-          transition={{ duration: 30, repeat: Infinity, ease: "linear" }}
-          className="absolute top-[40%] left-[60%] w-64 h-64 border-[1px] border-cyan-500/10 rounded-full backdrop-blur-xs"
-          style={{ transformStyle: "preserve-3d" }}
+        <div
+          className="absolute top-[40%] left-[60%] w-64 h-64 border-[1px] border-cyan-500/10 rounded-full backdrop-blur-xs anim-float4"
+          style={{ transformStyle: "preserve-3d", willChange: "transform" }}
         >
           <div className="absolute inset-0 border-[1px] border-indigo-500/10 rounded-full" style={{ transform: "rotateX(90deg)" }}></div>
           <div className="absolute inset-0 border-[1px] border-rose-500/10 rounded-full" style={{ transform: "rotateY(90deg)" }}></div>
-        </motion.div>
+        </div>
       </div>
 
       <div className="max-w-6xl mx-auto px-6 py-10 relative z-10">
@@ -268,13 +291,11 @@ export default function App() {
             style={{ perspective: 1200 }}
           >
             <TiltCard tiltStrength={20} className="relative group w-full max-w-sm">
-              <motion.div
-                animate={{ scale: [1, 1.05, 1], opacity: [0.4, 0.6, 0.4] }}
-                transition={{ duration: 3, repeat: Infinity, ease: "easeInOut" }}
-                className="absolute -inset-6 bg-linear-to-tr from-cyan-500/50 to-indigo-500/50 rounded-[4.5rem] blur-2xl group-hover:opacity-80 transition duration-1000"
-                style={{ transform: "translateZ(-30px)" }}
+              <div
+                className="absolute -inset-6 bg-linear-to-tr from-cyan-500/50 to-indigo-500/50 rounded-[4.5rem] blur-2xl group-hover:opacity-80 transition duration-1000 anim-hero-glow"
+                style={{ willChange: "transform, opacity" }}
               />
-              <div className="relative" style={{ transform: "translateZ(40px)" }}>
+              <div className="relative" style={{ transform: "translateZ(20px)" }}>
                 <Image src={game.logo} loading="eager" alt="Game Logo" width={320} height={320} className="w-64 h-64 md:w-80 md:h-80 rounded-[3.5rem] object-cover" />
               </div>
             </TiltCard>
