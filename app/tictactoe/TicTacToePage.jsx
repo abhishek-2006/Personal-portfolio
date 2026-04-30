@@ -182,7 +182,7 @@ export default function App() {
     setDownloadingType(type);
     const a = document.createElement("a");
     a.href = targetUrl;
-    a.download = type === 'android' ? "TicTacToe_Abhishek.apk" : "TicTacToe_Abhishek.zip";
+    a.download = type === 'android' ? "TicTacToe_Abhishek.apk" : "TicTacToe_Abhishek.exe";
     document.body.appendChild(a);
     a.click();
     document.body.removeChild(a);
