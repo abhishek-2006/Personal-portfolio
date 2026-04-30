@@ -184,7 +184,7 @@ export default function App() {
 
             <div className="flex flex-wrap gap-4 justify-center lg:justify-start">
               {[
-                { icon: <Smartphone size={14} />, label: "Device", value: "Android 11+" },
+                { icon: <Smartphone size={14} />, label: "Device", value: "Android 8+" },
                 { icon: <Activity size={14} />, label: "Size", value: size },
                 { icon: <ShieldCheck size={14} />, label: "Version", value: version },
                 { icon: <Download size={14} />, label: "Downloads", value: downloads },
