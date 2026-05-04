@@ -1,5 +1,5 @@
 <div align="center">
-  <img src="public/favicon.ico" alt="Logo" width="80" height="80" />
+  <img src="app/favicon.ico" alt="Logo" width="80" height="80" />
   <h1 align="center">Abhishek Shah | Interactive Developer Portfolio</h1>
   <p align="center">
     A highly optimized, 3D-integrated personal portfolio built with <strong>Next.js 16</strong>, <strong>TailwindCSS 4</strong>, and <strong>Three.js</strong>.

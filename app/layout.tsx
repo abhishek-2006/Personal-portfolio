@@ -27,6 +27,9 @@ const siteConfig = {
     "Abhishek Shah Portfolio", 
     "Projects", 
     "Abhishek Shah Projects",
+    "MERN Stack Projects",
+    "MERN Stack Developer",
+    "Full-Stack Developer",
     "Abhishek Projects",
     "Software Engineer", 
     "Web Developer",
@@ -115,7 +118,7 @@ function JsonLd() {
       "image": "https://abhishekshah-portfolio.vercel.app/profile.jpg",
       "sameAs": [
         "https://github.com/abhishek-2006",
-        "https://www.linkedin.com/in/abhishek-shah-aa1346326/",
+        "https://www.linkedin.com/in/abhishekshah-dev/",
         "https://x.com/shahabhishek409",
         "https://www.instagram.com/abhishekshah_112/"
       ]
