@@ -76,14 +76,12 @@ export default function App() {
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(imageSchema) }} />
 
       <style>{`
-        @import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap');
-        body { font-family: 'Plus Jakarta Sans', sans-serif; overflow-x: hidden; }
         .gpu-accelerate { transform: translateZ(0); backface-visibility: hidden; will-change: transform; }
       `}</style>
 
       <div className="max-w-7xl mx-auto grid lg:grid-cols-12 gap-10 lg:gap-16 items-center relative z-10 w-full">
         
-        {/* --- LEFT: PROFILE (VISUAL) --- */}
+        {/* PROFILE */}
         <div className="lg:col-span-5 flex justify-center lg:justify-start relative">
           <motion.div
             initial={{ scale: 0.95, opacity: 0 }}
@@ -102,7 +100,8 @@ export default function App() {
                   width={700}
                   height={700}
                   className="w-full h-full object-cover"
-                  loading="eager"
+                  priority={true}
+                  sizes="(max-width: 640px) 256px, (max-width: 768px) 320px, 400px"
                   onError={(e) => {
                     e.target.onerror = null;
                     e.target.src = "https://placehold.co/600x600/1e293b/FFFFFF/png?text=AS";

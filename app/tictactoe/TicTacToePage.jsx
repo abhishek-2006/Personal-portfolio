@@ -232,12 +232,12 @@ export default function App() {
         .anim-hero-glow { animation: heroGlow 3s ease-in-out infinite; }
       `}</style>
 
-      {/* Background Ambience (Optimized for Mobile GPU) */}
+      {/* Background Ambience */}
       <div className="fixed inset-0 pointer-events-none z-0 overflow-hidden" style={{ perspective: 1000 }}>
         <div className="absolute top-[-10%] right-[-10%] w-[600px] h-[600px] rounded-full animate-pulse bg-[radial-gradient(circle,rgba(8,145,178,0.15)_0%,transparent_60%)]" />
         <div className="absolute bottom-[-10%] left-[-10%] w-[600px] h-[600px] rounded-full animate-pulse bg-[radial-gradient(circle,rgba(79,70,229,0.15)_0%,transparent_60%)]" style={{ animationDelay: '2s' }} />
 
-        {/* Floating 3D Shapes (Offloaded to CSS Animations) */}
+        {/* Floating 3D Shapes */}
         <div
           className="absolute top-[20%] left-[10%] w-32 h-32 bg-linear-to-tr from-cyan-500/20 to-transparent border border-cyan-500/20 rounded-3xl backdrop-blur-sm anim-float1"
           style={{ transformStyle: "preserve-3d", willChange: "transform" }}
@@ -298,7 +298,7 @@ export default function App() {
                 style={{ willChange: "transform, opacity" }}
               />
               <div className="relative" style={{ transform: "translateZ(20px)" }}>
-                <Image src={game.logo} loading="eager" alt="Game Logo" width={320} height={320} className="w-64 h-64 md:w-80 md:h-80 rounded-[3.5rem] object-cover" />
+                <Image src={game.logo} priority={true} alt="Game Logo" width={320} height={320} className="w-64 h-64 md:w-80 md:h-80 rounded-[3.5rem] object-cover" />
               </div>
             </TiltCard>
           </motion.div>
@@ -528,7 +528,7 @@ export default function App() {
         </footer>
       </div>
 
-      {/* INSTAGRAM-STYLE IMAGE PREVIEW OVERLAY */}
+      {/* IMAGE PREVIEW */}
       <AnimatePresence>
         {previewImage && (
           <motion.div
@@ -555,7 +555,6 @@ export default function App() {
           </motion.div>
         )}
       </AnimatePresence>
-
     </div>
   );
 }
