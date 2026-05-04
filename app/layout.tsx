@@ -48,6 +48,12 @@ export const viewport: Viewport = {
 
 export const metadata: Metadata = {
   metadataBase: new URL(siteConfig.url),
+
+  verification: {
+    other: {
+      "msvalidate.01": "4029A6DB07AC15E01324DF3414E63DDF",
+    }
+  },
   title: {
     default: siteConfig.title,
     template: `%s | ${siteConfig.name} Portfolio`,
