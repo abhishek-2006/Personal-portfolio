@@ -278,7 +278,7 @@ export default function App() {
               <p className="text-xs font-bold text-slate-200">{game.developer}</p>
             </div>
             <div className="w-10 h-10 rounded-xl bg-white/5 border border-white/10 flex items-center justify-center p-1.5 shadow-inner">
-              <Image src="/favicon.ico" alt="AS" width={32} height={32} className="w-full h-full grayscale opacity-60" />
+              <Image src="/favicon.ico" alt="Abhishek Shah Portfolio Logo" width={32} height={32} className="w-full h-full grayscale opacity-60" />
             </div>
           </div>
         </header>
@@ -507,7 +507,7 @@ export default function App() {
           <div className="flex gap-10 items-center transition-all duration-700">
             <div className="relative group">
               <div className="absolute inset-0 bg-cyan-500/20 blur-md rounded-full opacity-0 group-hover:opacity-100 transition-opacity"></div>
-              <Image src="/favicon.ico" alt="Logo" width={32} height={32} className="w-8 h-8 relative z-10 opacity-80 hover:opacity-100 transition-opacity" />
+              <Image src="/favicon.ico" alt="Abhishek Shah Portfolio Logo" width={32} height={32} className="w-8 h-8 relative z-10 opacity-80 hover:opacity-100 transition-opacity" />
             </div>
             <div className="w-px h-6 bg-slate-800"></div>
             <a href="https://github.com/abhishek-2006" target="_blank" rel="noopener noreferrer" className="opacity-60 hover:opacity-100 transition-opacity">

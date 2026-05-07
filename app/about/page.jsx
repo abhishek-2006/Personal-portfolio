@@ -19,6 +19,11 @@ export const metadata = {
         "Abhishek Shah portfolio",
         "Abhishek Shah career",
         "Abhishek Shah professional background",
+        "About Abhishek Shah software engineer",
+        "Abhishek Shah technical skills",
+        "Abhishek Shah projects",
+        "Abhishek Shah education and experience",
+        "Abhishek Shah developer profile",
     ],    
     openGraph: {
         title: 'About | Abhishek Shah',

@@ -13,6 +13,25 @@ export const metadata = {
         images: ["https://abhishekshah-portfolio.vercel.app/tictactoe-logo.png"],
         siteName: "Abhishek Shah Portfolio"
     },
+    keywords: [
+        "Tic Tac Toe Game",
+        "Tic Tac Toe by Abhishek Shah",
+        "Play Tic Tac Toe online",
+        "Tic Tac Toe AI opponent",
+        "Tic Tac Toe multiplayer",
+        "Tic Tac Toe strategy",
+        "Tic Tac Toe classic game",
+        "Tic Tac Toe for Android",
+        "Tic Tac Toe for Windows",
+        "Tic Tac Toe free game",
+        "Tic Tac Toe download",
+        "Tic Tac Toe app",
+        "xoxo game",
+        "xoxo game online",
+        "Tic Tac Toe fun game",
+        "Tic Tac Toe competitive game",
+        "xxo game online",
+    ],
 };
 
 export default function page() {
@@ -23,6 +42,7 @@ export default function page() {
         description: "TicTacToe by Abhishek Shah is a clean, fast, and strategic game. Play against AI or friends and enjoy a smooth classic gameplay experience.",
         name : "TicTacToe Game",
         operatingSystem : "Android",
+        operatingSystem : "Windows",
         applicationCategory : "Game",
         image : "https://abhishekshah-portfolio.vercel.app/tictactoe-logo.png",
         alternates : "https://abhishekshah-portfolio.vercel.app/tictactoe"

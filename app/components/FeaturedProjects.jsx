@@ -16,7 +16,7 @@ const SignatureBar = () => {
         <div className="relative w-4 h-4 flex items-center justify-center">
           <Image
             src="/favicon.ico" 
-            alt="Logo"
+            alt="Abhishek Shah Portfolio Logo"
             width={16}
             height={16}
             className="w-full h-full grayscale opacity-40 group-hover:opacity-100 group-hover:grayscale-0 transition-all duration-500" 
