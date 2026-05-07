@@ -57,7 +57,7 @@ export default function App() {
   const imageSchema = {
     "@context": "https://schema.org",
     "@type": "ImageObject",
-    "contentUrl": "https://abhishekshah-portfolio.vercel.app/profile.jpg",
+    "contentUrl": "https://abhishekshah-portfolio.vercel.app/abhishek-shah-full-stack-developer.jpg",
     "license": "https://abhishekshah-portfolio.vercel.app/",
     "acquireLicensePage": "https://abhishekshah-portfolio.vercel.app/contact",
     "creditText": "Abhishek Shah",
@@ -95,8 +95,8 @@ export default function App() {
             <div className="relative z-10 p-1.5 md:p-2 rounded-[2.5rem] bg-white/5 border border-white/10 backdrop-blur-sm">
               <div className="relative rounded-[2.3rem] overflow-hidden border-2 md:border-4 border-slate-900 bg-slate-800 w-56 h-56 sm:w-64 sm:h-64 md:w-80 md:h-80">
                 <Image
-                  src="/profile.jpg"
-                  alt="Abhishek Shah"
+                  src="/abhishek-shah-full-stack-developer.jpg"
+                  alt="Abhishek Shah Full Stack Developer"
                   width={700}
                   height={700}
                   className="w-full h-full object-cover"

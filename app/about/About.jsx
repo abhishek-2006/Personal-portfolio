@@ -149,8 +149,8 @@ export default function AboutPage() {
             <div className="w-40 h-40 md:w-52 md:h-52 rounded-full p-px bg-linear-to-r from-cyan-400 to-blue-500 shadow-2xl shadow-cyan-500/20">
               <div className="w-full h-full rounded-full overflow-hidden bg-slate-800 border-4 border-slate-900">
                 <Image
-                  src="/profile.jpg"
-                  alt="Profile"
+                  src="/abhishek-shah-full-stack-developer.jpg"
+                  alt="Abhishek Shah Full Stack Developer"
                   width={208}
                   height={208}
                   priority

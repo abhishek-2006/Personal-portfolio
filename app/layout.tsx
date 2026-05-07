@@ -8,7 +8,7 @@ const siteConfig = {
   title: "Abhishek Shah - Professional Portfolio & Full-Stack Developer",
   description: "Abhishek Shah - Full-stack developer. Explore projects, skills, and contact details to collaborate on web and app development.",
   url: "https://abhishekshah-portfolio.vercel.app",
-  image: "https://abhishekshah-portfolio.vercel.app/profile.jpg",
+  image: "https://abhishekshah-portfolio.vercel.app/abhishek-shah-full-stack-developer.jpg",
   keywords: [
     "Abhishek", 
     "Abhishek Shah", 
@@ -92,7 +92,7 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     title: siteConfig.title,
     description: siteConfig.description,
-    images: ["/profile.jpg"],
+    images: [siteConfig.image],
     creator: "@shahabhishek409",
   },
 
@@ -121,7 +121,7 @@ function JsonLd() {
       "name": "Abhishek Shah",
       "jobTitle": "Professional Full-Stack Developer & Software Engineer",
       "url": "https://abhishekshah-portfolio.vercel.app",
-      "image": "https://abhishekshah-portfolio.vercel.app/profile.jpg",
+      "image": "https://abhishekshah-portfolio.vercel.app/abhishek-shah-full-stack-developer.jpg",
       "sameAs": [
         "https://github.com/abhishek-2006",
         "https://www.linkedin.com/in/abhishekshah-dev/",
