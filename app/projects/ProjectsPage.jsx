@@ -13,11 +13,13 @@ import {
   Download
 } from "lucide-react";
 
-export default function ProjectsPage() {
-  const [projects, setProjects] = useState(null);
+export default function ProjectsPage({ initialProjects }) {
+  const [projects, setProjects] = useState(initialProjects || null);
   const [selectedTag, setSelectedTag] = useState("All");
 
   useEffect(() => {
+    if (initialProjects) return; // Skip fetching if already loaded server-side
+    
     async function load() {
       try {
         const res = await fetch("/api/projects");
@@ -61,7 +63,7 @@ export default function ProjectsPage() {
       }
     }
     load();
-  }, []);
+  }, [initialProjects]);
 
   // Extract unique tags for filtering
   const allTags = useMemo(() => {

@@ -97,12 +97,27 @@ function ProjectsJsonLd() {
 }
 
 import ProjectsPage from "./ProjectsPage";
+import { GET } from "../api/projects/route";
 
-export default function page() {
+async function getProjects() {
+  try {
+    const res = await GET();
+    if (res.ok) {
+      return await res.json();
+    }
+  } catch (error) {
+    console.error("Failed to fetch projects server-side:", error);
+  }
+  return null;
+}
+
+export default async function page() {
+    const initialProjects = await getProjects();
+    
     return (
       <>
         <ProjectsJsonLd />
-        <ProjectsPage />
+        <ProjectsPage initialProjects={initialProjects} />
       </>
     );
 }
