@@ -84,7 +84,7 @@ export default function App() {
     tagline: "Enhanced Edition",
     logo: "/tictactoe-logo.png",
     developer: "Abhishek Shah",
-    tags: ["No Ads", "Offline", "AI Powered"],
+    tags: ["No Ads", "Offline", "AI Powered", "Multiplayer"],
     screenshots: [
       { id: 1, title: "Main Menu", url: "/images/tictactoe/main-menu.png" },
       { id: 2, title: "AI Gameplay", url: "/images/tictactoe/gameplay.png" },
@@ -263,14 +263,13 @@ export default function App() {
 
         {/* NAVIGATION */}
         <header className="flex justify-between items-center mb-16 md:mb-24">
-          <motion.button
+          <a href="./"
             whileHover={{ x: -4 }}
-            onClick={() => window.history.back()}
-            className="flex items-center gap-3 px-5 py-2.5 rounded-2xl bg-white/5 border border-white/10 hover:bg-white/10 transition-all backdrop-blur-xl"
+            className="flex items-center gap-3 hover:px-5 hover:py-2.5 rounded-2xl bg-white/5 border border-white/10 hover:bg-white/10 transition-all backdrop-blur-xl"
           >
             <ChevronLeft size={18} className="text-cyan-400" />
             <span className="text-[10px] font-black uppercase tracking-[0.2em]">Portfolio</span>
-          </motion.button>
+          </a>
 
           <div className="flex items-center gap-4">
             <div className="text-right hidden sm:block">
@@ -295,10 +294,9 @@ export default function App() {
             <TiltCard tiltStrength={20} className="relative group w-full max-w-sm">
               <div
                 className="absolute -inset-6 bg-linear-to-tr from-cyan-500/50 to-indigo-500/50 rounded-[4.5rem] blur-2xl group-hover:opacity-80 transition duration-1000 anim-hero-glow"
-                style={{ willChange: "transform, opacity" }}
               />
-              <div className="relative" style={{ transform: "translateZ(20px)" }}>
-                <Image src={game.logo} priority={true} alt="Game Logo" width={320} height={320} className="w-64 h-64 md:w-80 md:h-80 rounded-[3.5rem] object-cover" />
+              <div className="relative">
+                <Image src={game.logo} priority={true} alt="Tictactoe Game Logo" width={320} height={320} className="w-64 h-64 md:w-80 md:h-80 rounded-[3.5rem] object-cover" />
               </div>
             </TiltCard>
           </motion.div>
