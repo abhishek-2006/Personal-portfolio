@@ -142,7 +142,9 @@ function JsonLd() {
         "@type": "SearchAction",
         "target": "https://abhishekshah-portfolio.vercel.app/search?q={search_term_string}",
         "query-input": "required name=search_term_string"
-      }
+      },
+      "copyrightYear": new Date().getFullYear(),
+      "copyrightNotice": "Copyright © Abhishek Shah. All rights reserved."
     },
   ];
   const gameSchema = [
@@ -154,6 +156,8 @@ function JsonLd() {
       "applicationCategory" : "GameApplication",
       "description": "TicTacToe by Abhishek Shah is a clean, fast, and strategic game. Play against AI or friends and enjoy a smooth classic gameplay experience.",
       "image" : "https://abhishekshah-portfolio.vercel.app/tictactoe-logo.png",
+      "copyrightYear": new Date().getFullYear(),
+      "copyrightNotice": "Copyright © Abhishek Shah. All rights reserved."
     },
   ];
 

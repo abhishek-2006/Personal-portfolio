@@ -66,7 +66,9 @@ function ProjectsJsonLd() {
         "@type": "Person",
         "name": "Abhishek Shah",
         "url": "https://abhishekshah-portfolio.vercel.app"
-      }
+      },
+      "copyrightYear": new Date().getFullYear(),
+      "copyrightNotice": "Copyright © Abhishek Shah. All rights reserved."
     },
     {
       "@context": "https://schema.org",
