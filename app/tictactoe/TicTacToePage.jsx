@@ -264,7 +264,7 @@ export default function App() {
         {/* NAVIGATION */}
         <header className="flex justify-between items-center mb-16 md:mb-24">
           <a href="./"
-            whileHover={{ x: -4 }}
+            whilehover={{ x: -4 }}
             className="flex items-center gap-3 hover:px-5 hover:py-2.5 rounded-2xl bg-white/5 border border-white/10 hover:bg-white/10 transition-all backdrop-blur-xl"
           >
             <ChevronLeft size={18} className="text-cyan-400" />
