@@ -3,24 +3,7 @@
 import { useEffect, useState } from "react";
 import Image from "next/image";
 import { motion, AnimatePresence, useMotionValue, useTransform, useSpring } from "framer-motion";
-import {
-  Download,
-  ChevronLeft,
-  ShieldCheck,
-  Smartphone,
-  Monitor,
-  Gamepad2,
-  Info,
-  Github,
-  Zap,
-  Activity,
-  Cpu,
-  Layers,
-  ExternalLink,
-  Star,
-  Maximize2,
-  ChevronRight
-} from "lucide-react";
+import { Download, ChevronLeft, ShieldCheck, Smartphone, Monitor, Gamepad2, Info, Github, Zap, Activity, Cpu, Layers, ExternalLink, Star, Maximize2, ChevronRight } from "lucide-react";
 
 function TiltCard({ children, className, tiltStrength = 15 }) {
   const x = useMotionValue(0);
@@ -80,18 +63,18 @@ export default function App() {
   }
 
   const game = {
-    title: "TicTacToe",
+    title: "Chess",
     tagline: "Enhanced Edition",
-    logo: "/tictactoe-logo.png",
+    logo: "/chess-logo.png",
     developer: "Abhishek Shah",
     tags: ["No Ads", "Offline", "AI Powered", "Multiplayer"],
     screenshots: [
-      { id: 1, title: "Main Menu", url: "/images/tictactoe/main-menu.png" },
-      { id: 2, title: "AI Gameplay", url: "/images/tictactoe/gameplay.png" },
-      { id: 3, title: "Neural AI Selector", url: "/images/tictactoe/computer-modes.png" },
-      { id: 4, title: "Settings", url: "/images/tictactoe/settings.png" },
-      { id: 5, title: "Victory Screen", url: "/images/tictactoe/victory-dark.png" },
-      { id: 6, title: "Local PvP", url: "/images/tictactoe/local-pvp-light.png" },
+      { id: 1, title: "Main Menu", url: "/images/Chess/main-menu.png" },
+      { id: 2, title: "AI Gameplay", url: "/images/Chess/gameplay.png" },
+      { id: 3, title: "Neural AI Selector", url: "/images/Chess/computer-modes.png" },
+      { id: 4, title: "Settings", url: "/images/Chess/settings.png" },
+      { id: 5, title: "Victory Screen", url: "/images/Chess/victory-dark.png" },
+      { id: 6, title: "Local PvP", url: "/images/Chess/local-pvp-light.png" },
     ],
     features: [
       {
@@ -123,7 +106,7 @@ export default function App() {
     const fetchRelease = async () => {
       try {
         const res = await fetch(
-          "https://api.github.com/repos/abhishek-2006/Tictactoe/releases/latest"
+          "https://api.github.com/repos/abhishek-2006/chess/releases/latest"
         );
         const data = await res.json();
         if (data && data.tag_name) {
@@ -184,7 +167,7 @@ export default function App() {
     setDownloadingType(type);
     const a = document.createElement("a");
     a.href = targetUrl;
-    a.download = type === 'android' ? "TicTacToe_Abhishek.apk" : "TicTacToe_Abhishek.exe";
+    a.download = type === 'android' ? "Chess_Abhishek.apk" : "Chess_Abhishek.exe";
     document.body.appendChild(a);
     a.click();
     document.body.removeChild(a);
@@ -296,7 +279,7 @@ export default function App() {
                 className="absolute -inset-6 bg-linear-to-tr from-cyan-500/50 to-indigo-500/50 rounded-[4.5rem] blur-2xl group-hover:opacity-80 transition duration-1000 anim-hero-glow"
               />
               <div className="relative">
-                <Image src={game.logo} priority={true} alt="Tictactoe Game Logo" width={320} height={320} className="w-64 h-64 md:w-80 md:h-80 rounded-[3.5rem] object-cover" />
+                <Image src={game.logo} priority={true} alt="Chess Game Logo" width={320} height={320} className="w-64 h-64 md:w-80 md:h-80 rounded-[3.5rem] object-cover" />
               </div>
             </TiltCard>
           </motion.div>
@@ -319,7 +302,7 @@ export default function App() {
                   transition={{ duration: 6, ease: "linear", repeat: Infinity }}
                   style={{ backgroundSize: "200% auto" }}
                 >
-                  TicTacToe
+                  Chess
                 </motion.span>
                 <span className="block text-3xl md:text-5xl not-italic font-medium text-slate-500 mt-2">{game.tagline}</span>
               </h1>
@@ -518,7 +501,7 @@ export default function App() {
               © 2026 ABHISHEK SHAH • NEXT-GEN MOBILE SYSTEMS
             </p>
             <div className="flex justify-center gap-6 text-[10px] font-black text-slate-500 uppercase tracking-[0.3em]">
-              <a href="https://github.com/abhishek-2006/Tictactoe" className="hover:text-cyan-400 transition-colors flex items-center gap-1.5">Repository <ExternalLink size={10} /></a>
+              <a href="https://github.com/abhishek-2006/chess" className="hover:text-cyan-400 transition-colors flex items-center gap-1.5">Repository <ExternalLink size={10} /></a>
               <span className="text-slate-900">|</span>
               <a href="/contact" className="hover:text-cyan-400 transition-colors">Inquiries</a>
             </div>

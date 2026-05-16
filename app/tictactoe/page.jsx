@@ -16,7 +16,8 @@ export const metadata = {
     keywords: [
         "Tic Tac Toe Game",
         "Tic Tac Toe by Abhishek Shah",
-        "Play Tic Tac Toe online",
+        "Tic Tac Toe offline",
+        "Offline Tic Tac Toe",
         "Tic Tac Toe AI opponent",
         "Tic Tac Toe multiplayer",
         "Tic Tac Toe strategy",

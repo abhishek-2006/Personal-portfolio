@@ -22,8 +22,10 @@ export async function GET() {
         const languages = langRes.ok ? await langRes.json() : {};
         const langs = Object.keys(languages);
         const isTicTacToe = repo.name.toLowerCase().includes("tictactoe");
+        const isChess = repo.name.toLowerCase().includes("chess");
         let category = "Web";
-        if (langs.includes("Dart") || langs.includes("Kotlin")) category = "Mobile";
+        if (isTicTacToe || isChess) category = "Android";
+        else if (langs.includes("Dart") || langs.includes("Kotlin")) category = "Mobile";
         else if (langs.includes("PHP") || langs.includes("Java")) category = "Full Stack";
 
         return {
