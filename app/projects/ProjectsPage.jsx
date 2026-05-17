@@ -39,10 +39,19 @@ export default function ProjectsPage({ initialProjects }) {
               logo: "/tictactoe-logo.png"
             };
           }
+          if (repo.name.toLowerCase().includes("chess")) {
+            return {
+              ...repo,
+              name: "Chess",
+              liveUrl: "/chess",
+              isGame: true,
+              logo: "/chess-logo.png"
+            };
+          }
           return {
             ...repo,
             tech: repo.tech || ["Web"],
-            isGame: false
+            isGame: repo.isGame || false
           };
         });
         

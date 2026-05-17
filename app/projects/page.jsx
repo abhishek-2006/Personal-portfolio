@@ -1,5 +1,5 @@
 export const metadata = {
-    title: 'Projects & Portfolio | Abhishek Shah',
+    title: "Projects & Portfolio | Abhishek Shah",
     description: "Explore Abhishek Shah’s portfolio of real-world projects, featuring full-stack applications, modern web solutions, mobile apps, and scalable systems.",
     alternates: {
       canonical: "https://abhishekshah-portfolio.vercel.app/projects",
@@ -27,18 +27,20 @@ export const metadata = {
         "Backend projects"
     ],
     openGraph: {
-        title: 'Projects & Portfolio | Abhishek Shah',
+        title: "Projects & Portfolio | Abhishek Shah",
         description: "Explore Abhishek Shah’s portfolio of real-world projects, featuring full-stack applications, modern web solutions, mobile apps, and scalable systems.",
         url: "https://abhishekshah-portfolio.vercel.app/projects",
         siteName: "Abhishek Shah Portfolio",
-        images: [{ url: "/profile.jpg", width: 1200, height: 630, alt: "Abhishek Shah Projects Portfolio" }],
+        locale: "en_US",
+        images: [{ url: "https://abhishekshah-portfolio.vercel.app/abhishek-shah-full-stack-developer.jpg", width: 1200, height: 630, alt: "Abhishek Shah Projects Portfolio" }],
         type: "website",
     },
     twitter: {
       card: "summary_large_image",
       title: "Projects & Portfolio | Abhishek Shah",
       description: "Explore Abhishek Shah’s portfolio of real-world projects, featuring full-stack applications, modern web solutions, mobile apps, and scalable systems.",
-      images: ["/profile.jpg"],
+      images: ["https://abhishekshah-portfolio.vercel.app/abhishek-shah-full-stack-developer.jpg"],
+      creator: "@shahabhishek409",
     },
     robots: {
       index: true,
@@ -60,15 +62,50 @@ function ProjectsJsonLd() {
       "@context": "https://schema.org",
       "@type": "CollectionPage",
       "name": "Projects & Portfolio | Abhishek Shah",
-      "description": "A collection of software development projects by Abhishek Shah.",
+      "description": "A collection of software development projects by Abhishek Shah, featuring full-stack applications, modern web solutions, and mobile apps.",
       "url": "https://abhishekshah-portfolio.vercel.app/projects",
       "author": {
         "@type": "Person",
         "name": "Abhishek Shah",
         "url": "https://abhishekshah-portfolio.vercel.app"
       },
+      "mainEntity": {
+        "@type": "Person",
+        "name": "Abhishek Shah",
+        "jobTitle": "Professional Full-Stack Developer",
+        "description": "Developer specializing in MERN Stack, Flutter, and modern web technologies.",
+        "expertise": ["Full-Stack Web Development", "Mobile App Development", "JavaScript", "React", "Next.js", "Node.js", "Flutter"]
+      },
       "copyrightYear": new Date().getFullYear(),
       "copyrightNotice": "Copyright © Abhishek Shah. All rights reserved."
+    },
+    {
+      "@context": "https://schema.org",
+      "@type": "SoftwareApplication",
+      "name": "TicTacToe Game",
+      "description": "Interactive Tic Tac Toe game built with modern web technologies featuring AI opponent and multiplayer support.",
+      "applicationCategory": "GameApplication",
+      "operatingSystem": ["Android", "Windows", "Web"],
+      "author": {
+        "@type": "Person",
+        "name": "Abhishek Shah"
+      },
+      "url": "https://abhishekshah-portfolio.vercel.app/tictactoe",
+      "inLanguage": "en"
+    },
+    {
+      "@context": "https://schema.org",
+      "@type": "SoftwareApplication",
+      "name": "Chess Game",
+      "description": "Feature-rich Chess game with advanced piece movements, AI opponent, and multiplayer support for web and mobile platforms.",
+      "applicationCategory": "GameApplication",
+      "operatingSystem": ["Android", "Windows", "Web", "Linux"],
+      "author": {
+        "@type": "Person",
+        "name": "Abhishek Shah"
+      },
+      "url": "https://abhishekshah-portfolio.vercel.app/chess",
+      "inLanguage": "en"
     },
     {
       "@context": "https://schema.org",

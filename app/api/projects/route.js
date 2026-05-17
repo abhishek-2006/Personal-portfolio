@@ -23,8 +23,9 @@ export async function GET() {
         const langs = Object.keys(languages);
         const isTicTacToe = repo.name.toLowerCase().includes("tictactoe");
         const isChess = repo.name.toLowerCase().includes("chess");
+        const isGame = isTicTacToe || isChess;
         let category = "Web";
-        if (isTicTacToe || isChess) category = "Android";
+        if (isGame) category = "Android";
         else if (langs.includes("Dart") || langs.includes("Kotlin")) category = "Mobile";
         else if (langs.includes("PHP") || langs.includes("Java")) category = "Full Stack";
 
@@ -32,13 +33,15 @@ export async function GET() {
           name: repo.name.replace(/-/g, " "),
            description: isTicTacToe
             ? "A premium Android edition of the classic game. Built with Flutter, featuring adaptive AI levels and neo-dark aesthetic."
+            : isChess 
+            ? "A modern, beautiful, and feature-rich chess application. Built with Flutter for cross-platform play."
             : repo.description || "Experimental project focusing on modern architecture.",
           url: repo.html_url,
-          liveUrl: isTicTacToe ? "/tictactoe" : repo.homepage || null,
+          liveUrl: isTicTacToe ? "/tictactoe" : isChess ? "/chess" : repo.homepage || null,
           tech: langs.length ? langs : ["General"],
-          isGame: isTicTacToe,
-          icon: isTicTacToe ? "game" : null,
-          logo: isTicTacToe ? "/tictactoe-logo.png" : "/favicon.ico",
+          isGame: isGame,
+          icon: isGame ? "game" : null,
+          logo: isTicTacToe ? "/tictactoe-logo.png" : isChess ? "/chess-logo.png" : "/favicon.ico",
           category: category
         };
       })

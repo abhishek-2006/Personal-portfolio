@@ -21,14 +21,16 @@ export const metadata = {
     description: "Explore Abhishek Shah\'s technical skills including Frontend, Backend, Mobile Development, and Database technologies.",
     url: "https://abhishekshah-portfolio.vercel.app/skills",
     siteName: "Abhishek Shah Portfolio",
-    images: [{ url: "/profile.jpg", width: 1200, height: 630, alt: "Abhishek Shah Skills" }],
+    locale: "en_US",
+    images: [{ url: "https://abhishekshah-portfolio.vercel.app/abhishek-shah-full-stack-developer.jpg", width: 1200, height: 630, alt: "Abhishek Shah Skills" }],
     type: "website",
   },
   twitter: {
     card: "summary_large_image",
     title: "Skills | Abhishek Shah",
     description: "Explore Abhishek Shah\'s technical skills including Frontend, Backend, Mobile Development, and Database technologies.",
-    images: ["/profile.jpg"],
+    images: ["https://abhishekshah-portfolio.vercel.app/abhishek-shah-full-stack-developer.jpg"],
+    creator: "@shahabhishek409",
   },
   robots: {
     index: true,
@@ -52,19 +54,89 @@ function SkillsJsonLd() {
       "mainEntity": {
         "@type": "Person",
         "name": "Abhishek Shah",
-        "jobTitle": "Full-Stack Developer",
+        "jobTitle": "Professional Full-Stack Developer",
         "url": "https://abhishekshah-portfolio.vercel.app",
+        "description": "Expert in full-stack web development with proficiency in MERN Stack, Flutter, and modern technologies.",
+        "email": "shahabhishek051@gmail.com",
         "knowsAbout": [
           "Frontend Development",
           "Backend Development",
           "Mobile App Development",
-          "React",
-          "Next.js",
-          "Node.js",
-          "Flutter",
-          "MongoDB",
-          "MySQL",
-          "Tailwind CSS"
+          "Full-Stack Web Development"
+        ],
+        "skills": [
+          {
+            "@type": "Thing",
+            "name": "React",
+            "proficiencyLevel": "Advanced",
+            "yearsOfExperience": "3+"
+          },
+          {
+            "@type": "Thing",
+            "name": "Next.js",
+            "proficiencyLevel": "Advanced",
+            "yearsOfExperience": "2+"
+          },
+          {
+            "@type": "Thing",
+            "name": "Node.js",
+            "proficiencyLevel": "Advanced",
+            "yearsOfExperience": "2+"
+          },
+          {
+            "@type": "Thing",
+            "name": "Express.js",
+            "proficiencyLevel": "Advanced",
+            "yearsOfExperience": "2+"
+          },
+          {
+            "@type": "Thing",
+            "name": "MongoDB",
+            "proficiencyLevel": "Advanced",
+            "yearsOfExperience": "2+"
+          },
+          {
+            "@type": "Thing",
+            "name": "MySQL",
+            "proficiencyLevel": "Advanced",
+            "yearsOfExperience": "2+"
+          },
+          {
+            "@type": "Thing",
+            "name": "Flutter",
+            "proficiencyLevel": "Advanced",
+            "yearsOfExperience": "2+"
+          },
+          {
+            "@type": "Thing",
+            "name": "Tailwind CSS",
+            "proficiencyLevel": "Advanced",
+            "yearsOfExperience": "2+"
+          },
+          {
+            "@type": "Thing",
+            "name": "JavaScript",
+            "proficiencyLevel": "Expert",
+            "yearsOfExperience": "3+"
+          },
+          {
+            "@type": "Thing",
+            "name": "HTML5",
+            "proficiencyLevel": "Expert",
+            "yearsOfExperience": "3+"
+          },
+          {
+            "@type": "Thing",
+            "name": "CSS3",
+            "proficiencyLevel": "Expert",
+            "yearsOfExperience": "3+"
+          },
+          {
+            "@type": "Thing",
+            "name": "Git",
+            "proficiencyLevel": "Advanced",
+            "yearsOfExperience": "3+"
+          }
         ]
       }
     },

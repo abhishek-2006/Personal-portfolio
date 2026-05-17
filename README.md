@@ -85,6 +85,7 @@ abhishekshah-portfolio/
 │   ├── skills/           # Skills visualization route
 │   ├── tictactoe/        # Interactive game route & AI logic
 |   ├── chess/            # Interactive game route & AI logic
+|   ├── games/            # Interactive games showcase and download route
 │   ├── globals.css       # Tailwind base, utilities, and CSS variables
 │   ├── layout.tsx        # Root layout, Global SEO, JSON-LD Schema
 │   └── page.jsx          # Entry point and Hero section

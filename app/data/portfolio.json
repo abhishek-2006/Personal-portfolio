@@ -1,0 +1,142 @@
+{
+  "author": {
+    "name": "Abhishek Shah",
+    "title": "Professional Full-Stack Developer & Software Engineer",
+    "bio": "Full-stack developer specializing in MERN Stack, Flutter, and modern web technologies. Building scalable applications with focus on performance, security, and user experience.",
+    "expertise": ["MERN Stack", "Full-Stack Web Development", "Mobile App Development", "Flutter", "React", "Next.js", "Node.js"],
+    "location": {
+      "city": "Bardoli",
+      "region": "Gujarat",
+      "country": "India"
+    },
+    "contact": {
+      "email": "shahabhishek051@gmail.com",
+      "phone": "+91 78610 53202"
+    },
+    "social": {
+      "github": "https://github.com/abhishek-2006",
+      "linkedin": "https://www.linkedin.com/in/abhishekshah-dev/",
+      "twitter": "https://x.com/shahabhishek409",
+      "instagram": "https://www.instagram.com/abhishekshah_112/"
+    }
+  },
+  "experience": [
+    {
+      "role": "Freelance Full-Stack Developer",
+      "company": "Self-Employed",
+      "startYear": 2023,
+      "endYear": null,
+      "current": true,
+      "description": "Developing full-stack web and mobile applications using MERN Stack, Next.js, and Flutter. Building scalable solutions with focus on performance optimization and user experience.",
+      "skills": ["React", "Next.js", "Node.js", "MongoDB", "Flutter"],
+      "achievements": [
+        "Developed multiple full-stack projects",
+        "Built interactive games with AI opponents",
+        "Optimized application performance"
+      ]
+    }
+  ],
+  "education": [
+    {
+      "degree": "Bachelor of Technology (B.Tech)",
+      "field": "Computer Engineering",
+      "institution": "Uka Tarsadia University",
+      "startYear": 2025,
+      "endYear": 2028,
+      "status": "pursuing",
+      "details": "Pursuing computer engineering degree"
+    },
+    {
+      "degree": "Diploma in Computer Engineering",
+      "field": "Computer Engineering",
+      "institution": "Gujarat Technological University",
+      "startYear": 2022,
+      "endYear": 2025,
+      "gpa": "8.40",
+      "details": "Completed diploma in computer engineering with strong GPA"
+    },
+    {
+      "degree": "Secondary School Certificate (SSC)",
+      "field": "Science",
+      "institution": "Gujarat Board",
+      "year": 2022,
+      "percentile": "75.23",
+      "details": "10th grade completed with 75.23 percentile"
+    }
+  ],
+  "skills": {
+    "frontend": [
+      { "name": "React", "proficiency": "Advanced", "yearsExperience": "3+" },
+      { "name": "Next.js", "proficiency": "Advanced", "yearsExperience": "2+" },
+      { "name": "Tailwind CSS", "proficiency": "Advanced", "yearsExperience": "2+" },
+      { "name": "HTML5", "proficiency": "Expert", "yearsExperience": "3+" },
+      { "name": "CSS3", "proficiency": "Expert", "yearsExperience": "3+" },
+      { "name": "JavaScript", "proficiency": "Advanced", "yearsExperience": "3+" },
+      { "name": "TypeScript", "proficiency": "Intermediate", "yearsExperience": "1+" },
+      { "name": "Bootstrap", "proficiency": "Intermediate", "yearsExperience": "2+" }
+    ],
+    "backend": [
+      { "name": "Node.js", "proficiency": "Advanced", "yearsExperience": "2+" },
+      { "name": "Express.js", "proficiency": "Advanced", "yearsExperience": "2+" },
+      { "name": "PHP", "proficiency": "Intermediate", "yearsExperience": "1+" },
+      { "name": "RESTful APIs", "proficiency": "Advanced", "yearsExperience": "2+" }
+    ],
+    "mobile": [
+      { "name": "Flutter", "proficiency": "Advanced", "yearsExperience": "2+" },
+      { "name": "Native Android", "proficiency": "Intermediate", "yearsExperience": "1+" }
+    ],
+    "database": [
+      { "name": "MongoDB", "proficiency": "Advanced", "yearsExperience": "2+" },
+      { "name": "MySQL", "proficiency": "Advanced", "yearsExperience": "2+" },
+      { "name": "Firebase", "proficiency": "Intermediate", "yearsExperience": "1+" },
+      { "name": "Firestore", "proficiency": "Intermediate", "yearsExperience": "1+" }
+    ],
+    "tools": [
+      { "name": "Git", "proficiency": "Advanced", "yearsExperience": "3+" },
+      { "name": "GitHub", "proficiency": "Advanced", "yearsExperience": "3+" },
+      { "name": "VS Code", "proficiency": "Expert", "yearsExperience": "3+" }
+    ]
+  },
+  "certifications": [
+    {
+      "name": "Full-Stack Web Development",
+      "issuer": "Self-Taught",
+      "year": 2023,
+      "description": "Comprehensive knowledge in MERN Stack and modern web technologies"
+    },
+    {
+      "name": "Flutter Mobile Development",
+      "issuer": "Self-Taught",
+      "year": 2023,
+      "description": "Cross-platform mobile development with Flutter"
+    }
+  ],
+  "services": [
+    {
+      "name": "Full-Stack Web Development",
+      "description": "Custom web applications using MERN Stack, Next.js, and modern technologies",
+      "features": ["Responsive Design", "Database Integration", "API Development", "Performance Optimization"]
+    },
+    {
+      "name": "Mobile App Development",
+      "description": "Cross-platform mobile applications using Flutter",
+      "features": ["iOS & Android", "Native Performance", "UI/UX Design", "Backend Integration"]
+    },
+    {
+      "name": "Web Application Optimization",
+      "description": "Performance optimization and scaling for existing web applications",
+      "features": ["Speed Optimization", "SEO Enhancement", "Database Optimization", "Caching Strategies"]
+    }
+  ],
+  "languages": [
+    { "language": "English", "proficiency": "Fluent" },
+    { "language": "Hindi", "proficiency": "Native" },
+    { "language": "Gujarati", "proficiency": "Native" }
+  ],
+  "portfolio": {
+    "totalProjects": "14+",
+    "featuredProjects": 3,
+    "gamesBuilt": 2,
+    "github": "https://github.com/abhishek-2006"
+  }
+}

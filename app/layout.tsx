@@ -52,6 +52,13 @@ const siteConfig = {
     "Flutter Developer", 
     "TicTacToe",
     "TicTacToe Game", 
+    "Abhishek Shah Games",
+    "Abhishek Shah TicTacToe",
+    "Abhishek Shah TicTacToe Game",
+    "Abhishek Shah Chess",
+    "Abhishek Shah Chess Game",
+    "Chess",
+    "Chess Game",
     "Bardoli", 
     "Gujarat"
   ],
@@ -143,7 +150,13 @@ function JsonLd() {
         "https://www.linkedin.com/in/abhishekshah-dev/",
         "https://x.com/shahabhishek409",
         "https://www.instagram.com/abhishekshah_112/"
-      ]
+      ],
+      "address": {
+        "@type": "PostalAddress",
+        "addressLocality": "Bardoli",
+        "addressRegion": "Gujarat",
+        "addressCountry": "India"
+      }
     },
   ];
   const websiteSchema = [
@@ -153,7 +166,7 @@ function JsonLd() {
       "name": "Abhishek Shah Portfolio",
       "url": "https://abhishekshah-portfolio.vercel.app",
       "description": "Abhishek Shah - Full-stack developer. Explore projects, skills, and contact details to collaborate on web and app development.",
-      "keywords": "Abhishek, Abhishek Shah, Portfolio, Abhishek Portfolio, About Abhishek, About Abhishek Shah, Abhishek Shah Skills, Abhishek Skills, Vercel, Portfolio Vercel, Abhishek Shah Portfolio, Projects, Abhishek Shah Projects, Abhishek Projects, Software Engineer, Web Developer, Flutter Developer, TicTacToe, TicTacToe Game, Bardoli, Gujarat",
+      "keywords": "Abhishek, Abhishek Shah, Portfolio, Abhishek Portfolio, About Abhishek, About Abhishek Shah, Abhishek Shah Skills, Abhishek Skills, Vercel, Portfolio Vercel, Abhishek Shah Portfolio, Projects, Abhishek Shah Projects, Abhishek Projects, Software Engineer, Web Developer, Flutter Developer, TicTacToe, TicTacToe Game, Chess, Chess Game, Bardoli, Gujarat",
       "potentialAction": {
         "@type": "SearchAction",
         "target": "https://abhishekshah-portfolio.vercel.app/search?q={search_term_string}",
@@ -172,6 +185,17 @@ function JsonLd() {
       "applicationCategory" : "GameApplication",
       "description": "TicTacToe by Abhishek Shah is a clean, fast, and strategic game. Play against AI or friends and enjoy a smooth classic gameplay experience.",
       "image" : "https://abhishekshah-portfolio.vercel.app/tictactoe-logo.png",
+      "copyrightYear": new Date().getFullYear(),
+      "copyrightNotice": "Copyright © Abhishek Shah. All rights reserved."
+    },
+    {
+      "@context": "https://schema.org",
+      "@type" : "SoftwareApplication",
+      "name" : "Chess Game",
+      "operatingSystem" : "Windows, Linux, Web, Android",
+      "applicationCategory" : "GameApplication",
+      "description": "Chess by Abhishek Shah is a modern, beautiful, and feature-rich cross-platform application with advanced piece movements.",
+      "image" : "https://abhishekshah-portfolio.vercel.app/chess-logo.png",
       "copyrightYear": new Date().getFullYear(),
       "copyrightNotice": "Copyright © Abhishek Shah. All rights reserved."
     },

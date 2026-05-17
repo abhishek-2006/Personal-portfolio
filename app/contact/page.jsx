@@ -1,60 +1,62 @@
 import ContactPage from "./Contact";
 
 export const metadata = {
-    title: 'Contact | Abhishek Shah',
+  title: 'Contact | Abhishek Shah',
+  description: "Get in touch with Abhishek Shah for projects or collaborations.",
+  alternates: {
+    canonical: "https://abhishekshah-portfolio.vercel.app/contact"
+  },
+  openGraph: {
+      title: 'Contact | Abhishek Shah',
+      description: "Get in touch with Abhishek Shah for projects or collaborations.",
+      url: "https://abhishekshah-portfolio.vercel.app/contact",
+      locale: "en_US",
+      images: [{ url: "https://abhishekshah-portfolio.vercel.app/abhishek-shah-full-stack-developer.jpg", width: 1200, height: 630, alt: "Abhishek Shah" }],
+      type: "website",
+      siteName: "Abhishek Shah Portfolio"
+  },
+  keywords: [
+    "Contact Abhishek Shah",
+    "Get in touch with Abhishek Shah",
+    "Abhishek Shah contact details",
+    "Full stack developer contact",
+    "Contact Abhishek Shah for projects",
+    "Contact Abhishek Shah for collaborations",
+    "Abhishek Shah phone number",
+    "Abhishek Shah email address",
+    "Abhishek Shah social media links",
+    "Contact information for Abhishek Shah",
+    "Abhishek Shah contact info",
+    "Abhishek Shah contact page",
+    "Contact Abhishek Shah for freelance work",
+    "Full stack developer contact information",
+    "Full stack developer India",
+    "Abhishek Shah contact information",
+    "Abhishek Shah email",
+    "Abhishek Shah social media",
+    "Contact Abhishek Shah for web development",
+    "Contact Abhishek Shah for software development",
+    "Contact Abhishek Shah for mobile app development",
+  ],
+  twitter: {
+    card: "summary_large_image",
+    title: "Contact | Abhishek Shah",
     description: "Get in touch with Abhishek Shah for projects or collaborations.",
-    alternates: {
-      canonical: "https://abhishekshah-portfolio.vercel.app/contact"
+    images: ["https://abhishekshah-portfolio.vercel.app/abhishek-shah-full-stack-developer.jpg"],
+    creator: "@shahabhishek409",
+  },
+  robots: {
+    index: true,
+    follow: true,
+    googleBot: {
+      index: true,
+      follow: true,
+        "max-video-preview": -1,
+        "max-image-preview": "large",
+        "max-snippet": -1,
     },
-    openGraph: {
-        title: 'Contact | Abhishek Shah',
-        description: "Get in touch with Abhishek Shah for projects or collaborations.",
-        url: "https://abhishekshah-portfolio.vercel.app/contact",
-        images: [{ url: "/profile.jpg", width: 1200, height: 630, alt: "Abhishek Shah" }],
-        type: "website",
-        siteName: "Abhishek Shah Portfolio"
-    },
-    keywords: [
-        "Contact Abhishek Shah",
-        "Get in touch with Abhishek Shah",
-        "Abhishek Shah contact details",
-        "Full stack developer contact",
-        "Contact Abhishek Shah for projects",
-        "Contact Abhishek Shah for collaborations",
-        "Abhishek Shah phone number",
-        "Abhishek Shah email address",
-        "Abhishek Shah social media links",
-        "Contact information for Abhishek Shah",
-        "Abhishek Shah contact info",
-        "Abhishek Shah contact page",
-        "Contact Abhishek Shah for freelance work",
-        "Full stack developer contact information",
-        "Full stack developer India",
-        "Abhishek Shah contact information",
-        "Abhishek Shah email",
-        "Abhishek Shah social media",
-        "Contact Abhishek Shah for web development",
-        "Contact Abhishek Shah for software development",
-        "Contact Abhishek Shah for mobile app development",
-    ],
-    twitter: {
-        card: "summary_large_image",
-        title: "Contact | Abhishek Shah",
-        description: "Get in touch with Abhishek Shah for projects or collaborations.",
-        images: ["/profile.jpg"],
-    },
-    robots: {
-        index: true,
-        follow: true,
-        googleBot: {
-            index: true,
-            follow: true,
-            "max-video-preview": -1,
-            "max-image-preview": "large",
-            "max-snippet": -1,
-        },
-    },
-    authors: [{ name: "Abhishek Shah", url: "https://abhishekshah-portfolio.vercel.app" }],
+  },
+  authors: [{ name: "Abhishek Shah", url: "https://abhishekshah-portfolio.vercel.app" }],
 };
 
 function ContactJsonLd() {
@@ -78,12 +80,6 @@ function ContactJsonLd() {
           "https://twitter.com/AbhishekShah2006",
           "https://instagram.com/abhishekshah_112"
         ],
-        "address": {
-          "@type": "PostalAddress",
-          "addressLocality": "Bardoli",
-          "addressRegion": "Gujarat",
-          "addressCountry": "IN"
-        }
       }
     },
     {

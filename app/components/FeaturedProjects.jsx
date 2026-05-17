@@ -49,6 +49,15 @@ const SignatureBar = () => {
 
 const projects = [
   {
+    title: "Chess",
+    desc: "A modern, beautiful, and feature-rich chess application. Built with Flutter for cross-platform play.",
+    tech: ["Flutter", "Dart", "Cross-Platform"],
+    githubUrl: "https://github.com/abhishek-2006/Chess", 
+    liveUrl: "/chess", 
+    category: "Mobile Game",
+    isGame: true
+  },
+  {
     title: "TicTacToe",
     desc: "A premium Android reimagining of the classic game. Features adaptive AI, Neo-Dark UI, and smooth 60FPS animations.",
     tech: ["Flutter", "Dart", "Android"],
@@ -56,14 +65,6 @@ const projects = [
     liveUrl: "/tictactoe", 
     category: "Mobile Game",
     isGame: true
-  },
-  {
-    title: "Hotel Management System",
-    desc: "A professional-grade booking engine and administrative suite. Handles real-time availability and billing infrastructure.",
-    tech: ["PHP", "MySQL", "Bootstrap", "TailwindCSS"],
-    githubUrl: "https://github.com/abhishek-2006/Hotel-Management-System.git",
-    liveUrl: null,
-    category: "Full Stack"
   },
   {
     title: "Currency Converter",

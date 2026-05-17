@@ -10,6 +10,7 @@ export const metadata = {
         title: 'Tic Tac Toe Game | Abhishek Shah',
         description: "TicTacToe by Abhishek Shah is a clean, fast, and strategic game. Play against AI or friends and enjoy a smooth classic gameplay experience.",
         url: "https://abhishekshah-portfolio.vercel.app/tictactoe",
+        locale: "en_US",
         images: ["https://abhishekshah-portfolio.vercel.app/tictactoe-logo.png"],
         siteName: "Abhishek Shah Portfolio"
     },
@@ -33,25 +34,47 @@ export const metadata = {
         "Tic Tac Toe competitive game",
         "xxo game online",
     ],
+    twitter: {
+        card: "summary_large_image",
+        title: 'Tic Tac Toe Game | Abhishek Shah',
+        description: "TicTacToe by Abhishek Shah is a clean, fast, and strategic game. Play against AI or friends and enjoy a smooth classic gameplay experience.",
+        images: ["https://abhishekshah-portfolio.vercel.app/tictactoe-logo.png"],
+        creator: "@shahabhishek409",
+    },
+    robots: {
+        index: true,
+        follow: true,
+        googleBot: {
+            index: true,
+            follow: true,
+            "max-video-preview": -1,
+            "max-image-preview": "large",
+            "max-snippet": -1,
+        },
+    },
+    authors: [{ name: "Abhishek Shah", url: "https://abhishekshah-portfolio.vercel.app" }],
 };
 
 export default function page() {
     const schema = {
         "@context": "https://schema.org",
-        "@type" : "SoftwareApplication",
-        title: 'Tic Tac Toe Game',
-        description: "TicTacToe by Abhishek Shah is a clean, fast, and strategic game. Play against AI or friends and enjoy a smooth classic gameplay experience.",
-        name : "TicTacToe Game",
-        operatingSystem : "Android",
-        operatingSystem : "Windows",
-        applicationCategory : "Game",
-        image : "https://abhishekshah-portfolio.vercel.app/tictactoe-logo.png",
-        alternates : "https://abhishekshah-portfolio.vercel.app/tictactoe"
+        "@type": "SoftwareApplication",
+        "name": "TicTacToe Game",
+        "description": "TicTacToe by Abhishek Shah is a clean, fast, and strategic game. Play against AI or friends and enjoy a smooth classic gameplay experience.",
+        "operatingSystem": ["Android", "Windows", "Web"],
+        "applicationCategory": "GameApplication",
+        "image": "https://abhishekshah-portfolio.vercel.app/tictactoe-logo.png",
+        "url": "https://abhishekshah-portfolio.vercel.app/tictactoe",
+        "author": {
+            "@type": "Person",
+            "name": "Abhishek Shah",
+            "url": "https://abhishekshah-portfolio.vercel.app"
+        }
     };
 
     return (
         <>
-            <script type="application/ld+json" 
+            <script type="application/ld+json"
             dangerouslySetInnerHTML={{ __html: JSON.stringify(schema) }} />
             <TicTacToePage />
         </>
