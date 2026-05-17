@@ -1,3 +1,4 @@
+import { b } from "framer-motion/client";
 import ContactPage from "./Contact";
 
 export const metadata = {
@@ -37,6 +38,24 @@ export const metadata = {
     "Contact Abhishek Shah for web development",
     "Contact Abhishek Shah for software development",
     "Contact Abhishek Shah for mobile app development",
+    "Contact Abhishek Shah for MERN Stack development",
+    "Contact Abhishek Shah for Next.js development",
+    "Contact Abhishek Shah for Flutter development",
+    "Contact Abhishek Shah for React development",
+    "Contact Abhishek Shah for Android development",
+    "Contact Abhishek Shah for iOS development",
+    "Contact Abhishek Shah for full stack development",
+    "Contact Abhishek Shah for freelance projects",
+    "Contact Abhishek Shah for collaborations",
+    "Abhishek Shah contact details for projects",
+    "Abhishek Shah contact details for collaborations",
+    "Abhishek Shah phone number for contact",
+    "Abhishek Shah email address for contact",
+    "Abhishek Shah social media links for contact",
+    "Abhishek Shah linkedIn profile for contact",
+    "Abhishek Shah GitHub profile for contact",
+    "Abhishek Shah Twitter profile for contact",
+    "Abhishek Shah Instagram profile for contact",
   ],
   twitter: {
     card: "summary_large_image",
@@ -49,6 +68,13 @@ export const metadata = {
     index: true,
     follow: true,
     googleBot: {
+      index: true,
+      follow: true,
+        "max-video-preview": -1,
+        "max-image-preview": "large",
+        "max-snippet": -1,
+    },
+    bingBot: {
       index: true,
       follow: true,
         "max-video-preview": -1,

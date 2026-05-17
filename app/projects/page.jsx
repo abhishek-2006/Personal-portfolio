@@ -6,12 +6,17 @@ export const metadata = {
     },
     keywords: [
         "Abhishek Shah projects",
+        "Abhishek Projects",
+        "Abhishek Shah portfolio projects",
+        "Abhishek Shah development projects",
         "Abhishek Shah portfolio",
         "Full stack developer projects",
         "Web development projects",
         "Software development projects",
         "Mobile app development projects",
         "React projects",
+        "Flutter projects",
+        "Native Android projects",
         "Node.js projects",
         "Next.js projects",
         "JavaScript projects",
@@ -52,6 +57,13 @@ export const metadata = {
         "max-image-preview": "large",
         "max-snippet": -1,
       },
+      bingBot: {
+        index: true,
+        follow: true,
+        "max-video-preview": -1,
+        "max-image-preview": "large",
+        "max-snippet": -1,
+      },
     },
     authors: [{ name: "Abhishek Shah", url: "https://abhishekshah-portfolio.vercel.app" }],
 };
@@ -67,7 +79,13 @@ function ProjectsJsonLd() {
       "author": {
         "@type": "Person",
         "name": "Abhishek Shah",
-        "url": "https://abhishekshah-portfolio.vercel.app"
+        "url": "https://abhishekshah-portfolio.vercel.app",
+        "sameAs": [
+          "https://github.com/abhishek-2006",
+          "https://www.linkedin.com/in/abhishekshah-dev/",
+          "https://x.com/shahabhishek409",
+          "https://www.instagram.com/abhishekshah_112/"
+        ]
       },
       "mainEntity": {
         "@type": "Person",
@@ -88,7 +106,14 @@ function ProjectsJsonLd() {
       "operatingSystem": ["Android", "Windows", "Web"],
       "author": {
         "@type": "Person",
-        "name": "Abhishek Shah"
+        "name": "Abhishek Shah",
+        "url": "https://abhishekshah-portfolio.vercel.app",
+        "sameAs": [
+          "https://github.com/abhishek-2006",
+          "https://www.linkedin.com/in/abhishekshah-dev/",
+          "https://x.com/shahabhishek409",
+          "https://www.instagram.com/abhishekshah_112/"
+        ]
       },
       "url": "https://abhishekshah-portfolio.vercel.app/tictactoe",
       "inLanguage": "en"
@@ -102,7 +127,14 @@ function ProjectsJsonLd() {
       "operatingSystem": ["Android", "Windows", "Web", "Linux"],
       "author": {
         "@type": "Person",
-        "name": "Abhishek Shah"
+        "name": "Abhishek Shah",
+        "url": "https://abhishekshah-portfolio.vercel.app",
+        "sameAs": [
+          "https://github.com/abhishek-2006",
+          "https://www.linkedin.com/in/abhishekshah-dev/",
+          "https://x.com/shahabhishek409",
+          "https://www.instagram.com/abhishekshah_112/"
+        ]
       },
       "url": "https://abhishekshah-portfolio.vercel.app/chess",
       "inLanguage": "en"

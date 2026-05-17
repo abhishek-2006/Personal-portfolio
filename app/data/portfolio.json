@@ -114,13 +114,13 @@
   "services": [
     {
       "name": "Full-Stack Web Development",
-      "description": "Custom web applications using MERN Stack, Next.js, and modern technologies",
+      "description": "Web applications using MERN Stack, Next.js, and modern technologies",
       "features": ["Responsive Design", "Database Integration", "API Development", "Performance Optimization"]
     },
     {
       "name": "Mobile App Development",
       "description": "Cross-platform mobile applications using Flutter",
-      "features": ["iOS & Android", "Native Performance", "UI/UX Design", "Backend Integration"]
+      "features": ["iOS & Android", "Native Performance", "Backend Integration"]
     },
     {
       "name": "Web Application Optimization",
@@ -134,7 +134,7 @@
     { "language": "Gujarati", "proficiency": "Native" }
   ],
   "portfolio": {
-    "totalProjects": "14+",
+    "totalProjects": "20+",
     "featuredProjects": 3,
     "gamesBuilt": 2,
     "github": "https://github.com/abhishek-2006"

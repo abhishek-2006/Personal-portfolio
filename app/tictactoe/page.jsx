@@ -15,6 +15,9 @@ export const metadata = {
         siteName: "Abhishek Shah Portfolio"
     },
     keywords: [
+        "Abhishek Shah Tic Tac Toe",
+        "Abhishek Shah Tic Tac Toe Game",
+        "Tic Tac Toe offline game",
         "Tic Tac Toe Game",
         "Tic Tac Toe by Abhishek Shah",
         "Tic Tac Toe offline",
@@ -51,6 +54,13 @@ export const metadata = {
             "max-image-preview": "large",
             "max-snippet": -1,
         },
+        bingBot: {
+            index: true,
+            follow: true,
+            "max-video-preview": -1,
+            "max-image-preview": "large",
+            "max-snippet": -1,
+        },
     },
     authors: [{ name: "Abhishek Shah", url: "https://abhishekshah-portfolio.vercel.app" }],
 };
@@ -68,7 +78,13 @@ export default function page() {
         "author": {
             "@type": "Person",
             "name": "Abhishek Shah",
-            "url": "https://abhishekshah-portfolio.vercel.app"
+            "url": "https://abhishekshah-portfolio.vercel.app",
+            "sameAs": [
+                "https://github.com/abhishek-2006",
+                "https://www.linkedin.com/in/abhishekshah-dev/",
+                "https://x.com/shahabhishek409",
+                "https://www.instagram.com/abhishekshah_112/"
+            ]
         }
     };
 

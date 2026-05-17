@@ -20,7 +20,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
       url: '/skills',
       lastModified: currentDate,
       changeFrequency: 'monthly' as const,
-      priority: 0.7,
+      priority: 0.6,
     },
     {
       url: '/projects',
@@ -50,7 +50,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
       url: '/contact',
       lastModified: currentDate,
       changeFrequency: 'monthly' as const,
-      priority: 0.6,
+      priority: 0.7,
     },
   ]
 

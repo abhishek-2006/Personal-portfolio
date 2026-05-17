@@ -34,12 +34,16 @@ export const metadata = {
         "Chess app",
         "Chess fun game",
         "Chess competitive game",
-        "download chess offline",
+        "Download chess offline",
         "play chess offline",
         "best chess game",
         "shatranj game",
         "chess game by abhishek shah",
         "chess game for android",
+        "Chess download for windows",
+        "Chess multiplayer game",
+        "Abhishek Shah chess game",
+        "Abhishek Shah Chess",
     ],
     twitter: {
         card: "summary_large_image",
@@ -58,6 +62,13 @@ export const metadata = {
             "max-image-preview": "large",
             "max-snippet": -1,
         },
+        bingBot: {
+            index: true,
+            follow: true,
+            "max-video-preview": -1,
+            "max-image-preview": "large",
+            "max-snippet": -1,        
+        },
     },
     authors: [{ name: "Abhishek Shah", url: "https://abhishekshah-portfolio.vercel.app" }],
 };
@@ -75,7 +86,14 @@ export default function page() {
         "author": {
             "@type": "Person",
             "name": "Abhishek Shah",
-            "url": "https://abhishekshah-portfolio.vercel.app"
+            "email": "shahabhishek051@gmail.com",
+            "url": "https://abhishekshah-portfolio.vercel.app",
+            "sameAs": [
+                "https://github.com/abhishek-2006",
+                "https://www.linkedin.com/in/abhishekshah-dev/",
+                "https://x.com/shahabhishek409",
+                "https://www.instagram.com/abhishekshah_112/"
+            ]
         }
     };
 

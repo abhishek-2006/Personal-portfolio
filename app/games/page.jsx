@@ -8,7 +8,8 @@ export const metadata = {
   },
   keywords: [
     "Games by Abhishek Shah",
-    "Online games",
+    "Abhishek Shah game",
+    "Offline games",
     "Tic Tac Toe game",
     "Chess game",
     "Interactive games",
@@ -22,8 +23,17 @@ export const metadata = {
     "HTML5 games",
     "Game collection",
     "Abhishek Shah games",
-    "Free online games",
-    "Games by developer"
+    "Free offline games",
+    "Games by developer",
+    "Games by Abhishek",
+    "Games by Shah",
+    "Games by Abhishek Shah Portfolio",
+    "Games by Abhishek Shah website",
+    "Games by Abhishek Shah offline",
+    "Games by Abhishek Shah free",
+    "Games by Abhishek Shah play",
+    "Games by Abhishek Shah AI",
+    "Games by Abhishek Shah multiplayer",
   ],
   openGraph: {
     title: "Games by Abhishek Shah | Tic Tac Toe, Chess & More",
@@ -58,13 +68,15 @@ export const metadata = {
       "max-image-preview": "large",
       "max-video-preview": -1,
     },
+    bingBot: {
+      index: true,
+      follow: true,
+      "max-snippet": -1,
+      "max-image-preview": "large",
+      "max-video-preview": -1,
+    },
   },
   authors: [{ name: "Abhishek Shah", url: "https://abhishekshah-portfolio.vercel.app" }],
-  other: {
-    "geo.region": "IN-GJ",
-    "geo.placename": "Bardoli, Gujarat",
-    "geo.position": "21.1204;73.1138",
-  },
 };
 
 function GamesJsonLd() {
@@ -78,7 +90,13 @@ function GamesJsonLd() {
       "author": {
         "@type": "Person",
         "name": "Abhishek Shah",
-        "url": "https://abhishekshah-portfolio.vercel.app"
+        "url": "https://abhishekshah-portfolio.vercel.app",
+        "sameAs": [
+          "https://github.com/abhishek-2006",
+          "https://www.linkedin.com/in/abhishekshah-dev/",
+          "https://x.com/shahabhishek409",
+          "https://www.instagram.com/abhishekshah_112/"
+        ]
       },
       "copyrightYear": new Date().getFullYear(),
       "copyrightNotice": "Copyright © Abhishek Shah. All rights reserved."

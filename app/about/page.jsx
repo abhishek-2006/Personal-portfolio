@@ -1,71 +1,76 @@
 export const metadata = {
   title: 'About | Abhishek Shah',
+  description: "About Abhishek Shah – Software developer skilled in full-stack web development and mobile apps. Explore his journey, technical skills, and projects.",
+  alternates: {
+    canonical: "https://abhishekshah-portfolio.vercel.app/about",
+  },
+  keywords: [
+    "About Abhishek Shah",
+    "Abhishek Shah about",
+    "Abhishek Shah biography",
+    "Abhishek Shah background",
+    "Abhishek Shah journey",
+    "Abhishek Shah experience",
+    "Abhishek Shah education",
+    "Abhishek Shah developer",
+    "Abhishek Shah software engineer",
+    "Abhishek Shah Android developer",
+    "Abhishek Shah iOS developer",
+    "Abhishek Shah Flutter developer",
+    "Abhishek Shah software developer",
+    "Abhishek Shah full stack developer",
+    "Abhishek Shah web developer",
+    "Abhishek Shah mobile app developer",
+    "Abhishek Shah portfolio",
+    "Abhishek Shah career",
+    "Abhishek Shah professional background",
+    "About Abhishek Shah software developer",
+    "Abhishek Shah technical skills",
+    "Abhishek Shah education and experience",
+    "Abhishek Shah developer profile",
+  ],
+  openGraph: {
+    title: 'About | Abhishek Shah',
     description: "About Abhishek Shah – Software developer skilled in full-stack web development and mobile apps. Explore his journey, technical skills, and projects.",
-    alternates: {
-      canonical: "https://abhishekshah-portfolio.vercel.app/about",
-    },
-    keywords: [
-        "Abhishek Shah about",
-        "Abhishek Shah biography",
-        "Abhishek Shah background",
-        "Abhishek Shah journey",
-        "Abhishek Shah skills",
-        "Abhishek Shah experience",
-        "Abhishek Shah education",
-        "Abhishek Shah software developer",
-        "Abhishek Shah full stack developer",
-        "Abhishek Shah web developer",
-        "Abhishek Shah mobile app developer",
-        "Abhishek Shah portfolio",
-        "Abhishek Shah career",
-        "Abhishek Shah professional background",
-        "About Abhishek Shah software engineer",
-        "Abhishek Shah technical skills",
-        "Abhishek Shah projects",
-        "Abhishek Shah education and experience",
-        "Abhishek Shah developer profile",
+    url: "https://abhishekshah-portfolio.vercel.app/about",
+    siteName: "Abhishek Shah Portfolio",
+    locale: "en_US",
+    images: [
+      {
+        url: "https://abhishekshah-portfolio.vercel.app/abhishek-shah-full-stack-developer.jpg",
+        width: 1200,
+        height: 630,
+        alt: "Abhishek Shah - About Me",
+      },
     ],
-    openGraph: {
-        title: 'About | Abhishek Shah',
-        description: "About Abhishek Shah – Software developer skilled in full-stack web development and mobile apps. Explore his journey, technical skills, and projects.",
-        url: "https://abhishekshah-portfolio.vercel.app/about",
-        siteName: "Abhishek Shah Portfolio",
-        locale: "en_US",
-        images: [
-          {
-            url: "https://abhishekshah-portfolio.vercel.app/abhishek-shah-full-stack-developer.jpg",
-            width: 1200,
-            height: 630,
-            alt: "Abhishek Shah - About Me",
-          },
-        ],
-        type: "profile",
+    type: "profile",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "About | Abhishek Shah",
+    description: "Explore the professional journey, skills, and education of Abhishek Shah.",
+    images: ["https://abhishekshah-portfolio.vercel.app/abhishek-shah-full-stack-developer.jpg"],
+    creator: "@shahabhishek409",
+  },
+  robots: {
+    index: true,
+    follow: true,
+    googleBot: {
+      index: true,
+      follow: true,
+      "max-video-preview": -1,
+      "max-image-preview": "large",
+      "max-snippet": -1,
     },
-    twitter: {
-        card: "summary_large_image",
-        title: "About | Abhishek Shah",
-        description: "Explore the professional journey, skills, and education of Abhishek Shah.",
-        images: ["https://abhishekshah-portfolio.vercel.app/abhishek-shah-full-stack-developer.jpg"],
-        creator: "@shahabhishek409",
+    bingBot: {
+      index: true,
+      follow: true,
+      "max-video-preview": -1,
+      "max-image-preview": "large",
+      "max-snippet": -1,        
     },
-    robots: {
-        index: true,
-        follow: true,
-        googleBot: {
-            index: true,
-            follow: true,
-            "max-video-preview": -1,
-            "max-image-preview": "large",
-            "max-snippet": -1,
-        },
-    },
-    authors: [{ name: "Abhishek Shah", url: "https://abhishekshah-portfolio.vercel.app" }],
-    other: {
-        "geo.region": "IN-GJ",
-        "geo.placename": "Bardoli, Gujarat",
-        "geo.position": "21.1204;73.1138",
-        "profile:username": "shahabhishek409",
-    },
+  },
+  authors: [{ name: "Abhishek Shah", url: "https://abhishekshah-portfolio.vercel.app" }],
 };
 
 function JsonLd() {
@@ -84,7 +89,8 @@ function JsonLd() {
       "sameAs": [
         "https://github.com/abhishek-2006",
         "https://www.linkedin.com/in/abhishekshah-dev/",
-        "https://x.com/shahabhishek409"
+        "https://x.com/shahabhishek409",
+        "https://www.instagram.com/abhishekshah_112/"
       ],
       "address": {
         "@type": "PostalAddress",
@@ -101,7 +107,7 @@ function JsonLd() {
           },
           "jobTitle": "Freelance Full-Stack Developer",
           "startDate": "2023-01-01",
-          "description": "Developing full-stack web and mobile applications using MERN Stack, Next.js, and Flutter. Building scalable solutions with focus on performance optimization and user experience.",
+          "description": "Developing full-stack web and mobile applications using MERN Stack, Next.js and Flutter. Building scalable solutions with focus on performance optimization and user experience.",
           "skills": ["React", "Next.js", "Node.js", "MongoDB", "Flutter", "Tailwind CSS", "Express.js"]
         }
       ],
@@ -127,7 +133,7 @@ function JsonLd() {
           },
           "startDate": "2022-01-01",
           "endDate": "2025-12-31",
-          "gpa": "8.40"
+          "cgpa": "8.40"
         }
       ],
       "alumniOf": [
@@ -145,11 +151,12 @@ function JsonLd() {
         "Mobile App Development",
         "Flutter",
         "React",
+        "Android Development",
+        "iOS Development",
         "Next.js",
         "MERN Stack",
         "Node.js",
         "Database Design",
-        "API Development"
       ]
     }
   };
