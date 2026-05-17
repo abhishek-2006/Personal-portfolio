@@ -16,7 +16,10 @@ export const metadata = {
     keywords: [
         "Chess Game",
         "Chess by Abhishek Shah",
-        "Play Chess online",
+        "Shatranj Game",
+        "Play Chess offline",
+        "Offline Chess Game",
+        "Offline chess download",
         "Chess offline",
         "Offline Chess",
         "Chess AI opponent",
@@ -30,6 +33,12 @@ export const metadata = {
         "Chess app",
         "Chess fun game",
         "Chess competitive game",
+        "download chess offline",
+        "play chess offline",
+        "best chess game",
+        "shatranj game",
+        "chess game by abhishek shah",
+        "chess game for android",
     ],
 };
 
