@@ -84,6 +84,7 @@ abhishekshah-portfolio/
 │   ├── projects/         # Projects showcase route
 │   ├── skills/           # Skills visualization route
 │   ├── tictactoe/        # Interactive game route & AI logic
+|   ├── chess/            # Interactive game route & AI logic
 │   ├── globals.css       # Tailwind base, utilities, and CSS variables
 │   ├── layout.tsx        # Root layout, Global SEO, JSON-LD Schema
 │   └── page.jsx          # Entry point and Hero section
@@ -131,6 +132,7 @@ I am always open to discussing new projects, creative ideas, or opportunities to
 - **LinkedIn**: [Abhishek Shah](https://www.linkedin.com/in/abhishekshah-dev/)
 - **X (Twitter)**: [@shahabhishek409](https://x.com/shahabhishek409)
 - **GitHub**: [@abhishek-2006](https://github.com/abhishek-2006)
+- **Instagram**: [@abhishekshah_112](https://instagram.com/abhishekshah_112)
 
 <br/>
 <div align="center">

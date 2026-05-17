@@ -32,7 +32,13 @@ export default function sitemap(): MetadataRoute.Sitemap {
       url: '/tictactoe',
       lastModified: currentDate,
       changeFrequency: 'weekly' as const,
-      priority: 0.9, // High priority for your featured game
+      priority: 0.9,
+    },
+    {
+      url: '/chess',
+      lastModified: currentDate,
+      changeFrequency: 'weekly' as const,
+      priority: 0.9,
     },
     {
       url: '/contact',

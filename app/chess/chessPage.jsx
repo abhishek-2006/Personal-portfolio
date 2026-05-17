@@ -67,24 +67,12 @@ export default function App() {
     tagline: "Enhanced Edition",
     logo: "/chess-logo.png",
     developer: "Abhishek Shah",
-    tags: ["No Ads", "Offline", "AI Powered", "Multiplayer"],
-    screenshots: [
-      { id: 1, title: "Main Menu", url: "/images/Chess/main-menu.png" },
-      { id: 2, title: "AI Gameplay", url: "/images/Chess/gameplay.png" },
-      { id: 3, title: "Neural AI Selector", url: "/images/Chess/computer-modes.png" },
-      { id: 4, title: "Settings", url: "/images/Chess/settings.png" },
-      { id: 5, title: "Victory Screen", url: "/images/Chess/victory-dark.png" },
-      { id: 6, title: "Local PvP", url: "/images/Chess/local-pvp-light.png" },
-    ],
+    tags: ["No Ads", "Offline", "Multiplayer"],
+
     features: [
       {
-        icon: <Cpu className="w-6 h-6 text-cyan-500" />,
-        title: "Adaptive AI",
-        desc: "Neural-based difficulty levels that learn and adapt to your unique playstyle.",
-      },
-      {
         icon: <Layers className="w-6 h-6 text-indigo-500" />,
-        title: "Neo-Dark UI",
+        title: "Dark UI",
         desc: "A custom-built, battery-efficient interface with buttery smooth 60FPS animations.",
       },
       {
@@ -398,44 +386,6 @@ export default function App() {
             </div>
           </div>
         </motion.div>
-
-        {/* GALLERY SECTION */}
-        <section className="mb-32">
-          <div className="flex justify-between items-end mb-12">
-            <div>
-              <h2 className="text-[10px] font-black uppercase tracking-[0.4em] text-cyan-400 mb-2">Visual Showcase</h2>
-              <h3 className="text-4xl font-black text-white tracking-tight italic uppercase">Interface Gallery</h3>
-            </div>
-            <div className="hidden md:flex gap-2 text-slate-600 text-[10px] font-bold items-center uppercase tracking-widest">
-              Scroll to explore <ChevronRight size={14} />
-            </div>
-          </div>
-
-          <div className="flex overflow-x-auto gap-6 pb-8 snap-x no-scrollbar" style={{ perspective: 1200 }}>
-            {game.screenshots.map((img, i) => (
-              <motion.div
-                key={img.id}
-                initial={{ opacity: 0, rotateY: 45, x: 50, scale: 0.9 }}
-                whileInView={{ opacity: 1, rotateY: 0, x: 0, scale: 1 }}
-                viewport={{ once: true, margin: "-50px" }}
-                transition={{ duration: 0.6, delay: i * 0.1, type: "spring" }}
-                whileHover={{ y: -10, rotateY: -5, rotateX: 5, scale: 1.05, z: 50 }}
-                onClick={() => setPreviewImage(img)}
-                onContextMenu={(e) => e.preventDefault()}
-                className="snap-center shrink-0 w-[260px] md:w-[320px] aspect-9/16 relative group rounded-[2.5rem] overflow-hidden border border-white/10 shadow-2xl cursor-pointer select-none"
-                style={{ transformStyle: "preserve-3d" }}
-              >
-                <Image src={img.url} alt={img.title} height={480} width={260} className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" />
-                <div className="absolute inset-0 bg-linear-to-t from-black via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 flex flex-col justify-end p-8">
-                  <div className="flex justify-between items-center">
-                    <span className="text-white text-sm font-black tracking-widest uppercase italic">{img.title}</span>
-                    <Maximize2 size={16} className="text-cyan-400" />
-                  </div>
-                </div>
-              </motion.div>
-            ))}
-          </div>
-        </section>
 
         {/* FEATURES GRID */}
         <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6 mb-32">
