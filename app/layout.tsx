@@ -1,6 +1,7 @@
 import type { Metadata, Viewport } from "next";
 import "./globals.css";
 import Navbar from "./components/Navbar";
+import ClarityProvider from "./components/ClarityProvider";
 import { Analytics } from "@vercel/analytics/next"
 
 const siteConfig = {
@@ -125,6 +126,13 @@ export const metadata: Metadata = {
     "max-snippet": -1,
     "max-image-preview": "large",
     "max-video-preview": -1,
+    googleBot: {
+      index: true,
+      follow: true,
+      "max-snippet": -1,
+      "max-image-preview": "large",
+      "max-video-preview": -1,
+    },
   },
 
   other: {
@@ -223,6 +231,7 @@ export default function RootLayout({
   return (
     <html lang="en" className="scroll-smooth dark" data-scroll-behavior="smooth">
       <body className="bg-[#1a1a1a] text-white">
+        <ClarityProvider />
         <JsonLd />
         <Navbar/>
         <div className="pt-0">{children}</div>
