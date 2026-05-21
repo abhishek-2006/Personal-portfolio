@@ -5,6 +5,12 @@ import nextTs from "eslint-config-next/typescript";
 const eslintConfig = defineConfig([
   ...nextVitals,
   ...nextTs,
+  {
+    files: ["app/components/*ThreeScene.jsx"],
+    rules: {
+      "react/no-unknown-property": "off",
+    },
+  },
   // Override default ignores of eslint-config-next.
   globalIgnores([
     // Default ignores of eslint-config-next:

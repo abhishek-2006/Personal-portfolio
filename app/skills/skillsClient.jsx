@@ -35,28 +35,28 @@ const TECH_STACK = [
 const skills = [
   {
     title: "Frontend",
-    icon: <Code2 className="w-6 h-6" />,
+    icon: <Code2 className="size-6" />,
     color: "from-cyan-500 to-blue-500",
     glow: "shadow-cyan-500/20",
     items: ["HTML", "CSS", "Next.js", "Tailwind", "React", "Bootstrap"],
   },
   {
     title: "Backend",
-    icon: <Server className="w-6 h-6" />,
+    icon: <Server className="size-6" />,
     color: "from-purple-500 to-indigo-500",
     glow: "shadow-indigo-500/20",
     items: ["Node.js", "PHP", "Express.js"],
   },
   {
     title: "Mobile Development",
-    icon: <Smartphone className="w-6 h-6" />,
+    icon: <Smartphone className="size-6" />,
     color: "from-pink-500 to-rose-500",
     glow: "shadow-rose-500/20",
     items: ["Flutter", "Native Android",],
   },
   {
     title: "Database",
-    icon: <Database className="w-6 h-6" />,
+    icon: <Database className="size-6" />,
     color: "from-orange-500 to-red-500",
     glow: "shadow-orange-500/20",
     items: ["MySQL", "MongoDB", "Firebase", "Firestore"],
