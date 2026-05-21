@@ -2,6 +2,7 @@ import type { Metadata, Viewport } from "next";
 import "./globals.css";
 import Navbar from "./components/Navbar";
 import ClarityProvider from "./components/ClarityProvider";
+import MotionProvider from "./components/MotionProvider";
 import { Analytics } from "@vercel/analytics/next"
 
 const siteConfig = {
@@ -231,11 +232,13 @@ export default function RootLayout({
   return (
     <html lang="en" className="scroll-smooth dark" data-scroll-behavior="smooth">
       <body className="bg-[#1a1a1a] text-white">
-        <ClarityProvider />
-        <JsonLd />
-        <Navbar/>
-        <div className="pt-0">{children}</div>
-        <Analytics/>
+        <MotionProvider>
+          <ClarityProvider />
+          <JsonLd />
+          <Navbar/>
+          <div className="pt-0">{children}</div>
+          <Analytics/>
+        </MotionProvider>
       </body>
     </html>
   );

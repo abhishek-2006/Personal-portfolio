@@ -1,7 +1,7 @@
 "use client";
 
 import { useState, useEffect, useMemo } from "react";
-import { motion } from "framer-motion";
+import { motion, useReducedMotion } from "framer-motion";
 import { 
   Github, 
   Linkedin, 
@@ -20,8 +20,13 @@ const Typewriter = ({ strings, typeSpeed = 50, backSpeed = 30, delayBetween = 20
   const [index, setIndex] = useState(0);
   const [subIndex, setSubIndex] = useState(0);
   const [reverse, setReverse] = useState(false);
+  const shouldReduceMotion = useReducedMotion();
 
   useEffect(() => {
+    if (shouldReduceMotion) {
+      return undefined;
+    }
+
     const timeout = setTimeout(() => {
       if (subIndex === strings[index].length + 1 && !reverse) {
         setReverse(true);
@@ -36,12 +41,12 @@ const Typewriter = ({ strings, typeSpeed = 50, backSpeed = 30, delayBetween = 20
     }, reverse ? backSpeed : (subIndex === strings[index].length ? delayBetween : typeSpeed));
 
     return () => clearTimeout(timeout);
-  }, [subIndex, index, reverse, strings, typeSpeed, backSpeed, delayBetween]);
+  }, [subIndex, index, reverse, strings, typeSpeed, backSpeed, delayBetween, shouldReduceMotion]);
 
   return (
     <span>
-      {strings[index].substring(0, subIndex)}
-      <span className="animate-pulse ml-0.5 border-r-2 border-cyan-400" />
+      {shouldReduceMotion ? strings[0] : strings[index].substring(0, subIndex)}
+      <span className={shouldReduceMotion ? "ml-0.5 border-r-2 border-cyan-400" : "animate-pulse ml-0.5 border-r-2 border-cyan-400"} />
     </span>
   );
 };

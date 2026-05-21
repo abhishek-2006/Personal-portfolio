@@ -1,4 +1,3 @@
-import { b } from "framer-motion/client";
 import ContactPage from "./Contact";
 
 export const metadata = {
