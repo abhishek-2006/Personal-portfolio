@@ -3,11 +3,12 @@ import nodemailer from "nodemailer";
 
 export async function POST(req) {
   try {
-    const { name, email, subject, message } = await req.json();
-
+    
     if (!process.env.EMAIL_USER || !process.env.EMAIL_PASS) {
       return NextResponse.json({ error: "Configuration Error" }, { status: 500 });
     }
+    
+    const { name, email, subject, message } = await req.json();
 
     const transporter = nodemailer.createTransport({
       service: 'gmail',

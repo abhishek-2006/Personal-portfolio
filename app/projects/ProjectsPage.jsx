@@ -2,7 +2,7 @@
 
 import { useEffect, useState, useMemo } from "react";
 import SignatureBar from "../components/SignatureBar";
-import { motion, AnimatePresence } from "framer-motion";
+import { m, AnimatePresence } from "framer-motion";
 import { 
   Zap, 
   Github, 
@@ -93,8 +93,8 @@ export default function ProjectsPage({ initialProjects }) {
       
       {/* Background Aesthetic Glows (Optimized) */}
       <div className="absolute top-0 left-0 w-full h-full pointer-events-none">
-        <div className="absolute top-[-10%] right-[-10%] w-[50%] h-[50%] rounded-full animate-pulse bg-[radial-gradient(circle,rgba(37,99,235,0.15)_0%,transparent_60%)]" />
-        <div className="absolute bottom-[-10%] left-[-10%] w-[50%] h-[50%] rounded-full animate-pulse bg-[radial-gradient(circle,rgba(147,51,234,0.15)_0%,transparent_60%)]" style={{ animationDelay: '2s' }} />
+        <div className="absolute top-[-10%] right-[-10%] size-[50%] rounded-full animate-pulse bg-[radial-gradient(circle,rgba(37,99,235,0.15)_0%,transparent_60%)]" />
+        <div className="absolute bottom-[-10%] left-[-10%] size-[50%] rounded-full animate-pulse bg-[radial-gradient(circle,rgba(147,51,234,0.15)_0%,transparent_60%)]" style={{ animationDelay: '2s' }} />
       </div>
 
       <style>{`
@@ -108,32 +108,32 @@ export default function ProjectsPage({ initialProjects }) {
         
         {/* Header Section */}
         <header className="flex flex-col items-center text-center mb-16">
-          <motion.div
+          <m.div
             initial={{ opacity: 0, scale: 0.8 }}
             animate={{ opacity: 1, scale: 1 }}
             className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-white/5 border border-white/10 text-xs font-bold tracking-[0.2em] uppercase text-cyan-400 mb-6"
           >
             <Zap size={14} className="fill-cyan-400/20" />
             Project Hub
-          </motion.div>
+          </m.div>
           
-          <motion.h1
+          <m.h1
             initial={{ opacity: 0, y: -20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6 }}
-            className="text-6xl md:text-8xl font-black py-4 text-center bg-linear-to-r from-white via-cyan-100 to-blue-400 bg-clip-text text-transparent leading-none"
+            className="text-6xl md:text-8xl font-semibold py-4 text-center bg-linear-to-r from-white via-cyan-100 to-blue-400 bg-clip-text text-transparent leading-none"
           >
             My Projects
-          </motion.h1>
+          </m.h1>
           
-          <motion.p 
+          <m.p 
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{ delay: 0.3 }}
             className="text-slate-400 text-lg md:text-xl max-w-2xl mt-6 font-medium leading-relaxed"
           >
             Exploring the intersection of <span className="text-white">Full-Stack engineering</span> and <span className="text-cyan-400 font-bold">mobile game design</span> through the GitHub API.
-          </motion.p>
+          </m.p>
         </header>
 
         {/* Filter Bar */}
@@ -141,6 +141,7 @@ export default function ProjectsPage({ initialProjects }) {
           {allTags.map((tag) => (
             <button
               key={tag}
+              type="button"
               onClick={() => setSelectedTag(tag)}
               className={`px-5 py-2 rounded-full cursor-pointer text-sm font-bold transition-all border ${
                 selectedTag === tag 
@@ -154,7 +155,7 @@ export default function ProjectsPage({ initialProjects }) {
         </div>
 
         {/* Project Grid */}
-        <motion.div 
+        <m.div 
           layout
           className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8"
         >
@@ -165,7 +166,7 @@ export default function ProjectsPage({ initialProjects }) {
 
           <AnimatePresence mode="popLayout">
             {filteredProjects.map((project, i) => (
-              <motion.div
+              <m.div
                 key={project.name}
                 layout
                 initial={{ opacity: 0, scale: 0.9 }}
@@ -190,10 +191,10 @@ export default function ProjectsPage({ initialProjects }) {
                     }`}>
                       {project.isGame ? <Gamepad2 size={20} /> : <Code size={20} />}
                     </div>
-                    <Layers className="text-white/5 w-12 h-12 -mr-4 -mt-4 group-hover:text-white/10 transition-colors duration-500" />
+                    <Layers className="text-white/5 size-12 -mr-4 -mt-4 group-hover:text-white/10 transition-colors duration-500" />
                   </div>
 
-                  <h2 className="text-2xl font-bold mb-3 text-white group-hover:text-cyan-400 transition-colors">
+                  <h2 className="text-2xl font-semibold mb-3 text-white group-hover:text-cyan-400 transition-colors">
                     {project.name}
                   </h2>
 
@@ -240,16 +241,16 @@ export default function ProjectsPage({ initialProjects }) {
                 <div className={`absolute inset-0 pointer-events-none opacity-0 group-hover:opacity-100 transition-opacity duration-500 bg-linear-to-tr ${
                   project.isGame ? 'from-cyan-500/20 to-transparent' : 'from-cyan-500/10 to-transparent'
                 }`} />
-              </motion.div>
+              </m.div>
             ))}
           </AnimatePresence>
-        </motion.div>
+        </m.div>
 
         {/* Empty State */}
         {projects && filteredProjects.length === 0 && (
           <div className="text-center py-24">
             <p className="text-slate-500 text-xl italic font-medium">No projects found for &quot;{selectedTag}&quot;.</p>
-            <button onClick={() => setSelectedTag("All")} className="mt-4 text-cyan-400 font-bold hover:underline">
+            <button type="button" onClick={() => setSelectedTag("All")} className="mt-4 text-cyan-400 font-bold hover:underline">
               Reset Filters
             </button>
           </div>

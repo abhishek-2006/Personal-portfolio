@@ -57,7 +57,6 @@
     },
     {
       "degree": "Secondary School Certificate (SSC)",
-      "field": "Science",
       "institution": "Gujarat Board",
       "year": 2022,
       "percentile": "75.23",
@@ -77,8 +76,8 @@
     ],
     "backend": [
       { "name": "Node.js", "proficiency": "Advanced", "yearsExperience": "2+" },
-      { "name": "Express.js", "proficiency": "Advanced", "yearsExperience": "2+" },
-      { "name": "PHP", "proficiency": "Intermediate", "yearsExperience": "1+" },
+      { "name": "Express.js", "proficiency": "Intermediate", "yearsExperience": "2+" },
+      { "name": "PHP", "proficiency": "Advanced", "yearsExperience": "1+" },
       { "name": "RESTful APIs", "proficiency": "Advanced", "yearsExperience": "2+" }
     ],
     "mobile": [
@@ -86,7 +85,7 @@
       { "name": "Native Android", "proficiency": "Intermediate", "yearsExperience": "1+" }
     ],
     "database": [
-      { "name": "MongoDB", "proficiency": "Advanced", "yearsExperience": "2+" },
+      { "name": "MongoDB", "proficiency": "Intermediate", "yearsExperience": "1+" },
       { "name": "MySQL", "proficiency": "Advanced", "yearsExperience": "2+" },
       { "name": "Firebase", "proficiency": "Intermediate", "yearsExperience": "1+" },
       { "name": "Firestore", "proficiency": "Intermediate", "yearsExperience": "1+" }
@@ -115,7 +114,7 @@
     {
       "name": "Full-Stack Web Development",
       "description": "Web applications using MERN Stack, Next.js, and modern technologies",
-      "features": ["Responsive Design", "Database Integration", "API Development", "Performance Optimization"]
+      "features": ["Responsive Design", "Database Integration", "Performance Optimization"]
     },
     {
       "name": "Mobile App Development",
@@ -125,7 +124,7 @@
     {
       "name": "Web Application Optimization",
       "description": "Performance optimization and scaling for existing web applications",
-      "features": ["Speed Optimization", "SEO Enhancement", "Database Optimization", "Caching Strategies"]
+      "features": ["Speed Optimization", "SEO Enhancement", "GEO Targeting", "Database Optimization", "Caching Strategies"]
     }
   ],
   "languages": [

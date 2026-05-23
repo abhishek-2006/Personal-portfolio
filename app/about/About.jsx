@@ -1,8 +1,9 @@
 "use client";
 
 import { useState, useEffect } from "react";
-import { motion } from "framer-motion";
+import { m, LazyMotion, domAnimation } from "framer-motion";
 import Image from "next/image";
+import Link from "next/link";
 import SignatureBar from "../components/SignatureBar";
 import AboutThreeScene from "../components/AboutThreeScene";
 import { Zap, Clock, GraduationCap, School, BookOpen, Award, ChevronRight } from 'lucide-react';
@@ -48,7 +49,9 @@ const Typewriter = ({ strings, typeSpeed = 50, backSpeed = 30 }) => {
     <span className="text-gray-200">
       {displayText}
       <span className="animate-pulse border-r-2 border-cyan-400 ml-1"></span>
-      <motion.span animate={{ opacity: [1, 0] }} transition={{ duration: 0.8, repeat: Infinity }} style={{ color: COLORS.cyan400 }}>|</motion.span>
+      <LazyMotion features={domAnimation}>
+        <m.span animate={{ opacity: [1, 0] }} transition={{ duration: 0.8, repeat: Infinity }} style={{ color: COLORS.cyan400 }}>|</m.span>
+      </LazyMotion>
     </span>
   );
 };
@@ -65,7 +68,7 @@ const Card = ({ children, delay }) => {
   };
 
   return (
-    <motion.div
+    <m.div
       variants={fadeUp}
       initial="hidden"
       whileInView="visible"
@@ -78,7 +81,7 @@ const Card = ({ children, delay }) => {
         transition-colors duration-500">
         {children}
       </div>
-    </motion.div>
+    </m.div>
   );
 };
 
@@ -111,152 +114,154 @@ export default function AboutPage() {
   ];
 
   return (
-    <div className="relative min-h-screen w-full overflow-hidden text-gray-100 pt-10 pb-20 sm:px-6 font-sans selection:bg-cyan-500/30 transition-colors duration-500">
-      <AboutThreeScene />
-      <style>{`
-        @import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap');
-        body { font-family: 'Plus Jakarta Sans', sans-serif; overflow-x: hidden; }
-      `}</style>
+    <LazyMotion features={domAnimation}>
+      <div className="relative min-h-screen w-full overflow-hidden text-gray-100 pt-10 pb-20 sm:px-6 font-sans selection:bg-cyan-500/30 transition-colors duration-500">
+        <AboutThreeScene />
+        <style>{`
+          @import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap');
+          body { font-family: 'Plus Jakarta Sans', sans-serif; overflow-x: hidden; }
+        `}</style>
 
-      <div className="max-w-7xl mx-auto relative z-10 px-4">
-        {/* PAGE TITLE */}
-        <motion.h1
-          initial={{ opacity: 0, y: -20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.5 }}
-          className="text-5xl md:text-7xl font-extrabold py-4 text-center 
-            bg-linear-to-r from-cyan-400 to-purple-400 bg-clip-text
-            text-transparent leading-light"
-        >
-          My Story
-        </motion.h1>
-
-        {/* BIO SECTION */}
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.8 }}
-          className="flex flex-col md:flex-row items-center md:items-start md:justify-center gap-10 md:gap-16 mt-10"
-        >
-          {/* Profile Image */}
-          <motion.div
-            initial={{ opacity: 0, scale: 0.8 }}
-            whileInView={{ opacity: 1, scale: 1 }}
-            transition={{ duration: 0.6, ease: "easeOut" }}
-            className="relative"
+        <div className="max-w-7xl mx-auto relative z-10 px-4">
+          {/* PAGE TITLE */}
+          <m.h1
+            initial={{ opacity: 0, y: -20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.5 }}
+            className="text-5xl md:text-7xl font-semibold py-4 text-center 
+              bg-linear-to-r from-cyan-400 to-purple-400 bg-clip-text
+              text-transparent leading-tight"
           >
-            <div className="w-40 h-40 md:w-52 md:h-52 rounded-full p-px bg-linear-to-r from-cyan-400 to-blue-500 shadow-2xl shadow-cyan-500/20">
-              <div className="w-full h-full rounded-full overflow-hidden bg-slate-800 border-4 border-slate-900">
-                <Image
-                  src="/abhishek-shah-full-stack-developer.jpg"
-                  alt="Abhishek Shah Full Stack Developer"
-                  width={208}
-                  height={208}
-                  priority
-                  loading="eager"
-                  className="w-full h-full object-cover transition-all duration-700"
+            My Story
+          </m.h1>
+
+          {/* BIO SECTION */}
+          <m.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.8 }}
+            className="flex flex-col md:flex-row items-center md:items-start md:justify-center gap-10 md:gap-16 mt-10"
+          >
+            {/* Profile Image */}
+            <m.div
+              initial={{ opacity: 0, scale: 0.8 }}
+              whileInView={{ opacity: 1, scale: 1 }}
+              transition={{ duration: 0.6, ease: "easeOut" }}
+              className="relative"
+            >
+              <div className="w-40 h-40 md:w-52 md:h-52 rounded-full p-px bg-linear-to-r from-cyan-400 to-blue-500 shadow-2xl shadow-cyan-500/20">
+                <div className="w-full h-full rounded-full overflow-hidden bg-slate-800 border-4 border-slate-900">
+                  <Image
+                    src="/abhishek-shah-full-stack-developer.jpg"
+                    alt="Abhishek Shah Full Stack Developer"
+                    width={208}
+                    height={208}
+                    priority
+                    loading="eager"
+                    className="w-full h-full object-cover transition-all duration-700"
+                  />
+                </div>
+              </div>
+              {/* Status Indicator */}
+              <div className="absolute bottom-4 right-4 size-5 bg-green-500 rounded-full border-4 border-slate-900 animate-pulse"></div>
+            </m.div>
+
+            {/* Right Side Text */}
+            <div className="flex flex-col max-w-2xl text-center md:text-left min-w-0">
+              <div className="flex items-center justify-center md:justify-start mb-6 text-cyan-400">
+                <Zap className="size-5 mr-2 fill-cyan-400" />
+                <h2 className="text-sm font-semibold tracking-[0.2em] uppercase">Bio</h2>
+              </div>
+
+              <div className="text-lg md:text-2xl text-gray-300 leading-relaxed min-h-40 md:min-h-30">
+                <Typewriter
+                  strings={[
+                    "I'm Abhishek, a Computer Engineering student who loves building clean UI, smooth apps, and fast backends.",
+                    "I enjoy working with Flutter, Next.js, Android XML, PHP, and Node.js.",
+                    "I'm deeply passionate about designing modern systems and pixel-perfect UIs."
+                  ]}
                 />
               </div>
             </div>
-            {/* Status Indicator */}
-            <div className="absolute bottom-4 right-4 w-5 h-5 bg-green-500 rounded-full border-4 border-slate-900 animate-pulse"></div>
-          </motion.div>
+          </m.div>
 
-          {/* Right Side Text */}
-          <div className="flex flex-col max-w-2xl text-center md:text-left min-w-0">
-            <div className="flex items-center justify-center md:justify-start mb-6 text-cyan-400">
-              <Zap className="w-5 h-5 mr-2 fill-cyan-400" />
-              <h2 className="text-sm font-bold tracking-[0.2em] uppercase">Bio</h2>
-            </div>
-
-            <div className="text-lg md:text-2xl text-gray-300 leading-relaxed min-h-40 md:min-h-30">
-              <Typewriter
-                strings={[
-                  "I'm Abhishek, a Computer Engineering student who loves building clean UI, smooth apps, and fast backends.",
-                  "I enjoy working with Flutter, Next.js, Android XML, PHP, and Node.js.",
-                  "I'm deeply passionate about designing modern systems and pixel-perfect UIs."
-                ]}
-              />
-            </div>
+          {/* SEPARATOR */}
+          <div className="my-16 md:my-24 flex items-center justify-center w-full max-w-4xl mx-auto px-4 gap-4 overflow-hidden">
+            <div className="h-[2px] min-w-[60px] flex-1 bg-linear-to-r from-transparent via-indigo-500/40 to-indigo-500/80"></div>
+            <Award className="size-8 text-indigo-500 shrink-0" />
+            <div className="h-[2px] flex-1 min-w-[60px] bg-linear-to-l from-transparent via-indigo-500/40 to-indigo-500/80"></div>
           </div>
-        </motion.div>
-
-        {/* SEPARATOR */}
-        <div className="my-16 md:my-24 flex items-center justify-center w-full max-w-4xl mx-auto px-4 gap-4 overflow-hidden">
-          <div className="h-[2px] min-w-[60px] flex-1 bg-linear-to-r from-transparent via-indigo-500/40 to-indigo-500/80"></div>
-          <Award className="w-8 h-8 text-indigo-500 shrink-0" />
-          <div className="h-[2px] flex-1 min-w-[60px] bg-linear-to-l from-transparent via-indigo-500/40 to-indigo-500/80"></div>
-        </div>
 
 
 
-        {/* EDUCATION TITLE */}
-        <motion.h2
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.6 }}
-          className="text-3xl font-bold mt-16 mb-16 text-indigo-400 
-          text-center flex items-center justify-center gap-3"
-        >
-          <GraduationCap className="w-8 h-8 md:w-10 md:h-10" />
-          Academic Timeline
-        </motion.h2>
+          {/* EDUCATION TITLE */}
+          <m.h2
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6 }}
+            className="text-3xl font-semibold mt-16 mb-16 text-indigo-400 
+            text-center flex items-center justify-center gap-3"
+          >
+            <GraduationCap className="size-8 md:size-10" />
+            Academic Timeline
+          </m.h2>
 
-        {/* EDUCATION CARDS */}
-        <div className="max-w-4xl mx-auto space-y-6 md:space-y-8">
-          {education.map((edu, i) => (
-            <Card key={i} delay={0.1 * i}>
-              <div className="flex flex-col md:flex-row justify-between items-start gap-6">
-                <div className="flex items-start gap-4 md:gap-6 group min-w-0 full">
-                  {/* Icon Container */}
-                  <div className={`p-3 md:p-4 rounded-2xl bg-linear-to-br ${edu.color} border border-white/5 shadow-xl shrink-0 group-hover:scale-110 transition-transform duration-300`}>
-                    {edu.icon}
-                  </div>
-                  
-                  <div className="flex flex-col min-w-0 flex-1">
-                    <h3 className="text-xl md:text-2xl font-bold text-white group-hover:text-cyan-400 transition-colors duration-300 leading-light">
-                      {edu.title}
-                    </h3>
-                    <div className="flex items-center gap-2 mt-2 text-gray-400">
-                      <div className="w-1.5 h-1.5 shrink-0 rounded-full bg-indigo-500"></div>
-                      <span className="text-base md:text-lg font-medium truncate">{edu.inst}</span>
+          {/* EDUCATION CARDS */}
+          <m.div className="max-w-4xl mx-auto space-y-6 md:space-y-8">
+            {education.map((edu, i) => (
+              <Card key={i} delay={0.1 * i}>
+                <div className="flex flex-col md:flex-row justify-between items-start gap-6">
+                  <div className="flex items-start gap-4 md:gap-6 group min-w-0 full">
+                    {/* Icon Container */}
+                    <div className={`p-3 md:p-4 rounded-2xl bg-linear-to-br ${edu.color} border border-white/5 shadow-xl shrink-0 group-hover:scale-110 transition-transform duration-300`}>
+                      {edu.icon}
+                    </div>
+                    
+                    <div className="flex flex-col min-w-0 flex-1">
+                      <h3 className="text-xl md:text-2xl font-medium text-white group-hover:text-cyan-400 transition-colors duration-300 leading-light">
+                        {edu.title}
+                      </h3>
+                      <div className="flex items-center gap-2 mt-2 text-gray-400">
+                        <div className="size-1.5 shrink-0 rounded-full bg-indigo-500"></div>
+                        <span className="text-base md:text-lg font-medium truncate">{edu.inst}</span>
+                      </div>
                     </div>
                   </div>
-                </div>
 
-                <div className="flex flex-col sm:flex-row md:flex-col items-start sm:items-center md:items-end justify-between w-full md:w-auto gap-4 shrink-0">
-                <div 
-                  className="w-fit inline-flex items-center gap-2 px-3 md:px-4 py-1.5 rounded-full bg-white/5 border border-white/10 text-[10px] md:text-xs font-bold tracking-[0.15em] uppercase whitespace-nowrap"
-                  style={{ color: edu.iconColor }}
-                >
-                  <Clock size={12} />
-                  {edu.year}
+                  <div className="flex flex-col sm:flex-row md:flex-col items-start sm:items-center md:items-end justify-between w-full md:w-auto gap-4 shrink-0">
+                  <div 
+                    className="w-fit inline-flex items-center gap-2 px-3 md:px-4 py-1.5 rounded-full bg-white/5 border border-white/10 text-[10px] md:text-xs font-bold tracking-[0.15em] uppercase whitespace-nowrap"
+                    style={{ color: edu.iconColor }}
+                  >
+                    <Clock size={12} />
+                    {edu.year}
+                  </div>
+                    <span className="text-gray-500 text-xs font-bold uppercase tracking-widest bg-slate-800/50 px-3 py-1 rounded">
+                      {edu.detail}
+                    </span>
+                  </div>
                 </div>
-                  <span className="text-gray-500 text-xs font-bold uppercase tracking-widest bg-slate-800/50 px-3 py-1 rounded">
-                    {edu.detail}
-                  </span>
-                </div>
-              </div>
-            </Card>
-          ))}
-        </div>
+              </Card>
+            ))}
+          </m.div>
 
-        {/* CTA */}
-        <div className="mt-20 md:mt-24 text-center">
-          <a 
-            href="/projects" 
-            className="group relative inline-flex items-center justify-center px-8 md:px-10 py-4 font-bold text-white transition-all duration-300 bg-linear-to-r from-cyan-600 to-blue-700 rounded-full hover:scale-105 active:scale-95 shadow-[0_0_20px_rgba(6,182,212,0.3)] hover:shadow-[0_0_30px_rgba(6,182,212,0.5)]"
-          >
-            <span className="relative flex items-center gap-2">
-              See My Projects
-              <ChevronRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
-            </span>
-          </a>
+          {/* CTA */}
+          <div className="mt-20 md:mt-24 text-center">
+            <Link
+              href="/projects" 
+              className="group relative inline-flex items-center justify-center px-8 md:px-10 py-4 font-bold text-white transition-all duration-300 bg-linear-to-r from-cyan-600 to-blue-700 rounded-full hover:scale-105 active:scale-95 shadow-[0_0_20px_rgba(6,182,212,0.3)] hover:shadow-[0_0_30px_rgba(6,182,212,0.5)]"
+            >
+              <span className="relative flex items-center gap-2">
+                See My Projects
+                <ChevronRight className="size-5 group-hover:translate-x-1 transition-transform" />
+              </span>
+            </Link>
+          </div>
         </div>
+        <SignatureBar />
       </div>
-      <SignatureBar />
-    </div>
+    </LazyMotion>
   );
 }

@@ -33,7 +33,7 @@ export default function Navbar() {
         </Link>
 
         {/* Desktop Nav */}
-        <ul className="hidden md:flex items-center space-x-10 text-lg">
+        <ul className="hidden md:flex items-center gap-10 text-lg">
           {navLinks.map((link) => (
             <li key={link.name}>
               <Link
@@ -59,6 +59,7 @@ export default function Navbar() {
 
         {/* Mobile Menu Icon */}
         <button
+          type="button"
           className="md:hidden text-gray-200 hover:text-cyan-400 transition"
           onClick={() => setOpen(!open)}
           aria-label="Menu"
@@ -70,7 +71,7 @@ export default function Navbar() {
       {/* Mobile Menu */}
       {open && (
         <div className="md:hidden bg-black/95 border-t border-white/5">
-          <ul className="flex flex-col px-6 py-6 space-y-6 text-xl text-gray-300">
+          <ul className="flex flex-col gap-6 p-6 text-xl text-gray-300">
             {navLinks.map((link) => (
               <li key={link.name}>
                 <Link

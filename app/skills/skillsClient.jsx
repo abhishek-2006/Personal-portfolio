@@ -1,7 +1,8 @@
 "use client"
 
 import React from "react";
-import { motion, AnimatePresence, useMotionValue, useSpring, useTransform, useMotionTemplate } from "framer-motion";
+import Link from "next/link";
+import { m, LazyMotion, domAnimation, AnimatePresence, useMotionValue, useSpring, useTransform, useMotionTemplate } from "framer-motion";
 import {
   Code2,
   Smartphone,
@@ -63,7 +64,7 @@ const skills = [
   },
   {
     title: "Tools & Environment",
-    icon: <Terminal className="w-6 h-6" />,
+    icon: <Terminal className="size-6" />,
     color: "from-green-500 to-lime-500",
     glow: "shadow-lime-500/20",
     items: ["Git", "GitHub", "VS Code"],
@@ -88,8 +89,8 @@ const HaloItem = ({ skill, index, total, isMobile, setHoveredSkill }) => {
   const radius = isMobile ? 40 : (skill.size === 'lg' ? 38 : skill.size === 'md' ? 30 : 22);
 
   return (
-    <motion.div
-      initial={{ opacity: 0, scale: 0, left: "50%", top: "50%" }}
+    <m.div
+      initial={{ opacity: 0, scale: 0.95, left: "50%", top: "50%" }}
       whileInView={{
         opacity: 1,
         scale: 1,
@@ -100,7 +101,7 @@ const HaloItem = ({ skill, index, total, isMobile, setHoveredSkill }) => {
       viewport={{ once: true }}
       className="absolute -translate-x-1/2 -translate-y-1/2 group z-20"
     >
-      <motion.div
+      <m.div
         animate={{ rotate: -360 }}
         transition={{ repeat: Infinity, duration: 75, ease: "linear" }}
         onMouseEnter={() => setHoveredSkill(skill)}
@@ -130,8 +131,8 @@ const HaloItem = ({ skill, index, total, isMobile, setHoveredSkill }) => {
         <div className="absolute -bottom-8 left-1/2 -translate-x-1/2 px-2 py-0.5 rounded bg-slate-800 border border-white/10 text-[8px] md:text-[10px] font-black text-cyan-400 opacity-0 group-hover:opacity-100 transition-opacity whitespace-nowrap pointer-events-none uppercase tracking-widest z-50">
           {skill.name}
         </div>
-      </motion.div>
-    </motion.div>
+      </m.div>
+    </m.div>
   );
 };
 
@@ -171,7 +172,7 @@ const TiltCard = ({ category, index, cardVariants }) => {
   const background = useMotionTemplate`radial-gradient(300px circle at ${mouseX}px ${mouseY}px, rgba(255,255,255,0.15), transparent 80%)`;
 
   return (
-    <motion.div
+    <m.div
       variants={cardVariants}
       style={{
         rotateX,
@@ -182,7 +183,7 @@ const TiltCard = ({ category, index, cardVariants }) => {
       onMouseLeave={handleMouseLeave}
       className={`group relative p-[1px] rounded-[2rem] bg-linear-to-b from-white/20 via-transparent to-transparent transition-all duration-500 shadow-2xl ${category.glow}`}
     >
-      <motion.div
+      <m.div
         className="absolute inset-0 z-0 rounded-[2rem] pointer-events-none"
         style={{ background }}
       />
@@ -216,7 +217,7 @@ const TiltCard = ({ category, index, cardVariants }) => {
           className="flex flex-wrap gap-2.5 mt-auto relative z-10"
         >
           {category.items.map((skill, idx) => (
-            <motion.span
+            <m.span
               key={idx}
               initial={{ backgroundColor: "rgba(255, 255, 255, 0.05)", y: 0 }}
               whileHover={{ scale: 1.05, backgroundColor: "rgba(255, 255, 255, 0.12)", y: -2 }}
@@ -224,11 +225,11 @@ const TiltCard = ({ category, index, cardVariants }) => {
             >
               <div className={`w-1.5 h-1.5 rounded-full bg-linear-to-r ${category.color} shadow-[0_0_8px_rgba(255,255,255,0.2)] group-hover/chip:scale-125 transition-transform`} />
               {skill}
-            </motion.span>
+            </m.span>
           ))}
         </div>
       </div>
-    </motion.div>
+    </m.div>
   );
 };
 
@@ -267,164 +268,165 @@ export default function SkillsClient() {
   }, [mouseX, mouseY]);
 
   return (
+    <LazyMotion features={domAnimation}>
+      <div className="min-h-screen w-full text-white pt-16 pb-20 px-6 relative overflow-hidden selection:bg-purple-500/30">
+        {/* Base Background Color */}
+        <div className="absolute inset-0 bg-[#030712] z-0" />
 
-    <div className="min-h-screen w-full text-white pt-16 pb-20 px-6 relative overflow-hidden selection:bg-purple-500/30">
-      {/* Base Background Color */}
-      <div className="absolute inset-0 bg-[#030712] z-0" />
-
-      {/* 3D Scene Layer */}
-      <div className="absolute inset-0 z-10 pointer-events-none">
-        <SkillsThreeScene />
-      </div>
-
-      {/* Dynamic Background Glows */}
-      <div className="absolute top-0 left-0 w-full h-full pointer-events-none z-10">
-        <div className="absolute top-[-5%] left-[-5%] w-[35%] h-[35%] bg-cyan-500/10 blur-[100px] rounded-full animate-pulse" />
-        <div className="absolute bottom-[-5%] right-[-5%] w-[35%] h-[35%] bg-purple-500/10 blur-[100px] rounded-full animate-pulse" />
-      </div>
-
-      <style>{`
-        @import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap');
-        body { font-family: 'Plus Jakarta Sans', sans-serif; overflow-x: hidden; }
-      `}</style>
-
-      <div className="max-w-7xl mx-auto relative z-20">
-        {/* Header Section */}
-        <motion.div
-          initial={{ opacity: 0, y: -20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6 }}
-          className="flex flex-col items-center text-center mb-20"
-        >
-          <div className="flex justify-center w-full mb-6">
-            <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-white/5 border border-white/10 text-xs font-bold tracking-[0.2em] uppercase text-cyan-400 shadow-xl shadow-cyan-900/10">
-              <Sparkles size={14} className="animate-pulse" />
-              Technical Arsenal
-            </div>
-          </div>
-
-          <h1 className="text-5xl md:text-7xl font-extrabold py-2 inline-block bg-linear-to-r from-cyan-400 via-blue-400 to-purple-400 bg-clip-text text-transparent leading-[1.1] tracking-tight">
-            Skills & Technologies
-          </h1>
-
-          <p className="text-slate-400 text-lg md:text-xl max-w-2xl mx-auto mt-6 font-medium leading-relaxed">
-            A specialized collection of tools and languages I use to turn
-            <span className="text-white"> complex logic </span> into seamless digital experiences.
-          </p>
-        </motion.div>
-
-        {/* Skills Grid */}
-        <motion.div
-          variants={containerVariants}
-          initial="hidden"
-          whileInView="visible"
-          viewport={{ once: true }}
-          className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-6"
-        >
-          {skills.map((category, index) => (
-            <TiltCard key={index} category={category} index={index} cardVariants={cardVariants} />
-          ))}
-
-          {/* Closing/Evolution Card */}
-          <motion.div
-            variants={cardVariants}
-            className="lg:col-span-1 p-[1px] rounded-[2rem] bg-linear-to-tr from-cyan-500/30 via-purple-500/30 to-rose-500/30"
-          >
-            <div className="h-full rounded-[2rem] bg-slate-950/90 backdrop-blur-3xl p-8 flex flex-col justify-center items-center text-center">
-              <div className="w-14 h-14 rounded-2xl bg-white/5 flex items-center justify-center mb-6 border border-white/10">
-                <Layers className="text-cyan-400 w-7 h-7" />
-              </div>
-              <h3 className="text-xl font-bold text-white mb-2 italic">Lifelong Learning</h3>
-              <p className="text-slate-500 text-sm font-medium leading-relaxed">
-                I’m committed to continuous learning and adapting to new tools and frameworks to stay at the forefront of innovation.
-              </p>
-            </div>
-          </motion.div>
-        </motion.div>
-
-        <div className="flex flex-col items-center mt-12 md:mt-6 lg:mt-0 mb-2 lg:mb-0 w-full max-w-[800px] mx-auto" style={{ perspective: 1200 }}>
-          {/* The Halo Container */}
-          <motion.div
-            style={{
-              rotateX: isMobile ? 0 : wheelRotateX,
-              rotateY: isMobile ? 0 : wheelRotateY,
-              transformStyle: "preserve-3d"
-            }}
-            className="relative w-full aspect-square flex items-center justify-center"
-          >
-            {/* Dynamic background rings */}
-            <div className="absolute inset-[25%] rounded-full border border-white/3 animate-[spin_60s_linear_infinite]" />
-            <div className="absolute inset-[50%] rounded-full border border-white/5 animate-[spin_40s_linear_infinite_reverse]" />
-
-            {/* Center Brand / Signature */}
-            <motion.div
-              animate={hoveredSkill ? { scale: 1.05, opacity: 1 } : { scale: [0.95, 1.05, 0.95], opacity: [0.5, 1, 0.5] }}
-              transition={hoveredSkill ? { duration: 0.2 } : { duration: 4, repeat: Infinity }}
-              className="relative z-10 w-24 h-24 md:w-32 md:h-32 rounded-full bg-slate-950 border border-white/10 flex items-center justify-center backdrop-blur-2xl shadow-[0_0_50px_rgba(255,255,255,0.05)] overflow-hidden"
-            >
-              <AnimatePresence>
-                {hoveredSkill ? (
-                  <motion.div
-                    key={hoveredSkill.name}
-                    initial={{ opacity: 0, scale: 0.8 }}
-                    animate={{ opacity: 1, scale: 1 }}
-                    exit={{ opacity: 0, scale: 0.8 }}
-                    transition={{ duration: 0.15 }}
-                    className="absolute inset-0 flex flex-col items-center justify-center bg-slate-950 z-20"
-                  >
-                    <Icon
-                      icon={hoveredSkill.icon}
-                      className="w-8 h-8 md:w-10 md:h-10 mb-1"
-                      style={{ color: hoveredSkill.name === "GitHub" ? hoveredSkill.color : undefined }}
-                    />
-                    <p className="text-center text-[10px] md:text-xs font-bold text-white tracking-widest uppercase px-1 leading-tight">{hoveredSkill.name}</p>
-                  </motion.div>
-                ) : (
-                  <motion.div
-                    key="default"
-                    initial={{ opacity: 0, scale: 0.8 }}
-                    animate={{ opacity: 1, scale: 1 }}
-                    exit={{ opacity: 0, scale: 0.8 }}
-                    transition={{ duration: 0.15 }}
-                    className="absolute inset-0 flex items-center justify-center z-10"
-                  >
-                    <p className="text-center text-sm md:text-base font-bold text-white tracking-widest uppercase px-4">
-                      Skills
-                    </p>
-                  </motion.div>
-                )}
-              </AnimatePresence>
-              <div className="absolute inset-0 rounded-full border-t border-cyan-500/30 animate-spin pointer-events-none z-30" />
-            </motion.div>
-
-            <motion.div
-              className="absolute inset-0"
-              animate={{ rotate: 360 }}
-              transition={{ repeat: Infinity, duration: 75, ease: "linear" }}
-            >
-              {TECH_STACK.map((skill, idx) => (
-                <HaloItem key={skill.name} skill={skill} index={idx} total={TECH_STACK.length} isMobile={isMobile} setHoveredSkill={setHoveredSkill} />
-              ))}
-            </motion.div>
-          </motion.div>
+        {/* 3D Scene Layer */}
+        <div className="absolute inset-0 z-10 pointer-events-none">
+          <SkillsThreeScene />
         </div>
 
-        {/* Footer Link */}
-        <motion.div
-          initial={{ opacity: 0 }}
-          whileInView={{ opacity: 1 }}
-          transition={{ delay: 0.5 }}
-          className="mt-0 border-t border-white/5 pt-12 flex flex-col md:flex-row justify-between items-center gap-8 px-4"
-        >
-          <a
-            href="/projects"
-            className="flex items-center gap-3 text-slate-400 hover:text-white transition-colors group font-bold tracking-widest text-xs uppercase"
+        {/* Dynamic Background Glows */}
+        <div className="absolute top-0 left-0 w-full h-full pointer-events-none z-10">
+          <div className="absolute top-[-5%] left-[-5%] size-[35%] bg-cyan-500/10 blur-[100px] rounded-full animate-pulse" />
+          <div className="absolute bottom-[-5%] right-[-5%] size-[35%] bg-purple-500/10 blur-[100px] rounded-full animate-pulse" />
+        </div>
+
+        <style>{`
+          @import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap');
+          body { font-family: 'Plus Jakarta Sans', sans-serif; overflow-x: hidden; }
+        `}</style>
+
+        <div className="max-w-7xl mx-auto relative z-20">
+          {/* Header Section */}
+          <m.div
+            initial={{ opacity: 0, y: -20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6 }}
+            className="flex flex-col items-center text-center mb-20"
           >
-            See these skills in action
-            <ChevronRight size={16} className="group-hover:translate-x-1 transition-transform" />
-          </a>
-        </motion.div>
+            <div className="flex justify-center w-full mb-6">
+              <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-white/5 border border-white/10 text-xs font-bold tracking-[0.2em] uppercase text-cyan-400 shadow-xl shadow-cyan-900/10">
+                <Sparkles size={14} className="animate-pulse" />
+                Technical Arsenal
+              </div>
+            </div>
+
+            <h1 className="text-5xl md:text-7xl font-semibold py-2 inline-block bg-linear-to-r from-cyan-400 via-blue-400 to-purple-400 bg-clip-text text-transparent leading-[1.1] tracking-tight">
+              Skills & Technologies
+            </h1>
+
+            <p className="text-slate-400 text-lg md:text-xl max-w-2xl mx-auto mt-6 font-medium leading-relaxed">
+              A specialized collection of tools and languages I use to turn
+              <span className="text-white"> complex logic </span> into seamless digital experiences.
+            </p>
+          </m.div>
+
+          {/* Skills Grid */}
+          <m.div
+            variants={containerVariants}
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true }}
+            className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-6"
+          >
+            {skills.map((category, index) => (
+              <TiltCard key={index} category={category} index={index} cardVariants={cardVariants} />
+            ))}
+
+            {/* Closing/Evolution Card */}
+            <m.div
+              variants={cardVariants}
+              className="lg:col-span-1 p-[1px] rounded-[2rem] bg-linear-to-tr from-cyan-500/30 via-purple-500/30 to-rose-500/30"
+            >
+              <div className="h-full rounded-[2rem] bg-slate-950/90 backdrop-blur-3xl p-8 flex flex-col justify-center items-center text-center">
+                <div className="size-14 rounded-2xl bg-white/5 flex items-center justify-center mb-6 border border-white/10">
+                  <Layers className="text-cyan-400 size-7" />
+                </div>
+                <h3 className="text-xl font-semibold text-white mb-2 italic">Lifelong Learning</h3>
+                <p className="text-slate-500 text-sm font-medium leading-relaxed">
+                  I’m committed to continuous learning and adapting to new tools and frameworks to stay at the forefront of innovation.
+                </p>
+              </div>
+            </m.div>
+          </m.div>
+
+          <div className="flex flex-col items-center mt-12 md:mt-6 lg:mt-0 mb-2 lg:mb-0 w-full max-w-[800px] mx-auto" style={{ perspective: 1200 }}>
+            {/* The Halo Container */}
+            <m.div
+              style={{
+                rotateX: isMobile ? 0 : wheelRotateX,
+                rotateY: isMobile ? 0 : wheelRotateY,
+                transformStyle: "preserve-3d"
+              }}
+              className="relative w-full aspect-square flex items-center justify-center"
+            >
+              {/* Dynamic background rings */}
+              <div className="absolute inset-[25%] rounded-full border border-white/3 animate-[spin_60s_linear_infinite]" />
+              <div className="absolute inset-[50%] rounded-full border border-white/5 animate-[spin_40s_linear_infinite_reverse]" />
+
+              {/* Center Brand / Signature */}
+              <m.div
+                animate={hoveredSkill ? { scale: 1.05, opacity: 1 } : { scale: [0.95, 1.05, 0.95], opacity: [0.5, 1, 0.5] }}
+                transition={hoveredSkill ? { duration: 0.2 } : { duration: 4, repeat: Infinity }}
+                className="relative z-10 w-24 h-24 md:w-32 md:h-32 rounded-full bg-slate-950 border border-white/10 flex items-center justify-center backdrop-blur-2xl shadow-[0_0_50px_rgba(255,255,255,0.05)] overflow-hidden"
+              >
+                <AnimatePresence>
+                  {hoveredSkill ? (
+                    <m.div
+                      key={hoveredSkill.name}
+                      initial={{ opacity: 0, scale: 0.8 }}
+                      animate={{ opacity: 1, scale: 1 }}
+                      exit={{ opacity: 0, scale: 0.8 }}
+                      transition={{ duration: 0.15 }}
+                      className="absolute inset-0 flex flex-col items-center justify-center bg-slate-950 z-20"
+                    >
+                      <Icon
+                        icon={hoveredSkill.icon}
+                        className="w-8 h-8 md:w-10 md:h-10 mb-1"
+                        style={{ color: hoveredSkill.name === "GitHub" ? hoveredSkill.color : undefined }}
+                      />
+                      <p className="text-center text-[10px] md:text-xs font-bold text-white tracking-widest uppercase px-1 leading-tight">{hoveredSkill.name}</p>
+                    </m.div>
+                  ) : (
+                    <m.div
+                      key="default"
+                      initial={{ opacity: 0, scale: 0.8 }}
+                      animate={{ opacity: 1, scale: 1 }}
+                      exit={{ opacity: 0, scale: 0.8 }}
+                      transition={{ duration: 0.15 }}
+                      className="absolute inset-0 flex items-center justify-center z-10"
+                    >
+                      <p className="text-center text-sm md:text-base font-bold text-white tracking-widest uppercase px-4">
+                        Skills
+                      </p>
+                    </m.div>
+                  )}
+                </AnimatePresence>
+                <div className="absolute inset-0 rounded-full border-t border-cyan-500/30 animate-spin pointer-events-none z-30" />
+              </m.div>
+
+              <m.div
+                className="absolute inset-0"
+                animate={{ rotate: 360 }}
+                transition={{ repeat: Infinity, duration: 75, ease: "linear" }}
+              >
+                {TECH_STACK.map((skill, idx) => (
+                  <HaloItem key={skill.name} skill={skill} index={idx} total={TECH_STACK.length} isMobile={isMobile} setHoveredSkill={setHoveredSkill} />
+                ))}
+              </m.div>
+            </m.div>
+          </div>
+
+          {/* Footer Link */}
+          <m.div
+            initial={{ opacity: 0 }}
+            whileInView={{ opacity: 1 }}
+            transition={{ delay: 0.5 }}
+            className="mt-0 border-t border-white/5 pt-12 flex flex-col md:flex-row justify-between items-center gap-8 px-4"
+          >
+            <Link
+              href="/projects"
+              className="flex items-center gap-3 text-slate-400 hover:text-white transition-colors group font-bold tracking-widest text-xs uppercase"
+            >
+              See these skills in action
+              <ChevronRight size={16} className="group-hover:translate-x-1 transition-transform" />
+            </Link>
+          </m.div>
+        </div>
       </div>
-    </div>
+    </LazyMotion>
   );
 }
