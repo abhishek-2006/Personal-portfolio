@@ -8,7 +8,7 @@ const eslintConfig = defineConfig([
   {
     files: ["app/components/*ThreeScene.jsx"],
     rules: {
-      "react/no-unknown-property": "off",
+      "eslint-disable-react-doctor/no-unknown-property": "off",
     },
   },
   // Override default ignores of eslint-config-next.

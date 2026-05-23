@@ -3,11 +3,7 @@
 import { useEffect, useState } from "react";
 import SignatureBar from "../components/SignatureBar";
 import { LazyMotion, domAnimation, m, AnimatePresence } from "framer-motion";
-import {
-  Github,
-  Layers,
-  Gamepad2,
-} from "lucide-react";
+import { Github, Layers, Gamepad2 } from "lucide-react";
 
 const GameCard = ({ game, i }) => {
   const [isHovered, setIsHovered] = useState(false);
@@ -191,7 +187,7 @@ export default function GamesPage({ initialGames }) {
               ease: "easeInOut",
             }}
             style={{
-              filter: "blur(60px)",
+              filter: "blur(6px)",
             }}
           />
 
@@ -211,7 +207,7 @@ export default function GamesPage({ initialGames }) {
               delay: 1,
             }}
             style={{
-              filter: "blur(60px)",
+              filter: "blur(6px)",
             }}
           />
 
@@ -230,7 +226,7 @@ export default function GamesPage({ initialGames }) {
               ease: "easeInOut",
             }}
             style={{
-              filter: "blur(80px)",
+              filter: "blur(8px)",
             }}
           />
 
@@ -250,7 +246,7 @@ export default function GamesPage({ initialGames }) {
               delay: 0.5,
             }}
             style={{
-              filter: "blur(70px)",
+              filter: "blur(7px)",
             }}
           />
 

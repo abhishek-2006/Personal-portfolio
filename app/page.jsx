@@ -7,7 +7,17 @@ export const metadata = {
   title: "Abhishek Shah - Full-Stack Developer Portfolio",
   description: "Abhishek Shah - Professional full-stack developer. Explore projects, skills, games, and contact details. Specializing in MERN Stack, Flutter, and modern web technologies.",
   keywords: [
+    "Abhishek",
+    "Abhishek Projects",
+    "Abhishek Developer",
     "Abhishek Shah",
+    "About Abhishek Shah",
+    "About Abhishek",
+    "Abhishek Shah Portfolio",
+    "Abhishek Portfolio",
+    "Abhishek Shah Projects",
+    "Abhishek Shah Games",
+    "Abhishek Games",
     "Full-Stack Developer",
     "Software Engineer",
     "Web Developer",
@@ -17,7 +27,6 @@ export const metadata = {
     "Next.js Developer",
     "Flutter Developer",
     "Mobile App Developer",
-    "Abhishek Shah Portfolio",
     "Developer Bardoli",
     "Developer Gujarat",
     "Indian Developer",
@@ -195,7 +204,7 @@ export default function Home() {
         {/* Hidden section for SEO purposes */}
         <section className="sr-only">
           <div className="max-w-4xl text-[10px] md:text-xs text-slate-500 leading-relaxed uppercase tracking-widest">
-            <h2 className="text-white/20 mb-4 font-bold">Engineering Methodology & Technical Philosophy</h2>
+            <h2 className="text-white/20 mb-4 font-semibold">Engineering Methodology & Technical Philosophy</h2>
             <p className="mb-4">
               As a <span className="text-white/40 font-bold">Professional Full-Stack Developer</span>, I focus on engineering robust digital solutions that
               integrate seamless user interfaces with high-performance backend architectures. My approach as a

@@ -1,10 +1,8 @@
 "use client";
 import { useState } from "react";
-import { m, domAnimation, LazyMotion, useMotionValue, useSpring, useTransform } from "framer-motion";
+import { m, domAnimation, LazyMotion } from "framer-motion";
 import { FaXTwitter as Twitter } from "react-icons/fa6";
-import { Mail, Phone,  MapPin,
-  Github,  Instagram, Linkedin, Sparkles,
-} from "lucide-react";
+import { Mail, Phone,  MapPin, Github,  Instagram, Linkedin, Sparkles } from "lucide-react";
 import SignatureBar from "../components/SignatureBar";
 import ContactThreeScene from "../components/ContactThreeScene";
 import ContactForm from "../components/ContactForm";

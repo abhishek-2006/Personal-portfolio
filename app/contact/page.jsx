@@ -16,6 +16,9 @@ export const metadata = {
       siteName: "Abhishek Shah Portfolio"
   },
   keywords: [
+    "Contact Abhishek",
+    "Abhishek Shah contact",
+    "Abhishek Contact",
     "Contact Abhishek Shah",
     "Get in touch with Abhishek Shah",
     "Abhishek Shah contact details",
@@ -128,6 +131,7 @@ function ContactJsonLd() {
   ];
 
   return (
+    /* react-doctor: disable-next-line no-danger */
     <script
       type="application/ld+json"
       dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}

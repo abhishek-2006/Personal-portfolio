@@ -16,6 +16,11 @@ export const metadata = {
     },
     keywords: [
         "Chess Game",
+        "Abhishek Shah Chess",
+        "Abhishek's Chess Game",
+        "Abhishek's Chess",
+        "Abhishek Shah Chess Game",
+        "Chess Game by Abhishek Shah",
         "Chess by Abhishek Shah",
         "Shatranj Game",
         "Play Chess offline",
@@ -42,8 +47,6 @@ export const metadata = {
         "chess game for android",
         "Chess download for windows",
         "Chess multiplayer game",
-        "Abhishek Shah chess game",
-        "Abhishek Shah Chess",
     ],
     twitter: {
         card: "summary_large_image",
