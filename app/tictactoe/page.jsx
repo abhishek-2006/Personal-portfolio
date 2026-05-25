@@ -15,8 +15,14 @@ export const metadata = {
         siteName: "Abhishek Shah Portfolio"
     },
     keywords: [
+        "Tic Tac Toe",
+        "Abhishek Badola Tic Tac Toe",
+        "Abhishek Jain Tic Tac Toe",
         "Abhishek Shah Tic Tac Toe",
         "Abhishek Shah Tic Tac Toe Game",
+        "Abhishek Badola Tic Tac Toe Game",
+        "Abhishek Jain Tic Tac Toe Game",
+        "Tic Tac Toe game by Abhishek Shah",
         "Tic Tac Toe offline game",
         "Tic Tac Toe Game",
         "Tic Tac Toe by Abhishek Shah",

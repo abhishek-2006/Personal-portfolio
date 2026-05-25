@@ -8,13 +8,18 @@ export const metadata = {
   description: "Abhishek Shah - Professional full-stack developer. Explore projects, skills, games, and contact details. Specializing in MERN Stack, Flutter, and modern web technologies.",
   keywords: [
     "Abhishek",
+    "Abhishek Shah",
+    "Abhishek Badola",
+    "Abhishek Jain",
+    "Abhishek Shah Developer",
+    "Abhishek Badola Developer",
+    "Abhishek Jain Developer",
     "Abhishek Projects",
     "Abhishek Developer",
-    "Abhishek Shah",
-    "About Abhishek Shah",
     "About Abhishek",
-    "Abhishek Shah Portfolio",
+    "About Abhishek Shah",
     "Abhishek Portfolio",
+    "Abhishek Shah Portfolio",
     "Abhishek Shah Projects",
     "Abhishek Shah Games",
     "Abhishek Games",
@@ -35,13 +40,19 @@ export const metadata = {
     "Web Development",
     "Mobile Development",
     "Android Development",
-    "iOS Development",
     "Android Developer",
-    "iOS Developer",
     "Projects by Abhishek Shah",
+    "Projects by Abhishek",
     "Contact Abhishek Shah",
+    "Contact Abhishek",
+    "Abhishek Badola Contact",
+    "Abhishek Jain Contact",
     "Abhishek Shah Skills",
+    "Abhishek Badola Skills",
+    "Abhishek Jain Skills",
     "Abhishek Shah Games",
+    "Abhishek Shah TicTacToe",
+    "Abhishek Shah Chess",
     "Abhishek Shah Contact",
     "Frontend Development",
     "Backend Development",
@@ -192,7 +203,6 @@ export default function Home() {
       <HomeJsonLd />
       <main className="relative flex min-h-screen flex-col overflow-hidden">
         <ThreeBackgroundDynamic />
-        {/* H1 for Search Engine indexing */}
         <h1 className="sr-only">Abhishek Shah | Professional Full-Stack Developer and Software Engineer</h1>
 
         <div className="relative z-10 w-full">
