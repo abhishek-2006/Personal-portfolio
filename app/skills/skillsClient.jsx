@@ -284,11 +284,6 @@ export default function SkillsClient() {
           <div className="absolute bottom-[-5%] right-[-5%] size-[35%] bg-purple-500/10 blur-[100px] rounded-full animate-pulse" />
         </div>
 
-        <style>{`
-          @import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap');
-          body { font-family: 'Plus Jakarta Sans', sans-serif; overflow-x: hidden; }
-        `}</style>
-
         <div className="max-w-7xl mx-auto relative z-20">
           {/* Header Section */}
           <m.div

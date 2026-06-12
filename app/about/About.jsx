@@ -117,10 +117,6 @@ export default function AboutPage() {
     <LazyMotion features={domAnimation}>
       <div className="relative min-h-screen w-full overflow-hidden text-gray-100 pt-10 pb-20 sm:px-6 font-sans selection:bg-cyan-500/30 transition-colors duration-500">
         <AboutThreeScene />
-        <style>{`
-          @import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap');
-          body { font-family: 'Plus Jakarta Sans', sans-serif; overflow-x: hidden; }
-        `}</style>
 
         <div className="max-w-7xl mx-auto relative z-10 px-4">
           {/* PAGE TITLE */}

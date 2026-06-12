@@ -4,6 +4,19 @@ import Navbar from "./components/Navbar";
 import ClarityProvider from "./components/ClarityProvider";
 import MotionProvider from "./components/MotionProvider";
 import { Analytics } from "@vercel/analytics/next"
+import { Plus_Jakarta_Sans, Outfit } from "next/font/google";
+
+const plusJakartaSans = Plus_Jakarta_Sans({
+  subsets: ["latin"],
+  variable: "--font-plus-jakarta-sans",
+  display: "swap",
+});
+
+const outfit = Outfit({
+  subsets: ["latin"],
+  variable: "--font-outfit",
+  display: "swap",
+});
 
 const siteConfig = {
   name: "Abhishek Shah",
@@ -262,7 +275,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" className="scroll-smooth dark" data-scroll-behavior="smooth">
+    <html lang="en" className={`scroll-smooth dark ${plusJakartaSans.variable} ${outfit.variable}`} data-scroll-behavior="smooth">
       <body className="bg-[#1a1a1a] text-white">
         <MotionProvider>
           <ClarityProvider />

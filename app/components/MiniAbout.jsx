@@ -61,11 +61,6 @@ export default function MiniAbout() {
   return (
     <section className="relative w-full py-24 px-6 overflow-hidden flex flex-col items-center selection:bg-cyan-500/30">
 
-      <style>{`
-        @import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap');
-        body { font-family: 'Plus Jakarta Sans', sans-serif; }
-      `}</style>
-
       <motion.div
         initial={{ opacity: 0, y: 40 }}
         whileInView={{ opacity: 1, y: 0 }}

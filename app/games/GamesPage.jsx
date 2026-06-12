@@ -118,40 +118,43 @@ export default function GamesPage({ initialGames }) {
         }
 
         const processedGames = githubData.reduce((acc, repo) => {
-        const repoName = repo.name.toLowerCase().replace(/[-_\s]/g, "");
+          const repoName = repo.name.toLowerCase().replace(/[-_\s]/g, "");
 
-        let processedRepo;
+          let processedRepo;
 
-        if (repoName.includes("tictactoe")) {
-          processedRepo = {
-            ...repo,
-            name: "TicTacToe",
-            liveUrl: "/tictactoe",
-            isGame: true,
-            logo: "/tictactoe-logo.png",
-          };
-        } else if (repoName.includes("chess")) {
-          processedRepo = {
-            ...repo,
-            name: "Chess",
-            liveUrl: "/chess",
-            isGame: true,
-            logo: "/chess-logo.png",
-          };
-        } else {
-          processedRepo = {
-            ...repo,
-            tech: repo.tech || ["Web"],
-            isGame: repo.isGame || false,
-          };
-        }
+          if (repoName.includes("tictactoe")) {
+            processedRepo = {
+              ...repo,
+              name: "TicTacToe",
+              liveUrl: "/tictactoe",
+              isGame: true,
+              logo: "/tictactoe-logo.png",
+            };
+          } else if (repoName.includes("chess")) {
+            processedRepo = {
+              ...repo,
+              name: "Chess",
+              liveUrl: "/chess",
+              isGame: true,
+              logo: "/chess-logo.png",
+            };
+          } else {
+            processedRepo = {
+              ...repo,
+              tech: repo.tech || ["Web"],
+              isGame: repo.isGame || false,
+            };
+          }
 
-  if (processedRepo.isGame) {
-    acc.push(processedRepo);
-  }
+          if (processedRepo.isGame) {
+            const exists = acc.some((g) => g.name === processedRepo.name);
+            if (!exists) {
+              acc.push(processedRepo);
+            }
+          }
 
-  return acc;
-}, []);
+          return acc;
+        }, []);
 
         setGames(processedGames);
 
@@ -272,9 +275,6 @@ export default function GamesPage({ initialGames }) {
         </div>
 
         <style>{`
-          @import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap');
-          body { font-family: 'Plus Jakarta Sans', sans-serif; }
-
           @keyframes float {
             0%, 100% { transform: translateY(0px); }
             50% { transform: translateY(-20px); }
@@ -382,7 +382,7 @@ export default function GamesPage({ initialGames }) {
               ))}
             <AnimatePresence mode="popLayout">
               {games && games.map((game, i) => (
-                <GameCard key={game.name} game={game} i={i} />
+                <GameCard key={`${game.name}-${game.url || i}`} game={game} i={i} />
               ))}
             </AnimatePresence>
           </m.div>
