@@ -2,13 +2,13 @@ import ContactPage from "./Contact";
 
 export const metadata = {
   title: 'Contact | Abhishek Shah',
-  description: "Get in touch with Abhishek Shah for projects or collaborations.",
+  description: "Contact full-stack engineer Abhishek Shah. Get in touch for custom web development, Flutter mobile apps, freelance projects, and technical collaborations.",
   alternates: {
     canonical: "https://abhishekshah-portfolio.vercel.app/contact"
   },
   openGraph: {
       title: 'Contact | Abhishek Shah',
-      description: "Get in touch with Abhishek Shah for projects or collaborations.",
+      description: "Contact full-stack engineer Abhishek Shah. Get in touch for custom web development, Flutter mobile apps, freelance projects, and technical collaborations.",
       url: "https://abhishekshah-portfolio.vercel.app/contact",
       locale: "en_US",
       images: [{ url: "https://abhishekshah-portfolio.vercel.app/abhishek-shah-full-stack-developer.jpg", width: 1200, height: 630, alt: "Abhishek Shah" }],
@@ -65,7 +65,7 @@ export const metadata = {
   twitter: {
     card: "summary_large_image",
     title: "Contact | Abhishek Shah",
-    description: "Get in touch with Abhishek Shah for projects or collaborations.",
+    description: "Contact full-stack engineer Abhishek Shah. Get in touch for custom web development, Flutter mobile apps, freelance projects, and technical collaborations.",
     images: ["https://abhishekshah-portfolio.vercel.app/abhishek-shah-full-stack-developer.jpg"],
     creator: "@shahabhishek409",
   },
