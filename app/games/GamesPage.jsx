@@ -2,6 +2,7 @@
 
 import { useEffect, useState } from "react";
 import SignatureBar from "../components/SignatureBar";
+import SkillsThreeScene from "../components/SkillsThreeScene";
 import { LazyMotion, domAnimation, m, AnimatePresence } from "framer-motion";
 import { Github, Layers, Gamepad2 } from "lucide-react";
 
@@ -172,106 +173,8 @@ export default function GamesPage({ initialGames }) {
   return (
     <LazyMotion features={domAnimation}>
       <div className="min-h-screen w-full bg-[#030712] text-white pt-24 pb-20 px-6 relative overflow-hidden selection:bg-cyan-500/30">
-
-        {/* Background Aesthetic Glows */}
-        <div className="absolute top-0 left-0 w-full h-full pointer-events-none overflow-hidden">
-          {/* Main Cyan Glow - 3D Rotating */}
-          <m.div
-            className="absolute top-[-10%] right-[-10%] size-[50%] rounded-full bg-[radial-gradient(circle,rgba(37,99,235,0.2)_0%,transparent_70%)]"
-            animate={{
-              y: [0, -30, 0],
-              x: [0, 20, 0],
-              scale: [1, 1.1, 1],
-              opacity: [0.4, 0.6, 0.4],
-            }}
-            transition={{
-              duration: 8,
-              repeat: Infinity,
-              ease: "easeInOut",
-            }}
-            style={{
-              filter: "blur(6px)",
-            }}
-          />
-
-          {/* Secondary Purple Glow - 3D Rotating */}
-          <m.div
-            className="absolute bottom-[-10%] left-[-10%] size-[50%] rounded-full bg-[radial-gradient(circle,rgba(147,51,234,0.2)_0%,transparent_70%)]"
-            animate={{
-              y: [0, 30, 0],
-              x: [0, -20, 0],
-              scale: [1, 1.15, 1],
-              opacity: [0.3, 0.5, 0.3],
-            }}
-            transition={{
-              duration: 10,
-              repeat: Infinity,
-              ease: "easeInOut",
-              delay: 1,
-            }}
-            style={{
-              filter: "blur(6px)",
-            }}
-          />
-
-          {/* Tertiary Cyan Accent - Counter Rotation */}
-          <m.div
-            className="absolute top-1/2 right-1/4 size-[40%] rounded-full bg-[radial-gradient(circle,rgba(34,211,238,0.15)_0%,transparent_70%)]"
-            animate={{
-              y: [0, 40, -20, 0],
-              x: [0, -30, 40, 0],
-              scale: [0.8, 1.2, 0.9, 0.8],
-              rotate: [0, 90, 180, 360],
-            }}
-            transition={{
-              duration: 15,
-              repeat: Infinity,
-              ease: "easeInOut",
-            }}
-            style={{
-              filter: "blur(8px)",
-            }}
-          />
-
-          {/* Deep Blue Accent - Opposite Direction */}
-          <m.div
-            className="absolute bottom-1/4 left-1/3 size-[35%] rounded-full bg-[radial-gradient(circle,rgba(59,130,246,0.12)_0%,transparent_70%)]"
-            animate={{
-              y: [0, -50, 20, 0],
-              x: [0, 40, -30, 0],
-              scale: [1, 0.9, 1.1, 1],
-              rotate: [360, 180, 90, 0],
-            }}
-            transition={{
-              duration: 12,
-              repeat: Infinity,
-              ease: "easeInOut",
-              delay: 0.5,
-            }}
-            style={{
-              filter: "blur(7px)",
-            }}
-          />
-
-          {/* Floating Mesh-like Background */}
-          <m.div
-            className="absolute inset-0 opacity-20"
-            style={{
-              backgroundImage: `
-                linear-gradient(45deg, rgba(34,211,238,0.1) 1px, transparent 1px),
-                linear-gradient(-45deg, rgba(34,211,238,0.1) 1px, transparent 1px)
-              `,
-              backgroundSize: "100px 100px",
-            }}
-            animate={{
-              backgroundPosition: ["0px 0px", "100px 100px"],
-            }}
-            transition={{
-              duration: 20,
-              repeat: Infinity,
-              ease: "linear",
-            }}
-          />
+        <div className="absolute inset-0 z-0 pointer-events-none">
+          <SkillsThreeScene />
         </div>
 
         <style>{`

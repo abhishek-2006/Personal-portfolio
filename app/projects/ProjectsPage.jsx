@@ -2,6 +2,7 @@
 
 import { useEffect, useState, useMemo } from "react";
 import SignatureBar from "../components/SignatureBar";
+import SkillsThreeScene from "../components/SkillsThreeScene";
 import { m, AnimatePresence, LazyMotion, domAnimation } from "framer-motion";
 import { 
   Zap, 
@@ -98,6 +99,7 @@ export default function ProjectsPage({ initialProjects }) {
           <div className="absolute bottom-[-10%] left-[-10%] size-[50%] rounded-full animate-pulse bg-[radial-gradient(circle,rgba(147,51,234,0.15)_0%,transparent_60%)]" style={{ animationDelay: '2s' }} />
         </div>
 
+      <SkillsThreeScene />
         <style>{`
           .no-scrollbar::-webkit-scrollbar { display: none; }
           .no-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }

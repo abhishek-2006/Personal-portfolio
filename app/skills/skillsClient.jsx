@@ -2,6 +2,7 @@
 
 import React from "react";
 import Link from "next/link";
+import SignatureBar from "../components/SignatureBar";
 import { m, LazyMotion, domAnimation, AnimatePresence, useMotionValue, useSpring, useTransform, useMotionTemplate } from "framer-motion";
 import {
   Code2,
@@ -137,7 +138,7 @@ const HaloItem = ({ skill, index, total, isMobile, setHoveredSkill }) => {
 };
 
 
-const TiltCard = ({ category, index, cardVariants }) => {
+const TiltCard = ({ category, cardVariants }) => {
   const x = useMotionValue(0);
   const y = useMotionValue(0);
   const mouseX = useMotionValue(-1000);
@@ -404,7 +405,7 @@ export default function SkillsClient() {
               </m.div>
             </m.div>
           </div>
-
+          <SignatureBar/>
           {/* Footer Link */}
           <m.div
             initial={{ opacity: 0 }}
