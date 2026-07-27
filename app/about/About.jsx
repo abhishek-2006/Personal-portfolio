@@ -5,7 +5,7 @@ import { m, LazyMotion, domAnimation } from "framer-motion";
 import Image from "next/image";
 import Link from "next/link";
 import SignatureBar from "../components/SignatureBar";
-import AboutThreeScene from "../components/AboutThreeScene";
+import ThreeBackgroundDynamic from "../components/ThreeBackgroundDynamic";
 import { Zap, Clock, GraduationCap, School, BookOpen, Award, ChevronRight } from 'lucide-react';
 
 const COLORS = {
@@ -105,7 +105,7 @@ export default function AboutPage() {
     },
     {
       title: "Secondary (10th)",
-      inst: "Gujarat Board",
+      inst: "B.A.B.S. English Medium School",
       year: "Completed in 2022",
       detail: "Percentile: 75.23 PR",
       icon: <BookOpen />,
@@ -116,7 +116,7 @@ export default function AboutPage() {
   return (
     <LazyMotion features={domAnimation}>
       <div className="relative min-h-screen w-full overflow-hidden text-gray-100 pt-10 pb-20 sm:px-6 font-sans selection:bg-cyan-500/30 transition-colors duration-500">
-        <AboutThreeScene />
+        <ThreeBackgroundDynamic />
 
         <div className="max-w-7xl mx-auto relative z-10 px-4">
           {/* PAGE TITLE */}
@@ -125,7 +125,7 @@ export default function AboutPage() {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5 }}
             className="text-5xl md:text-7xl font-semibold py-4 text-center 
-              bg-linear-to-r from-cyan-400 to-purple-400 bg-clip-text
+              bg-linear-to-r from-cyan-400 via-blue-400 to-purple-400 bg-clip-text
               text-transparent leading-tight"
           >
             My Story
@@ -188,8 +188,6 @@ export default function AboutPage() {
             <Award className="size-8 text-indigo-500 shrink-0" />
             <div className="h-[2px] flex-1 min-w-[60px] bg-linear-to-l from-transparent via-indigo-500/40 to-indigo-500/80"></div>
           </div>
-
-
 
           {/* EDUCATION TITLE */}
           <m.h2
