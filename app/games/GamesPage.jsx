@@ -2,7 +2,7 @@
 
 import { useEffect, useState } from "react";
 import SignatureBar from "../components/SignatureBar";
-import SkillsThreeScene from "../components/SkillsThreeScene";
+import GamesThreeScene from "../components/GamesThreeScene";
 import { LazyMotion, domAnimation, m, AnimatePresence } from "framer-motion";
 import { Github, Layers, Gamepad2 } from "lucide-react";
 
@@ -174,7 +174,7 @@ export default function GamesPage({ initialGames }) {
     <LazyMotion features={domAnimation}>
       <div className="min-h-screen w-full bg-[#030712] text-white pt-24 pb-20 px-6 relative overflow-hidden selection:bg-cyan-500/30">
         <div className="absolute inset-0 z-0 pointer-events-none">
-          <SkillsThreeScene />
+          <GamesThreeScene />
         </div>
 
         <style>{`
