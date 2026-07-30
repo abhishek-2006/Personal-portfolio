@@ -139,6 +139,7 @@ export default function App() {
           }
 
           const winAsset = data.assets?.find((a) => a.name.endsWith(".exe") || a.name.endsWith(".zip") || a.name.toLowerCase().includes("windows"));
+          const fallbackWinAsset = data.assets?.[0];
           if (winAsset) {
             setWinData({
               url: winAsset.browser_download_url,
@@ -148,8 +149,10 @@ export default function App() {
           } else {
             setWinData({
               url: data.html_url,
-              size: (winAsset.size / (1024 * 1024)).toFixed(1) + " MB",
-              downloads: 0
+              size: fallbackWinAsset?.size
+                ? (fallbackWinAsset.size / (1024 * 1024)).toFixed(1) + " MB"
+                : "Unknown",
+              downloads: fallbackWinAsset?.download_count || 0
             });
           }
         }
