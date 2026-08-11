@@ -41,6 +41,10 @@
     "defaults",
     "Android >= 5",
     "ChromeAndroid >= 40",
-    "iOS >= 10"
+    "iOS >= 7",
+    "Safari >= 7",
+    "Firefox >= 38",
+    "Edge >= 12",
+    "Explorer >= 11"
   ]
 }
